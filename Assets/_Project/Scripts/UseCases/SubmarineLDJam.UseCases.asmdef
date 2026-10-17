@@ -1,0 +1,14 @@
+{
+    "name": "SubmarineLDJam.UseCases",
+    "rootNamespace": "SubmarineLDJam.UseCases",
+    "references": [ "SubmarineLDJam.Domain" ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": true
+}

@@ -1,0 +1,14 @@
+{
+    "name": "SubmarineLDJam.Presentation",
+    "rootNamespace": "SubmarineLDJam.Presentation",
+    "references": [ "SubmarineLDJam.Domain", "SubmarineLDJam.UseCases", "Unity.InputSystem", "UnityEngine.UI" ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

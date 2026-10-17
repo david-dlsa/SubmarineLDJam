@@ -1,0 +1,14 @@
+{
+    "name": "SubmarineLDJam.Editor",
+    "rootNamespace": "SubmarineLDJam.EditorTools",
+    "references": [ "SubmarineLDJam.Domain", "SubmarineLDJam.Presentation", "UnityEngine.UI", "Unity.InputSystem" ],
+    "includePlatforms": [ "Editor" ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d849d848a37cd664db75036e1d213a37, type: 3}
+  m_Name: StageCatalog
+  m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.StageCatalog
+  stages:
+  - displayName: STAGE 1
+    level: {fileID: 11400000, guid: 8dee8c4b25981b74c9ee411e1ac0a3bb, type: 2}
+    mazePrefab: {fileID: 9028808191851944347, guid: 20b1b5f6f08d82a4bb72b4599f71fd6e, type: 3}
+  - displayName: STAGE 2
+    level: {fileID: 11400000, guid: bcc6c3466560a7a4db5006ce744c12e8, type: 2}
+    mazePrefab: {fileID: 2243468604427550451, guid: fe3284e5681ebd640869660aaddaa3d4, type: 3}
+  - displayName: STAGE 3
+    level: {fileID: 11400000, guid: aca80877e31700e4cbab02964c26b5e6, type: 2}
+    mazePrefab: {fileID: 4855623283806741926, guid: eababf985d13f4e44871cb2ec126ed7f, type: 3}
