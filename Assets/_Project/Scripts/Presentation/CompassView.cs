@@ -30,11 +30,14 @@ namespace SubmarineLDJam.Presentation
 
         private RectTransform _ticks;
         private float _tickStep;
+        private float _shownReference;
+        private bool _snapReference;
 
         protected override void OnBind()
         {
             if (radar == null) radar = FindFirstObjectByType<RadarView>(FindObjectsInactive.Include);
             if (lockedNeedle != null) lockedNeedle.gameObject.SetActive(false);
+            _snapReference = true;
             BuildTicks();
         }
 
@@ -47,7 +50,17 @@ namespace SubmarineLDJam.Presentation
 
             // Radar turns the map around the submarine? Then "up" on screen is the submarine front,
             // not north. Show every direction relative to that, so left on screen is left.
-            float reference = radar != null ? radar.ReferenceHeadingDegrees : 0f;
+            float liveReference = radar != null ? radar.ReferenceHeadingDegrees : 0f;
+
+            // Dial reference is taken once, when the run starts. After that the compass never follows the
+            // submarine turn: it stays where it stopped and spins again from that same point.
+            if (_snapReference)
+            {
+                _shownReference = liveReference;
+                _snapReference = false;
+            }
+
+            float reference = _shownReference;
 
             needle.localEulerAngles = new Vector3(0f, 0f, -(movement.CurrentHeading.Degrees - reference));
 

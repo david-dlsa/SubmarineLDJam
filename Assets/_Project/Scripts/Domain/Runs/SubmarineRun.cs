@@ -21,7 +21,9 @@ namespace SubmarineLDJam.Domain.Runs
         {
             Rules = rules ?? throw new ArgumentNullException(nameof(rules));
 
-            Movement = new MovementModule(rules.CompassDegreesPerSecond, rules.ForceBarSpeed, rules.ForceLevels, rules.HeadingStepDegrees);
+            random = random ?? new Random();
+            Movement = new MovementModule(rules.CompassDegreesPerSecond, rules.ForceBarSpeed, rules.ForceLevels,
+                rules.HeadingStepDegrees, rules.CompassMode, random);
             Oxygen = new OxygenSupply(rules.MaxOxygen, rules.OxygenDrainPerSecond);
             Sonar = new SonarModule(
                 rules.SonarMode == SonarMode.Auto ? rules.SonarAutoIntervalSeconds : rules.SonarCooldownSeconds,
@@ -32,7 +34,7 @@ namespace SubmarineLDJam.Domain.Runs
                 rules.RefillRestoreAmount,
                 rules.RefillTriggerPercent,
                 rules.RefillMistakePenalty,
-                random ?? new Random());
+                random);
         }
 
         public LevelRules Rules { get; }

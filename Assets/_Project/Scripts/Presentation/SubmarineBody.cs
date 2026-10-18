@@ -60,13 +60,13 @@ namespace SubmarineLDJam.Presentation
         {
             switch (domainEvent)
             {
+                case HeadingLocked locked:
+                    // Sprite faces up. Domain heading is clockwise, Unity rotation is counter-clockwise.
+                    _body.rotation = -locked.Heading.Degrees;
+                    break;
+
                 case ImpulseFired fired:
                     var impulse = fired.Impulse;
-
-                    // The submarine (and the radar that follows it) turns only now, when the whole movement is done.
-                    // While the force bar runs, compass and radar stay still.
-                    // Sprite faces up. Domain heading is clockwise, Unity rotation is counter-clockwise.
-                    _body.rotation = -impulse.Heading.Degrees;
                     var direction = new Vector2(impulse.Heading.X, impulse.Heading.Y);
                     _body.AddForce(direction * (impulse.Force.Normalized * maxImpulse), ForceMode2D.Impulse);
                     break;

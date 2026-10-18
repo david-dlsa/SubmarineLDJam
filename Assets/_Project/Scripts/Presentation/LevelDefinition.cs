@@ -22,6 +22,9 @@ namespace SubmarineLDJam.Presentation
         [Tooltip("Compass snaps to steps of this many degrees (e.g. 15). 0 = free, no steps.")]
         [Min(0)] public float headingStepDegrees = 0f;
 
+        [Tooltip("Clockwise, CounterClockwise, Alternating (flips after each movement) or Chaotic (random speed, but always makes a full circle).")]
+        public SubmarineLDJam.Domain.Navigation.CompassMode compassMode = SubmarineLDJam.Domain.Navigation.CompassMode.Clockwise;
+
         [Header("Oxygen refill minigame")]
         [Range(0.05f, 1f)] public float refillTriggerPercent = 0.75f;
         [Min(1)] public int refillSequenceLength = 3;
@@ -92,6 +95,7 @@ namespace SubmarineLDJam.Presentation
             sonarMode: sonarMode,
             sonarAutoIntervalSeconds: sonarAutoIntervalSeconds,
             exitHintMode: exitHintMode,
-            exitHintSeconds: exitHintSeconds);
+            exitHintSeconds: exitHintSeconds,
+            compassMode: compassMode);
     }
 }

@@ -610,4 +610,101 @@ namespace SubmarineLDJam.Tests
             Assert.IsTrue(pickup.PullEvents().Any(e => e is ExitHintCollected));
         }
     }
+
+    public class CompassModeTests
+    {
+        private static MovementModule Make(CompassMode mode, int seed = 1)
+            => new MovementModule(90f, 1f, 5, 0f, mode, new Random(seed));
+
+        private static void FinishMovement(MovementModule m)
+        {
+            m.Confirm();
+            m.Tick(0.5f);
+            m.Confirm();
+        }
+
+        [Test]
+        public void Counter_clockwise_spins_the_other_way()
+        {
+            var m = Make(CompassMode.CounterClockwise);
+            m.Tick(1f);
+            Assert.AreEqual(270f, m.CurrentHeading.Degrees, 0.001f);
+        }
+
+        [Test]
+        public void Alternating_starts_clockwise_and_flips_after_each_finished_movement()
+        {
+            var m = Make(CompassMode.Alternating);
+
+            m.Tick(1f);
+            Assert.AreEqual(90f, m.CurrentHeading.Degrees, 0.001f);
+
+            FinishMovement(m);
+            m.Tick(1f); // now counter-clockwise: 90 -> 0
+            Assert.AreEqual(0f, m.CurrentHeading.Degrees, 0.001f);
+
+            FinishMovement(m);
+            m.Tick(1f); // clockwise again: 0 -> 90
+            Assert.AreEqual(90f, m.CurrentHeading.Degrees, 0.001f);
+        }
+
+        [Test]
+        public void Alternating_does_not_flip_when_only_the_heading_is_locked()
+        {
+            var m = Make(CompassMode.Alternating);
+            m.Tick(1f);
+            m.Confirm(); // heading locked, force not yet
+            Assert.AreEqual(MovementPhase.SelectingForce, m.Phase);
+
+            m.Tick(0.5f);
+            m.Confirm();
+            m.Tick(1f);
+            Assert.AreEqual(0f, m.CurrentHeading.Degrees, 0.001f); // flipped only once
+        }
+
+        [Test]
+        public void Chaotic_reaches_every_direction()
+        {
+            for (int seed = 1; seed <= 5; seed++)
+            {
+                var m = Make(CompassMode.Chaotic, seed);
+                var seen = new HashSet<int>();
+
+                for (int i = 0; i < 6000 && seen.Count < 12; i++) // up to 300 seconds
+                {
+                    m.Tick(0.05f);
+                    seen.Add((int)(m.CurrentHeading.Degrees / 30f) % 12);
+                }
+
+                Assert.AreEqual(12, seen.Count, $"seed {seed} did not reach every direction");
+            }
+        }
+
+        [Test]
+        public void Chaotic_is_the_same_for_the_same_seed()
+        {
+            var a = Make(CompassMode.Chaotic, 7);
+            var b = Make(CompassMode.Chaotic, 7);
+
+            for (int i = 0; i < 400; i++)
+            {
+                a.Tick(0.05f);
+                b.Tick(0.05f);
+            }
+
+            Assert.AreEqual(a.CurrentHeading.Degrees, b.CurrentHeading.Degrees, 0.0001f);
+        }
+
+        [Test]
+        public void Chaotic_does_not_move_while_the_force_is_chosen()
+        {
+            var m = Make(CompassMode.Chaotic);
+            m.Tick(1f);
+            m.Confirm();
+            float locked = m.CurrentHeading.Degrees;
+
+            m.Tick(0.3f);
+            Assert.AreEqual(locked, m.CurrentHeading.Degrees, 0.0001f);
+        }
+    }
 }

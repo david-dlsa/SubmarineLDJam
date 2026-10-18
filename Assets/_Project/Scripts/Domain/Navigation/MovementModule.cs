@@ -4,11 +4,30 @@ namespace SubmarineLDJam.Domain.Navigation
 {
     public enum MovementPhase
     {
-        /// <summary>Part 1: compass spins clockwise. Player locks it.</summary>
+        /// <summary>Part 1: compass spins. Player locks it.</summary>
         SelectingHeading,
 
         /// <summary>Part 2: bar goes back and forth. Player locks it.</summary>
         SelectingForce
+    }
+
+    /// <summary>How the compass needle spins in part 1.</summary>
+    public enum CompassMode
+    {
+        /// <summary>Always clockwise.</summary>
+        Clockwise,
+
+        /// <summary>Always counter-clockwise.</summary>
+        CounterClockwise,
+
+        /// <summary>Starts clockwise. After each finished movement it turns the other way.</summary>
+        Alternating,
+
+        /// <summary>
+        /// Wild: speed changes all the time and it sometimes goes back a little.
+        /// It always makes more way forward than back, so a full circle always comes.
+        /// </summary>
+        Chaotic
     }
 
     /// <summary>
@@ -17,9 +36,20 @@ namespace SubmarineLDJam.Domain.Navigation
     /// </summary>
     public sealed class MovementModule
     {
+        // Chaotic mode: a forward leg is always longer than a back leg, so there is always net progress.
+        private const float ForwardLegMinDegrees = 90f;
+        private const float ForwardLegMaxDegrees = 300f;
+        private const float BackLegMinDegrees = 15f;
+        private const float BackLegMaxDegrees = 70f;
+        private const float LegSpeedMin = 0.5f;
+        private const float LegSpeedMax = 2.5f;
+        private const double BackLegChance = 0.6;
+
         private readonly float _compassDegreesPerSecond;
         private readonly float _forceBarSpeed;
         private readonly int _forceLevels;
+        private readonly CompassMode _mode;
+        private readonly Random _random;
 
         private float _compassDegrees;
         private float _forcePosition;
@@ -28,8 +58,20 @@ namespace SubmarineLDJam.Domain.Navigation
 
         private readonly float _headingStep;
 
+        // Alternating mode: +1 clockwise, -1 counter-clockwise.
+        private int _alternatingDirection = 1;
+
+        // Chaotic mode
+        private int _mainDirection = 1;
+        private int _legDirection = 1;
+        private float _legSpeed = 1f;
+        private float _legDegreesLeft;
+        private bool _lastLegWasBack;
+
         /// <param name="headingStepDegrees">Compass snaps to steps of this size. 0 = free.</param>
-        public MovementModule(float compassDegreesPerSecond, float forceBarSpeed, int forceLevels, float headingStepDegrees = 0f)
+        /// <param name="random">Only used by the Chaotic mode.</param>
+        public MovementModule(float compassDegreesPerSecond, float forceBarSpeed, int forceLevels, float headingStepDegrees = 0f,
+            CompassMode compassMode = CompassMode.Clockwise, Random random = null)
         {
             if (headingStepDegrees < 0f) throw new ArgumentOutOfRangeException(nameof(headingStepDegrees));
             _headingStep = headingStepDegrees;
@@ -41,9 +83,15 @@ namespace SubmarineLDJam.Domain.Navigation
             _compassDegreesPerSecond = compassDegreesPerSecond;
             _forceBarSpeed = forceBarSpeed;
             _forceLevels = forceLevels;
+            _mode = compassMode;
+            _random = random ?? new Random();
+
+            StartNewSpin();
         }
 
         public MovementPhase Phase { get; private set; } = MovementPhase.SelectingHeading;
+
+        public CompassMode Mode => _mode;
 
         /// <summary>Where the compass needle is now.</summary>
         public Heading CurrentHeading => new Heading(Snap(_compassDegrees));
@@ -62,10 +110,8 @@ namespace SubmarineLDJam.Domain.Navigation
         {
             if (deltaSeconds <= 0f) return;
 
-            if (Phase == MovementPhase.SelectingHeading)
-                _compassDegrees = Heading.Normalize(_compassDegrees + _compassDegreesPerSecond * deltaSeconds);
-            else
-                AdvanceForceBar(deltaSeconds);
+            if (Phase == MovementPhase.SelectingHeading) SpinCompass(deltaSeconds);
+            else AdvanceForceBar(deltaSeconds);
         }
 
         /// <summary>
@@ -85,8 +131,77 @@ namespace SubmarineLDJam.Domain.Navigation
 
             int level = Math.Min(_forceLevels, (int)(_forcePosition * _forceLevels) + 1);
             Phase = MovementPhase.SelectingHeading;
+
+            // Movement is done: the next spin may go the other way.
+            if (_mode == CompassMode.Alternating) _alternatingDirection = -_alternatingDirection;
+            StartNewSpin();
+
             return new Impulse(_lockedHeading, new Force(level, _forceLevels));
         }
+
+        private void SpinCompass(float deltaSeconds)
+        {
+            switch (_mode)
+            {
+                case CompassMode.CounterClockwise:
+                    Rotate(-_compassDegreesPerSecond * deltaSeconds);
+                    break;
+                case CompassMode.Alternating:
+                    Rotate(_alternatingDirection * _compassDegreesPerSecond * deltaSeconds);
+                    break;
+                case CompassMode.Chaotic:
+                    SpinChaotic(deltaSeconds);
+                    break;
+                default:
+                    Rotate(_compassDegreesPerSecond * deltaSeconds);
+                    break;
+            }
+        }
+
+        private void Rotate(float degrees) => _compassDegrees = Heading.Normalize(_compassDegrees + degrees);
+
+        /// <summary>A new spin starts (game start, or after a movement). Chaotic picks a new main way.</summary>
+        private void StartNewSpin()
+        {
+            if (_mode != CompassMode.Chaotic) return;
+
+            _mainDirection = _random.Next(2) == 0 ? 1 : -1;
+            _legDegreesLeft = 0f;
+            _lastLegWasBack = false;
+        }
+
+        private void SpinChaotic(float deltaSeconds)
+        {
+            float timeLeft = deltaSeconds;
+
+            // A leg can end in the middle of a tick, so loop until the time is used.
+            for (int guard = 0; timeLeft > 0f && guard < 16; guard++)
+            {
+                if (_legDegreesLeft <= 0f) StartNextLeg();
+
+                float speed = _compassDegreesPerSecond * _legSpeed;
+                float step = Math.Min(speed * timeLeft, _legDegreesLeft);
+
+                Rotate(step * _legDirection);
+                _legDegreesLeft -= step;
+                timeLeft -= step / speed;
+            }
+        }
+
+        private void StartNextLeg()
+        {
+            // After a forward leg there is a good chance of a short step back. Never two backs in a row.
+            bool back = !_lastLegWasBack && _random.NextDouble() < BackLegChance;
+
+            _lastLegWasBack = back;
+            _legDirection = back ? -_mainDirection : _mainDirection;
+            _legSpeed = Lerp(LegSpeedMin, LegSpeedMax, (float)_random.NextDouble());
+            _legDegreesLeft = back
+                ? Lerp(BackLegMinDegrees, BackLegMaxDegrees, (float)_random.NextDouble())
+                : Lerp(ForwardLegMinDegrees, ForwardLegMaxDegrees, (float)_random.NextDouble());
+        }
+
+        private static float Lerp(float a, float b, float t) => a + (b - a) * t;
 
         private float Snap(float degrees)
         {

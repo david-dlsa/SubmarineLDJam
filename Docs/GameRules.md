@@ -29,11 +29,16 @@ Sair da origem e chegar ao destino no **menor tempo possível**. Tempo menor = m
 
 ### Movimento (tecla Espaço, puro skill)
 1. **Parte 1 — direção:** bússola gira no sentido horário sem parar. 1º Espaço trava a direção. **Não dá para desfazer.** Opcional: `headingStepDegrees` (ex: 15) faz a bússola parar só em passos fixos. 0 = livre.
+   **Modo da bússola** (`LevelDefinition → Compass Mode`):
+   - `Clockwise` (padrão): sempre horário.
+   - `CounterClockwise`: sempre anti-horário.
+   - `Alternating`: começa horário. Depois de cada movimento concluído (força aplicada) troca de sentido, e assim vai.
+   - `Chaotic`: modo maluco. A velocidade muda toda hora e às vezes ela volta um pouco. Sempre anda mais pra frente do que pra trás, então a volta completa sempre acontece e dá para ir para qualquer direção. A cada movimento novo sorteia o sentido principal.
 2. **Parte 2 — força:** barra horizontal vai e volta. 2º Espaço trava num dos níveis de força. Quantidade de níveis = `forceLevels`.
 3. O submarino recebe um **impulso** na direção e força escolhidas e desliza com inércia (Rigidbody2D + damping).
 4. Volta para a parte 1.
 
-**Rotação:** o submarino (e o radar/bússola que seguem ele) só gira **quando o impulso é aplicado**, no fim do movimento. Durante a barra de força nada gira. Só o módulo gira o submarino. Batida não faz ele rodar (rotação congelada). Para voltar a rotação do ambiente, ligue `Allow Environment Rotation` no `SubmarineBody`.
+**Rotação:** o submarino gira assim que a direção é travada (1º Espaço), e o radar gira junto. A **bússola fica parada** na posição em que travou, mesmo com o radar girando, até o movimento acontecer (2º Espaço). Aí ela volta a girar e se ajusta ao "cima" novo do radar. Só o módulo gira o submarino. Batida não faz ele rodar (rotação congelada). Para voltar a rotação do ambiente, ligue `Allow Environment Rotation` no `SubmarineBody`.
 
 ### Oxigênio (setas do teclado)
 - Cai o tempo todo (`OxygenDrainPerSecond`).

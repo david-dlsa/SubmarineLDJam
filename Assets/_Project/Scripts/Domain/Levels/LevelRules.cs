@@ -71,8 +71,10 @@ namespace SubmarineLDJam.Domain.Levels
             SonarMode sonarMode = SonarMode.Manual,
             float sonarAutoIntervalSeconds = 6f,
             ExitHintMode exitHintMode = ExitHintMode.Always,
-            float exitHintSeconds = 15f)
+            float exitHintSeconds = 15f,
+            CompassMode compassMode = CompassMode.Clockwise)
         {
+            CompassMode = compassMode;
             ExitHintMode = exitHintMode;
             ExitHintSeconds = exitHintSeconds;
             SonarMode = sonarMode;
@@ -113,6 +115,9 @@ namespace SubmarineLDJam.Domain.Levels
 
         /// <summary>Radar sees this far (world units). The map can be much bigger.</summary>
         public float SonarViewRadius { get; }
+
+        /// <summary>How the compass needle spins: clockwise, counter-clockwise, alternating or chaotic.</summary>
+        public CompassMode CompassMode { get; }
 
         /// <summary>Always = exit dot always on. OnPickup = shows only for a while after a pickup.</summary>
         public ExitHintMode ExitHintMode { get; }
