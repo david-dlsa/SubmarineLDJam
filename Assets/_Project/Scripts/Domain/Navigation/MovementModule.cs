@@ -8,7 +8,13 @@ namespace SubmarineLDJam.Domain.Navigation
         SelectingHeading,
 
         /// <summary>Part 2: bar goes back and forth. Player locks it.</summary>
-        SelectingForce
+        SelectingForce,
+
+        /// <summary>
+        /// The impulse was fired. Compass and force bar stay locked until the movement is finished
+        /// (<see cref="MovementModule.FinishMovement"/>).
+        /// </summary>
+        Executing
     }
 
     /// <summary>How the compass needle spins in part 1.</summary>
@@ -122,7 +128,8 @@ namespace SubmarineLDJam.Domain.Navigation
             if (deltaSeconds <= 0f) return;
 
             if (Phase == MovementPhase.SelectingHeading) SpinCompass(deltaSeconds);
-            else AdvanceForceBar(deltaSeconds);
+            else if (Phase == MovementPhase.SelectingForce) AdvanceForceBar(deltaSeconds);
+            // Executing: everything stays locked
         }
 
         /// <summary>
@@ -131,6 +138,8 @@ namespace SubmarineLDJam.Domain.Navigation
         /// </summary>
         public Impulse? Confirm()
         {
+            if (Phase == MovementPhase.Executing) return null; // locked until the movement ends
+
             if (Phase == MovementPhase.SelectingHeading)
             {
                 _lockedNeedleDegrees = CurrentHeading.Degrees;
@@ -143,13 +152,25 @@ namespace SubmarineLDJam.Domain.Navigation
             }
 
             int level = Math.Min(_forceLevels, (int)(_forcePosition * _forceLevels) + 1);
-            Phase = MovementPhase.SelectingHeading;
-
-            // Movement is done: the next spin may go the other way.
-            if (_mode == CompassMode.Alternating) _alternatingDirection = -_alternatingDirection;
-            StartNewSpin();
+            Phase = MovementPhase.Executing;
 
             return new Impulse(_lockedHeading, new Force(level, _forceLevels));
+        }
+
+        /// <summary>
+        /// The submarine finished the movement. Unlocks the compass and clears the force bar.
+        /// The next spin may go the other way. Returns false if there was no movement to finish.
+        /// </summary>
+        public bool FinishMovement()
+        {
+            if (Phase != MovementPhase.Executing) return false;
+
+            Phase = MovementPhase.SelectingHeading;
+            _forcePosition = 0f;
+
+            if (_mode == CompassMode.Alternating) _alternatingDirection = -_alternatingDirection;
+            StartNewSpin();
+            return true;
         }
 
         private void SpinCompass(float deltaSeconds)

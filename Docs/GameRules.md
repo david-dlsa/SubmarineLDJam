@@ -35,6 +35,9 @@ Sair da origem e chegar ao destino no **menor tempo possível**. Tempo menor = m
    - `Alternating`: começa horário. Depois de cada movimento concluído (força aplicada) troca de sentido, e assim vai.
    - `Chaotic`: modo maluco. A velocidade muda toda hora e às vezes ela volta um pouco. Sempre anda mais pra frente do que pra trás, então a volta completa sempre acontece e dá para ir para qualquer direção. A cada movimento novo sorteia o sentido principal.
 2. **Parte 2 — força:** barra horizontal vai e volta. 2º Espaço trava num dos níveis de força. Quantidade de níveis = `forceLevels`.
+3. **Movimento em curso:** depois da força travada, o impulso só sai quando o radar terminou de girar. Bússola e barra de força ficam travadas (a barra mostra a força escolhida) até o submarino parar (`SubmarineBody → Settle Speed`). Aí a barra vai pro vazio com fade e a bússola volta a girar.
+
+**Tela de resultado** (`ResultView`, dentro do radar, mesmo lugar do seletor de fases): aparece `Result Delay Seconds` depois de chegar ou ficar sem oxigênio. Completou: tempo, estrelas, melhor tempo (ou NEW BEST), RESTART, NEXT (se existir próxima fase aberta) e STAGES. Não completou: só RESTART e STAGES. Teclas: Enter = NEXT (ou RESTART), R = reiniciar a fase (também durante o jogo), ESC = voltar às fases.
 3. O submarino recebe um **impulso** na direção e força escolhidas e desliza com inércia (Rigidbody2D + damping).
 4. Volta para a parte 1.
 

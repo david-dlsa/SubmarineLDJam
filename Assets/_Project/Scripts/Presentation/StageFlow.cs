@@ -11,7 +11,8 @@ namespace SubmarineLDJam.Presentation
 {
     /// <summary>
     /// Runs the game loop between stages:
-    /// stage select -> PLAY -> maze appears, run starts, radar and HUD show -> R -> back to stage select.
+    /// stage select -> PLAY -> maze appears, run starts, radar and HUD show -> result screen
+    /// (RESTART, NEXT, STAGES) -> ... ESC = back to stage select, R = restart.
     /// A finished stage is saved (best time, best stars) and opens the next one.
     /// Put it in a scene next to a RunBootstrap that has no Auto Start Level.
     /// </summary>
@@ -20,6 +21,10 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private StageCatalog catalog;
         [SerializeField] private RunBootstrap runner;
         [SerializeField] private StageSelectView selectView;
+        [Tooltip("Shown when the run ends (arrived or out of oxygen). Empty = no result screen.")]
+        [SerializeField] private ResultView resultView;
+        [Tooltip("Pause between the end of the run and the result screen.")]
+        [SerializeField, Min(0f)] private float resultDelaySeconds = 1f;
         [SerializeField] private SubmarineBody submarine;
         [Tooltip("The maze prefab of the chosen stage is created under this. Empty = under this object.")]
         [SerializeField] private Transform mazeParent;
@@ -34,6 +39,9 @@ namespace SubmarineLDJam.Presentation
         private RunService _service;
         private GameObject _maze;
         private int _playing = -1;
+        private bool _resultPending;
+        private float _resultAt;
+        private ResultCard _resultCard;
 
         private void Start()
         {
@@ -50,6 +58,14 @@ namespace SubmarineLDJam.Presentation
             selectView.ReturnRequested += OnReturn;
             RunContext.ExitRequested += ExitRun;
 
+            if (resultView != null)
+            {
+                resultView.RestartRequested += Restart;
+                resultView.NextRequested += PlayNext;
+                resultView.StagesRequested += ExitRun;
+                resultView.gameObject.SetActive(false);
+            }
+
             SetPlayingObjects(false);
             ShowSelection(unlockAll ? 0 : _campaign.HighestUnlocked);
         }
@@ -62,15 +78,31 @@ namespace SubmarineLDJam.Presentation
                 selectView.ReturnRequested -= OnReturn;
             }
 
+            if (resultView != null)
+            {
+                resultView.RestartRequested -= Restart;
+                resultView.NextRequested -= PlayNext;
+                resultView.StagesRequested -= ExitRun;
+            }
+
             RunContext.ExitRequested -= ExitRun;
             if (_service != null) _service.EventPublished -= OnRunEvent;
         }
 
         private void Update()
         {
-            // ESC: give up the stage and go back to the stage select. Nothing is saved.
+            if (_playing < 0) return;
+
+            // The run ended: after a short pause the result screen takes the place of the radar.
+            if (_resultPending && Time.unscaledTime >= _resultAt) ShowResult();
+
             var keyboard = Keyboard.current;
-            if (_playing >= 0 && keyboard != null && keyboard.escapeKey.wasPressedThisFrame) ExitRun();
+            if (keyboard == null) return;
+
+            // ESC: give up the stage and go back to the stage select. A stage not finished is not saved.
+            if (keyboard.escapeKey.wasPressedThisFrame) ExitRun();
+            // R: start the same stage again.
+            else if (keyboard.rKey.wasPressedThisFrame) Restart();
         }
 
         private bool IsUnlocked(int index) => unlockAll || _campaign.IsUnlocked(index);
@@ -101,7 +133,9 @@ namespace SubmarineLDJam.Presentation
             }
 
             _playing = index;
+            _resultPending = false;
             selectView.gameObject.SetActive(false);
+            if (resultView != null) resultView.gameObject.SetActive(false);
 
             // 1. Maze + submarine at the start point.
             Vector2 start = Vector2.zero;
@@ -121,32 +155,96 @@ namespace SubmarineLDJam.Presentation
 
         private void OnRunEvent(IDomainEvent domainEvent)
         {
-            if (!(domainEvent is RunCompleted done) || _playing < 0) return;
+            if (_playing < 0) return;
 
-            _campaign.RecordCompletion(_playing, done.ElapsedSeconds, done.Stars);
-            CampaignStore.Save(_campaign);
+            if (domainEvent is RunCompleted done)
+            {
+                bool improved = _campaign.RecordCompletion(_playing, done.ElapsedSeconds, done.Stars);
+                CampaignStore.Save(_campaign);
+
+                _campaign.TryGetRecord(_playing, out var record);
+                bool hasNext = _playing + 1 < catalog.Count && IsUnlocked(_playing + 1);
+                _resultCard = new ResultCard(true, done.ElapsedSeconds, done.Stars, record.BestSeconds, improved, hasNext);
+                QueueResult();
+            }
+            else if (domainEvent is RunFailed)
+            {
+                float seconds = _service != null && _service.Run != null ? _service.Run.ElapsedSeconds : 0f;
+                _resultCard = new ResultCard(false, seconds, 0, 0f, false, false);
+                QueueResult();
+            }
         }
 
-        /// <summary>R key: leave the run, back to stage select.</summary>
-        private void ExitRun()
+        private void QueueResult()
         {
-            if (_playing < 0) return;
+            if (resultView == null) return;
+
+            _resultPending = true;
+            _resultAt = Time.unscaledTime + resultDelaySeconds;
+        }
+
+        /// <summary>The run is over. Radar and HUD go away, the result takes the same place.</summary>
+        private void ShowResult()
+        {
+            _resultPending = false;
 
             if (_service != null) _service.EventPublished -= OnRunEvent;
             _service = null;
+            runner.End();
+            SetPlayingObjects(false);
+            DestroyMaze();
+
+            resultView.gameObject.SetActive(true);
+            resultView.Show(_resultCard);
+        }
+
+        /// <summary>Stops everything about the current stage. Nothing is shown after this.</summary>
+        private int Teardown()
+        {
+            if (_service != null) _service.EventPublished -= OnRunEvent;
+            _service = null;
+            _resultPending = false;
 
             runner.End();
             SetPlayingObjects(false);
-
-            if (_maze != null)
-            {
-                Destroy(_maze);
-                _maze = null;
-            }
+            if (resultView != null) resultView.gameObject.SetActive(false);
+            DestroyMaze();
 
             int last = _playing;
             _playing = -1;
-            ShowSelection(last);
+            return last;
+        }
+
+        private void DestroyMaze()
+        {
+            if (_maze == null) return;
+            Destroy(_maze);
+            _maze = null;
+        }
+
+        /// <summary>ESC or STAGES: leave the stage, back to stage select.</summary>
+        private void ExitRun()
+        {
+            if (_playing < 0) return;
+            ShowSelection(Teardown());
+        }
+
+        /// <summary>R or RESTART: the same stage again.</summary>
+        private void Restart()
+        {
+            if (_playing < 0) return;
+            Play(Teardown());
+        }
+
+        /// <summary>NEXT: the stage after this one, if it is open.</summary>
+        private void PlayNext()
+        {
+            if (_playing < 0) return;
+
+            int next = _playing + 1;
+            if (next >= catalog.Count || !IsUnlocked(next)) return;
+            Teardown();
+            Play(next);
         }
 
         private void OnReturn() => onReturn?.Invoke();

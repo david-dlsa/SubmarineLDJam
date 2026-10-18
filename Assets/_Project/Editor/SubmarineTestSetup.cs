@@ -34,6 +34,7 @@ namespace SubmarineLDJam.EditorTools
         private sealed class HudParts
         {
             public StageSelectView Select;
+            public ResultView Result;
             public readonly List<GameObject> Playing = new List<GameObject>();
         }
 
@@ -70,12 +71,13 @@ namespace SubmarineLDJam.EditorTools
             SetRef(flow, "catalog", catalog);
             SetRef(flow, "runner", runner);
             SetRef(flow, "selectView", parts.Select);
+            SetRef(flow, "resultView", parts.Result);
             SetRef(flow, "submarine", submarine);
             SetRef(flow, "mazeParent", mazeRoot);
             SetRefs(flow, "showWhilePlaying", parts.Playing);
 
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
-            Debug.Log("Submarine setup created. Play: pick a stage, Enter or PLAY. Space = movement, arrows = oxygen, M = sonar, R = back to stage select, F2 = show real world (debug).");
+            Debug.Log("Submarine setup created. Play: pick a stage, Enter or PLAY. Space = movement, arrows = oxygen, M = sonar, R = restart, ESC = back to stage select, F2 = show real world (debug).");
         }
 
         private static void CleanOldObjects()
@@ -399,6 +401,55 @@ namespace SubmarineLDJam.EditorTools
             SetRef(view, "cooldownLabel", label);
 
             BuildStageSelect(root, parts);
+            BuildResult(root, parts);
+        }
+
+        /// <summary>The result screen, inside the radar display, same place as the stage select.</summary>
+        private static void BuildResult(RectTransform radarRoot, HudParts parts)
+        {
+            var center = new Vector2(0.5f, 0.5f);
+
+            var panel = Img("Result", radarRoot, center, center, Vector2.zero, new Vector2(380f, 380f),
+                new Color(0.02f, 0.06f, 0.05f, 0.97f), Circle);
+
+            var title = TmpLabel("Title", panel, new Vector2(0f, 120f), new Vector2(300f, 44f), 34);
+            var time = TmpLabel("Time", panel, new Vector2(0f, 75f), new Vector2(300f, 40f), 30);
+            var stars = TmpLabel("Stars", panel, new Vector2(0f, 35f), new Vector2(300f, 44f), 40);
+            stars.color = new Color(1f, 0.85f, 0.2f);
+            var best = TmpLabel("Best", panel, new Vector2(0f, 0f), new Vector2(300f, 30f), 20);
+            best.color = new Color(0.4f, 1f, 0.6f);
+
+            var next = MakeButton("Next", panel, new Vector2(0f, -40f), new Vector2(170f, 44f), "NEXT", 26, new Color(0.15f, 0.55f, 0.3f, 0.9f));
+            var restart = MakeButton("Restart", panel, new Vector2(0f, -90f), new Vector2(170f, 40f), "RESTART", 24, new Color(0.2f, 0.35f, 0.55f, 0.9f));
+            var stages = MakeButton("Stages", panel, new Vector2(0f, -135f), new Vector2(150f, 34f), "STAGES", 20, new Color(0.3f, 0.3f, 0.3f, 0.8f));
+
+            var view = panel.gameObject.AddComponent<ResultView>();
+            SetRef(view, "restartButton", restart);
+            SetRef(view, "nextButton", next);
+            SetRef(view, "stagesButton", stages);
+            SetRef(view, "titleText", title);
+            SetRef(view, "timeText", time);
+            SetRef(view, "starsText", stars);
+            SetRef(view, "bestText", best);
+            parts.Result = view;
+        }
+
+        private static TextMeshProUGUI TmpLabel(string name, Transform parent, Vector2 pos, Vector2 size, float fontSize)
+        {
+            var center = new Vector2(0.5f, 0.5f);
+            var go = new GameObject(name, typeof(RectTransform), typeof(TextMeshProUGUI));
+            var rect = (RectTransform)go.transform;
+            rect.SetParent(parent, false);
+            Anchor(rect, center, center, pos, size);
+
+            var text = go.GetComponent<TextMeshProUGUI>();
+            text.fontSize = fontSize;
+            text.alignment = TextAlignmentOptions.Center;
+            text.color = Color.white;
+            text.raycastTarget = false;
+            text.textWrappingMode = TextWrappingModes.NoWrap;
+            text.overflowMode = TextOverflowModes.Overflow;
+            return text;
         }
 
         /// <summary>The stage picker, inside the radar display. Round panel, arrows, name, best time, PLAY, RETURN.</summary>
@@ -597,14 +648,11 @@ namespace SubmarineLDJam.EditorTools
             holderRect.anchorMax = Vector2.one;
             holderRect.offsetMin = holderRect.offsetMax = Vector2.zero;
 
-            var timer = Label("Timer", holderRect, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -30f), 40, TextAnchor.UpperCenter);
-            var result = Label("Result", holderRect, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, 64, TextAnchor.MiddleCenter);
-            result.rectTransform.sizeDelta = new Vector2(900f, 500f);
-
+            var timer = TmpLabel("Timer", holderRect, Vector2.zero, new Vector2(400f, 64f), 40);
+            Anchor(timer.rectTransform, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0f, -30f), new Vector2(400f, 64f));
             parts.Playing.Add(holder);
             var view = holder.AddComponent<RunStatusView>();
             SetRef(view, "timerText", timer);
-            SetRef(view, "resultText", result);
         }
 
         // ---------- helpers ----------

@@ -34,6 +34,13 @@ namespace SubmarineLDJam.UseCases
             Publish();
         }
 
+        public void FinishMovement()
+        {
+            if (Run == null) return;
+            Run.FinishMovement();
+            Publish();
+        }
+
         public void PingSonar()
         {
             if (Run == null) return;
