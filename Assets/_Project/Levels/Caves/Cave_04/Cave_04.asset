@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511ead9be8295a647b8bdc2bc19ae282, type: 3}
+  m_Name: Cave_04
+  m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.CaveSettings
+  width: 46
+  height: 40
+  cellSize: 1.75
+  seed: 24757
+  rockPercent: 50.166668
+  smoothSteps: 2
+  minOpenPercent: 33.333332
+  minPathCells: 38
+  obstacles: 4
+  enemies: 1
+  pickups: 0
+  wallColor: {r: 0.48333335, g: 0.71666664, b: 0.45, a: 1}
