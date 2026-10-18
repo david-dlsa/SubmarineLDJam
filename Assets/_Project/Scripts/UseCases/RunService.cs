@@ -69,6 +69,13 @@ namespace SubmarineLDJam.UseCases
             Publish();
         }
 
+        public void RegisterCollision(CollisionKind kind, CollisionPenalty penalty, bool ignoreCooldown = false)
+        {
+            if (Run == null) return;
+            Run.RegisterCollision(kind, penalty, ignoreCooldown);
+            Publish();
+        }
+
         public void ReachDestination()
         {
             if (Run == null) return;

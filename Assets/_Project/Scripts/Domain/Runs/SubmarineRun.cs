@@ -126,11 +126,16 @@ namespace SubmarineLDJam.Domain.Runs
         }
 
         /// <summary>Physics says submarine hit something.</summary>
-        public void RegisterCollision(CollisionKind kind)
-        {
-            if (!IsRunning || _collisionCooldown > 0f) return;
+        public void RegisterCollision(CollisionKind kind) => RegisterCollision(kind, Rules.PenaltyFor(kind));
 
-            var penalty = Rules.PenaltyFor(kind);
+        /// <summary>
+        /// Same, but the thing that hit brings its own penalty (for example a bomb with its own strength).
+        /// <paramref name="ignoreCooldown"/>: an explosion always hurts, even right after another hit.
+        /// </summary>
+        public void RegisterCollision(CollisionKind kind, CollisionPenalty penalty, bool ignoreCooldown = false)
+        {
+            if (!IsRunning || (!ignoreCooldown && _collisionCooldown > 0f)) return;
+
             _collisionCooldown = Rules.CollisionCooldownSeconds;
 
             Oxygen.Drain(penalty.InstantOxygenLoss);
