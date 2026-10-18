@@ -624,6 +624,20 @@ namespace SubmarineLDJam.Tests
         }
 
         [Test]
+        public void Needle_IsRelativeToSubmarineFront_AfterTurn()
+        {
+            var m = Make(CompassMode.Clockwise);
+            m.Tick(0.5f);                       // needle 45
+            m.Confirm();                        // front is now 45
+            Assert.AreEqual(45f, m.Facing.Degrees, 0.001f);
+            m.Confirm();                        // fire
+            m.Tick(3f);                         // needle continues from 45: 45 + 270 = 315 (left of the new front)
+            Assert.AreEqual(315f, m.CurrentHeading.Degrees, 0.001f);
+            m.Confirm();
+            Assert.AreEqual(0f, m.LockedHeading.Degrees, 0.001f); // 45 + 315 = 360 = north
+        }
+
+        [Test]
         public void Counter_clockwise_spins_the_other_way()
         {
             var m = Make(CompassMode.CounterClockwise);

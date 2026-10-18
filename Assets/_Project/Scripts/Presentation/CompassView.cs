@@ -20,8 +20,6 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private RectTransform tickRoot;
         [Tooltip("Optional. Full-size container with the N letter. Turns with the map in HeadingUp mode.")]
         [SerializeField] private RectTransform northMarker;
-        [Tooltip("Radar. Compass shows directions as the radar screen shows them. Found by itself if empty.")]
-        [SerializeField] private RadarView radar;
         [SerializeField] private float tickRadius = 120f;
         [SerializeField] private float tickLength = 12f;
         [SerializeField] private float tickWidth = 3f;
@@ -30,14 +28,13 @@ namespace SubmarineLDJam.Presentation
 
         private RectTransform _ticks;
         private float _tickStep;
-        private float _shownReference;
-        private bool _snapReference;
+        private float _shownFacing;
+        private bool _snapFacing;
 
         protected override void OnBind()
         {
-            if (radar == null) radar = FindFirstObjectByType<RadarView>(FindObjectsInactive.Include);
             if (lockedNeedle != null) lockedNeedle.gameObject.SetActive(false);
-            _snapReference = true;
+            _snapFacing = true;
             BuildTicks();
         }
 
@@ -48,31 +45,27 @@ namespace SubmarineLDJam.Presentation
             var movement = Run.Movement;
             bool selectingHeading = movement.Phase == MovementPhase.SelectingHeading;
 
-            // Radar turns the map around the submarine? Then "up" on screen is the submarine front,
-            // not north. Show every direction relative to that, so left on screen is left.
-            float liveReference = radar != null ? radar.ReferenceHeadingDegrees : 0f;
-
-            // Dial reference is taken once, when the run starts. After that the compass never follows the
-            // submarine turn: it stays where it stopped and spins again from that same point.
-            if (_snapReference)
+            // The needle is measured from the submarine front, which is always "up" for the player.
+            // So after a turn, "left" on the compass is left of the new front.
+            // The dial stays where it stopped while the force is chosen, and spins again from that same point.
+            // Only the N letter follows the turn, and it changes when the movement is done.
+            if (_snapFacing || selectingHeading)
             {
-                _shownReference = liveReference;
-                _snapReference = false;
+                _shownFacing = movement.Facing.Degrees;
+                _snapFacing = false;
             }
 
-            float reference = _shownReference;
-
-            needle.localEulerAngles = new Vector3(0f, 0f, -(movement.CurrentHeading.Degrees - reference));
+            needle.localEulerAngles = new Vector3(0f, 0f, -movement.CurrentHeading.Degrees);
 
             if (lockedNeedle != null)
             {
                 lockedNeedle.gameObject.SetActive(!selectingHeading);
-                lockedNeedle.localEulerAngles = new Vector3(0f, 0f, -(movement.LockedHeading.Degrees - reference));
+                lockedNeedle.localEulerAngles = new Vector3(0f, 0f, -movement.LockedNeedleDegrees);
             }
 
-            // Ticks and the N letter are fixed to the world, so they turn the other way.
-            if (_ticks != null) _ticks.localEulerAngles = new Vector3(0f, 0f, reference);
-            if (northMarker != null) northMarker.localEulerAngles = new Vector3(0f, 0f, reference);
+            // Ticks turn with the needle scale (fixed). The N letter shows where north is.
+            if (_ticks != null) _ticks.localEulerAngles = Vector3.zero;
+            if (northMarker != null) northMarker.localEulerAngles = new Vector3(0f, 0f, _shownFacing);
 
             if (group != null) group.alpha = selectingHeading ? 1f : inactiveAlpha;
         }

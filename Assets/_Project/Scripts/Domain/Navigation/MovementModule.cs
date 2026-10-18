@@ -55,6 +55,8 @@ namespace SubmarineLDJam.Domain.Navigation
         private float _forcePosition;
         private bool _forceRising = true;
         private Heading _lockedHeading;
+        private float _lockedNeedleDegrees;
+        private float _facingDegrees;
 
         private readonly float _headingStep;
 
@@ -93,12 +95,21 @@ namespace SubmarineLDJam.Domain.Navigation
 
         public CompassMode Mode => _mode;
 
-        /// <summary>Where the compass needle is now.</summary>
+        /// <summary>
+        /// Where the compass needle is now, measured from the submarine front (0 = straight ahead).
+        /// Before the first turn the front is north, so this is also the world heading.
+        /// </summary>
         public Heading CurrentHeading => new Heading(Snap(_compassDegrees));
+
+        /// <summary>World heading the submarine front points to. Changes when the heading is locked.</summary>
+        public Heading Facing => new Heading(_facingDegrees);
+
+        /// <summary>Needle position (from the front) at the moment the heading was locked.</summary>
+        public float LockedNeedleDegrees => _lockedNeedleDegrees;
 
         public float HeadingStepDegrees => _headingStep;
 
-        /// <summary>Heading locked in part 1. Valid in SelectingForce.</summary>
+        /// <summary>World heading locked in part 1 (front + needle). Valid in SelectingForce.</summary>
         public Heading LockedHeading => _lockedHeading;
 
         /// <summary>Force bar position, 0..1.</summary>
@@ -122,7 +133,9 @@ namespace SubmarineLDJam.Domain.Navigation
         {
             if (Phase == MovementPhase.SelectingHeading)
             {
-                _lockedHeading = CurrentHeading;
+                _lockedNeedleDegrees = CurrentHeading.Degrees;
+                _lockedHeading = new Heading(_facingDegrees + _lockedNeedleDegrees);
+                _facingDegrees = _lockedHeading.Degrees; // submarine turns right away: this is the new "up"
                 _forcePosition = 0f;
                 _forceRising = true;
                 Phase = MovementPhase.SelectingForce;
