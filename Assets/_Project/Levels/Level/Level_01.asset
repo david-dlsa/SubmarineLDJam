@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ef9d32ea30bda40ac3c899c7e85b07, type: 3}
   m_Name: Level_01
   m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.LevelDefinition
-  threeStarSeconds: 30
-  twoStarSeconds: 60
+  threeStarSeconds: 80
+  twoStarSeconds: 100
   maxOxygen: 100
   oxygenDrainPerSecond: 1
   compassDegreesPerSecond: 270
@@ -31,6 +31,8 @@ MonoBehaviour:
   sonarWaveSeconds: 1
   sonarHoldSeconds: 1.5
   sonarFadeSeconds: 2
+  exitHintMode: 0
+  exitHintSeconds: 15
   collisionCooldownSeconds: 0.5
   wall:
     instantLoss: 10

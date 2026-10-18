@@ -18,7 +18,7 @@ MonoBehaviour:
     mazePrefab: {fileID: 9028808191851944347, guid: 20b1b5f6f08d82a4bb72b4599f71fd6e, type: 3}
   - displayName: STAGE 2
     level: {fileID: 11400000, guid: bcc6c3466560a7a4db5006ce744c12e8, type: 2}
-    mazePrefab: {fileID: 2243468604427550451, guid: fe3284e5681ebd640869660aaddaa3d4, type: 3}
+    mazePrefab: {fileID: 4666774667020121193, guid: 2998a329444b0ae4db9472ed5f6f430d, type: 3}
   - displayName: STAGE 3
     level: {fileID: 11400000, guid: aca80877e31700e4cbab02964c26b5e6, type: 2}
-    mazePrefab: {fileID: 4855623283806741926, guid: eababf985d13f4e44871cb2ec126ed7f, type: 3}
+    mazePrefab: {fileID: 8929804609187323200, guid: 95703c9d30d7e5e4784d9f0fdedd2550, type: 3}
