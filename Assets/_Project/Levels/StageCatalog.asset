@@ -13,12 +13,36 @@ MonoBehaviour:
   m_Name: StageCatalog
   m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.StageCatalog
   stages:
+  - displayName: TUTORIAL
+    level: {fileID: 11400000, guid: 85986742d8d78e745bf46a15d90e84a3, type: 2}
+    mazePrefab: {fileID: 3321099461246282643, guid: d8f7b44527254d34a9ce7d198171831a, type: 3}
   - displayName: STAGE 1
     level: {fileID: 11400000, guid: 8dee8c4b25981b74c9ee411e1ac0a3bb, type: 2}
-    mazePrefab: {fileID: 9028808191851944347, guid: 20b1b5f6f08d82a4bb72b4599f71fd6e, type: 3}
+    mazePrefab: {fileID: 3327209011922337918, guid: e30b90173254148c1afa2eabbaf40ab8, type: 3}
   - displayName: STAGE 2
     level: {fileID: 11400000, guid: bcc6c3466560a7a4db5006ce744c12e8, type: 2}
-    mazePrefab: {fileID: 4666774667020121193, guid: 2998a329444b0ae4db9472ed5f6f430d, type: 3}
+    mazePrefab: {fileID: 470118908318158481, guid: 18c8cffaa53d443549793ce6705cae2c, type: 3}
   - displayName: STAGE 3
     level: {fileID: 11400000, guid: aca80877e31700e4cbab02964c26b5e6, type: 2}
-    mazePrefab: {fileID: 8929804609187323200, guid: 95703c9d30d7e5e4784d9f0fdedd2550, type: 3}
+    mazePrefab: {fileID: 6374154121139549759, guid: ff5c4f170c1004c1e949e18e978570b6, type: 3}
+  - displayName: STAGE 4
+    level: {fileID: 11400000, guid: fca941a121c444a18c7217316cf4e7fd, type: 2}
+    mazePrefab: {fileID: 4505583061045846962, guid: ce35aba6cf540444b90810e649b27d92, type: 3}
+  - displayName: STAGE 5
+    level: {fileID: 11400000, guid: 2aa9eb34231c42cb94bb815c26dc8d93, type: 2}
+    mazePrefab: {fileID: 623675409298572656, guid: 9584cb3f74e474ed4a0064a7294619cc, type: 3}
+  - displayName: STAGE 6
+    level: {fileID: 11400000, guid: 8ba7d540b60d41c6928a42b513c9f726, type: 2}
+    mazePrefab: {fileID: 6211958055492722756, guid: 27cf9332337734efb8d7ab2a59d57fcd, type: 3}
+  - displayName: STAGE 7
+    level: {fileID: 11400000, guid: 02989ea0ffe24acb9c1e9506d75589c3, type: 2}
+    mazePrefab: {fileID: 7688180015722642443, guid: 88cd56a7f26d64d59beb30a9e9d9a6b8, type: 3}
+  - displayName: STAGE 8
+    level: {fileID: 11400000, guid: 39625462d61843638086cf90c719c6fd, type: 2}
+    mazePrefab: {fileID: 5471145212428558290, guid: 72776b154696844fa82106cbb3b7486b, type: 3}
+  - displayName: STAGE 9
+    level: {fileID: 11400000, guid: a20d13212f6c4d48baae69dcb40e241d, type: 2}
+    mazePrefab: {fileID: 5620945612558282953, guid: 3dfcf3289e3c2451bada3492c54674b6, type: 3}
+  - displayName: STAGE 10
+    level: {fileID: 11400000, guid: 2343c2b9f45049d08f2b675bc1d3e694, type: 2}
+    mazePrefab: {fileID: 9108067708682486875, guid: 3aa58a85e4596470282465d69de14823, type: 3}

@@ -54,6 +54,17 @@ namespace SubmarineLDJam.Presentation
         [Tooltip("OnPickup: how long the dot shows after a pickup.")]
         [Min(1f)] public float exitHintSeconds = 15f;
 
+        [Header("Blackouts (the cabin lights go out by themselves)")]
+        public bool blackoutsEnabled = false;
+        [Tooltip("Shortest wait, in seconds, between the lights coming back and the next blackout.")]
+        [Min(1f)] public float blackoutMinIntervalSeconds = 25f;
+        [Tooltip("Longest wait between blackouts. The real wait is random between min and max.")]
+        [Min(1f)] public float blackoutMaxIntervalSeconds = 50f;
+        [Tooltip("Shortest time in the dark.")]
+        [Min(0.5f)] public float blackoutMinDurationSeconds = 4f;
+        [Tooltip("Longest time in the dark. The real time is random between min and max.")]
+        [Min(0.5f)] public float blackoutMaxDurationSeconds = 8f;
+
         [Header("Collisions")]
         public float collisionCooldownSeconds = 0.5f;
         public Penalty wall = new Penalty { instantLoss = 10f, drainMultiplier = 1f, boostSeconds = 0f };
@@ -96,6 +107,11 @@ namespace SubmarineLDJam.Presentation
             sonarAutoIntervalSeconds: sonarAutoIntervalSeconds,
             exitHintMode: exitHintMode,
             exitHintSeconds: exitHintSeconds,
-            compassMode: compassMode);
+            compassMode: compassMode,
+            blackout: blackoutsEnabled
+                ? new SubmarineLDJam.Domain.Lights.BlackoutSettings(
+                    blackoutMinIntervalSeconds, Mathf.Max(blackoutMinIntervalSeconds, blackoutMaxIntervalSeconds),
+                    blackoutMinDurationSeconds, Mathf.Max(blackoutMinDurationSeconds, blackoutMaxDurationSeconds))
+                : SubmarineLDJam.Domain.Lights.BlackoutSettings.Disabled);
     }
 }

@@ -85,6 +85,18 @@ namespace SubmarineLDJam.Domain.Runs
         public RunFailed(RunFailureReason reason) => Reason = reason;
     }
 
+    /// <summary>The cabin lights went out. They come back after this many seconds.</summary>
+    public sealed class BlackoutStarted : IDomainEvent
+    {
+        public float DurationSeconds { get; }
+        public BlackoutStarted(float durationSeconds) => DurationSeconds = durationSeconds;
+    }
+
+    /// <summary>The cabin lights came back.</summary>
+    public sealed class BlackoutEnded : IDomainEvent
+    {
+    }
+
     /// <summary>The submarine stopped. The player can start a new movement.</summary>
     public sealed class MovementFinished : IDomainEvent
     {

@@ -1,4 +1,5 @@
 using System;
+using SubmarineLDJam.Domain.Lights;
 using SubmarineLDJam.Domain.Navigation;
 using SubmarineLDJam.Domain.Sonar;
 
@@ -72,8 +73,10 @@ namespace SubmarineLDJam.Domain.Levels
             float sonarAutoIntervalSeconds = 6f,
             ExitHintMode exitHintMode = ExitHintMode.Always,
             float exitHintSeconds = 15f,
-            CompassMode compassMode = CompassMode.Clockwise)
+            CompassMode compassMode = CompassMode.Clockwise,
+            BlackoutSettings blackout = default)
         {
+            Blackout = blackout;
             CompassMode = compassMode;
             ExitHintMode = exitHintMode;
             ExitHintSeconds = exitHintSeconds;
@@ -115,6 +118,9 @@ namespace SubmarineLDJam.Domain.Levels
 
         /// <summary>Radar sees this far (world units). The map can be much bigger.</summary>
         public float SonarViewRadius { get; }
+
+        /// <summary>The lights go out by themselves. Disabled by default.</summary>
+        public BlackoutSettings Blackout { get; }
 
         /// <summary>How the compass needle spins: clockwise, counter-clockwise, alternating or chaotic.</summary>
         public CompassMode CompassMode { get; }

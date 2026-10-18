@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ef9d32ea30bda40ac3c899c7e85b07, type: 3}
+  m_Name: Level_07
+  m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.LevelDefinition
+  threeStarSeconds: 200
+  twoStarSeconds: 330
+  maxOxygen: 120
+  oxygenDrainPerSecond: 1.6
+  compassDegreesPerSecond: 270
+  forceBarSpeed: 2.2
+  forceLevels: 5
+  headingStepDegrees: 15
+  compassMode: 1
+  refillTriggerPercent: 0.75
+  refillSequenceLength: 5
+  refillRestoreAmount: 10
+  refillMistakePenalty: 0.35
+  sonarMode: 0
+  sonarAutoIntervalSeconds: 6
+  sonarViewRadius: 7
+  sonarCooldownSeconds: 7
+  sonarWaveSeconds: 1
+  sonarHoldSeconds: 1.5
+  sonarFadeSeconds: 2
+  exitHintMode: 1
+  exitHintSeconds: 15
+  collisionCooldownSeconds: 0.5
+  wall:
+    instantLoss: 10
+    drainMultiplier: 1
+    boostSeconds: 0
+  obstacle:
+    instantLoss: 5
+    drainMultiplier: 1.5
+    boostSeconds: 3
+  enemy:
+    instantLoss: 15
+    drainMultiplier: 2
+    boostSeconds: 5
