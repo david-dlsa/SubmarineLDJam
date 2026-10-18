@@ -16,7 +16,7 @@ namespace SubmarineLDJam.Presentation
         {
             if (!IsBound) return;
 
-            timerText.text = $"<mspace=1em>{Run.ElapsedSeconds:0.0}s</mspace>";
+            timerText.text = $"<mspace=0.75em>{Run.ElapsedSeconds:0.0}s</mspace>";
         }
     }
 }

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.StageCatalog
   stages:
   - displayName: STAGE 1
-    level: {fileID: 11400000, guid: 8dee8c4b25981b74c9ee411e1ac0a3bb, type: 2}
-    mazePrefab: {fileID: 9028808191851944347, guid: 20b1b5f6f08d82a4bb72b4599f71fd6e, type: 3}
+    level: {fileID: 11400000, guid: 85986742d8d78e745bf46a15d90e84a3, type: 2}
+    mazePrefab: {fileID: 3321099461246282643, guid: d8f7b44527254d34a9ce7d198171831a, type: 3}
   - displayName: STAGE 2
     level: {fileID: 11400000, guid: bcc6c3466560a7a4db5006ce744c12e8, type: 2}
     mazePrefab: {fileID: 4666774667020121193, guid: 2998a329444b0ae4db9472ed5f6f430d, type: 3}

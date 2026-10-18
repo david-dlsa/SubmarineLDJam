@@ -340,6 +340,7 @@ namespace SubmarineLDJam.EditorTools
             BuildCompass(hud, parts);
             BuildForceBar(hud, parts);
             BuildOxygen(hud, parts);
+            BuildAlarm(hud, parts);
             BuildRefill(hud, parts);
             BuildStatus(hud, parts);
             BuildRadar(hud, parts, submarine, sonarCamera, worldCamera);
@@ -564,6 +565,27 @@ namespace SubmarineLDJam.EditorTools
             SetRef(view, "marker", marker);
             SetRef(view, "group", group);
             SetRef(view, "levelLabel", label);
+        }
+
+        /// <summary>Low oxygen: siren (top left) and a red screen pulse. Swap the siren sprites for your own.</summary>
+        private static void BuildAlarm(Transform hud, HudParts parts)
+        {
+            var holder = new GameObject("OxygenAlarm", typeof(RectTransform));
+            var holderRect = (RectTransform)holder.transform;
+            holderRect.SetParent(hud, false);
+            Stretch(holderRect);
+
+            var overlay = Img("RedOverlay", holderRect, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero,
+                Vector2.zero, new Color(1f, 0f, 0f, 0f), Square);
+            Stretch(overlay);
+
+            var siren = Img("Siren", holderRect, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(40f, -40f),
+                new Vector2(64f, 64f), new Color(1f, 0.2f, 0.2f, 0.3f), Circle);
+
+            parts.Playing.Add(holder);
+            var view = holder.AddComponent<OxygenAlarmView>();
+            SetRef(view, "siren", siren.GetComponent<Image>());
+            SetRef(view, "redOverlay", overlay.GetComponent<Image>());
         }
 
         private static void BuildOxygen(Transform hud, HudParts parts)
