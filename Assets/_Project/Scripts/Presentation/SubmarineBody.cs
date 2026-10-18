@@ -18,6 +18,8 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private float maxImpulse = 8f;
         [Tooltip("How fast the submarine slows down by itself.")]
         [SerializeField] private float damping = 1.5f;
+        [Tooltip("The movement ends when the submarine is slower than this. Then compass and force bar are free again.")]
+        [SerializeField, Min(0.01f)] private float settleSpeed = 0.3f;
         [Tooltip("OFF (default): only the movement module turns the submarine. ON: hits and physics can spin it.")]
         [SerializeField] private bool allowEnvironmentRotation = false;
         [Tooltip("Only used when environment rotation is ON. Slows the spin.")]
@@ -27,6 +29,8 @@ namespace SubmarineLDJam.Presentation
         private RadarView _radar;
         private Impulse _pendingImpulse;
         private bool _hasPending;
+        private bool _moving;
+        private float _pushTime;
 
         private void Awake()
         {
@@ -42,17 +46,32 @@ namespace SubmarineLDJam.Presentation
         {
             _body.simulated = true;
             _hasPending = false;
+            _moving = false;
             if (_radar == null) _radar = FindFirstObjectByType<RadarView>(FindObjectsInactive.Include);
         }
 
         private void FixedUpdate()
         {
-            // The force waits until the radar finished turning to the new heading.
-            if (!IsBound || !_hasPending) return;
-            if (_radar != null && _radar.IsTurning) return;
+            if (!IsBound) return;
 
-            _hasPending = false;
-            Push(_pendingImpulse);
+            // The force waits until the radar finished turning to the new heading.
+            if (_hasPending)
+            {
+                if (_radar != null && _radar.IsTurning) return;
+
+                _hasPending = false;
+                Push(_pendingImpulse);
+                _moving = true;
+                _pushTime = Time.time;
+                return;
+            }
+
+            // The movement is over when the submarine has stopped. Then the player can start the next one.
+            if (_moving && Time.time - _pushTime > 0.1f && _body.linearVelocity.magnitude < settleSpeed)
+            {
+                _moving = false;
+                Service.FinishMovement();
+            }
         }
 
         private void Push(Impulse impulse)
@@ -68,6 +87,7 @@ namespace SubmarineLDJam.Presentation
             _body.angularVelocity = 0f;
             _body.simulated = false;
             _hasPending = false;
+            _moving = false;
         }
 
         /// <summary>Move to a place, stand still, face up. Used when a stage starts.</summary>
@@ -79,6 +99,7 @@ namespace SubmarineLDJam.Presentation
             _body.position = position;
             _body.rotation = 0f;
             _hasPending = false;
+            _moving = false;
             _body.linearVelocity = Vector2.zero;
             _body.angularVelocity = 0f;
         }
@@ -100,6 +121,7 @@ namespace SubmarineLDJam.Presentation
                 case RunCompleted _:
                 case RunFailed _:
                     _hasPending = false;
+                    _moving = false;
                     _body.linearVelocity = Vector2.zero;
                     break;
             }

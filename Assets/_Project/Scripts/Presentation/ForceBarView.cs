@@ -26,13 +26,16 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private Sprite[] powerFrames;
         [Tooltip("Image that shows the frames. Empty = the Image on Track.")]
         [SerializeField] private Image frameImage;
-        [Tooltip("After the force is chosen, how long the bar takes to go back to empty. 0 = instant.")]
-        [SerializeField, Min(0f)] private float fallSeconds = 0.4f;
+        [Tooltip("When the movement ends, how long the bar takes to fade to empty. 0 = instant.")]
+        [SerializeField, Min(0f)] private float fadeSeconds = 0.25f;
         [Tooltip("Frames blend into each other (fade) instead of jumping.")]
         [SerializeField] private bool blendFrames = true;
 
         private int _levels;
         private float _shown;
+        private bool _fading;
+        private float _fadeFrom;
+        private float _fadeProgress;
         private Image _blendImage;
         private int _dividerLevels;
         private readonly List<GameObject> _dividers = new List<GameObject>();
@@ -41,6 +44,7 @@ namespace SubmarineLDJam.Presentation
         {
             _levels = Run.Movement.ForceLevels;
             _shown = 0f;
+            _fading = false;
 
             if (UsesFrames)
             {
@@ -67,16 +71,33 @@ namespace SubmarineLDJam.Presentation
 
             var movement = Run.Movement;
             bool selectingForce = movement.Phase == MovementPhase.SelectingForce;
-            float pos = selectingForce ? movement.ForcePosition : 0f;
+            bool executing = movement.Phase == MovementPhase.Executing;
 
-            // Follow the real bar while choosing. After that, glide back to empty instead of jumping.
-            float speed = selectingForce || fallSeconds <= 0f ? 20f : 1f / fallSeconds;
-            _shown = Mathf.MoveTowards(_shown, pos, speed * Time.deltaTime);
+            if (selectingForce || executing)
+            {
+                // Follows the bar while choosing. After the choice it stays locked on that force until the movement ends.
+                _shown = movement.ForcePosition;
+                _fading = false;
+            }
+            else if (_shown > 0.0001f)
+            {
+                // Movement ended: go to empty at once, with a fade. The frames in between are skipped.
+                _fadeFrom = _shown;
+                _shown = 0f;
+                _fadeProgress = 0f;
+                _fading = fadeSeconds > 0f;
+            }
+
+            if (_fading)
+            {
+                _fadeProgress += Time.deltaTime / fadeSeconds;
+                if (_fadeProgress >= 1f) _fading = false;
+            }
 
             if (UsesFrames)
             {
-                // Position goes 0 -> 1 -> 0, so the frames go up to the full one and back down to the empty one.
-                ShowFrames(_shown);
+                if (_fading) ShowFade(_fadeFrom, _fadeProgress);
+                else ShowFrames(_shown, selectingForce);
             }
             else
             {
@@ -88,34 +109,65 @@ namespace SubmarineLDJam.Presentation
 
             if (levelLabel != null)
             {
-                int level = Mathf.Min(_levels, (int)(pos * _levels) + 1);
-                levelLabel.text = selectingForce ? $"FORCE {level}/{_levels}" : "";
+                int level = Mathf.Min(_levels, (int)(movement.ForcePosition * _levels) + 1);
+                levelLabel.text = selectingForce || executing ? $"FORCE {level}/{_levels}" : "";
             }
         }
 
-        private void ShowFrames(float position)
+        /// <summary>Shows the frame for this position. Blends two frames while the bar moves, one frame when locked.</summary>
+        private void ShowFrames(float position, bool blendBetween)
         {
             if (frameImage == null) return;
 
             int last = powerFrames.Length - 1;
             float exact = Mathf.Clamp01(position) * last;
-            int from = Mathf.Clamp(Mathf.FloorToInt(exact), 0, last);
-            int to = Mathf.Min(from + 1, last);
-            float blend = exact - from;
 
-            if (!blendFrames || _blendImage == null)
+            if (!blendFrames || _blendImage == null || !blendBetween)
             {
-                var single = powerFrames[Mathf.Clamp(Mathf.RoundToInt(exact), 0, last)];
-                if (single != null) frameImage.sprite = single;
+                SetSprite(frameImage, powerFrames[Mathf.Clamp(Mathf.RoundToInt(exact), 0, last)]);
+                if (_blendImage != null) _blendImage.enabled = false;
                 return;
             }
 
+            int from = Mathf.Clamp(Mathf.FloorToInt(exact), 0, last);
+            int to = Mathf.Min(from + 1, last);
+
             // Base shows the lower frame. The top image shows the next frame, more visible as the bar gets closer to it.
-            if (powerFrames[from] != null) frameImage.sprite = powerFrames[from];
-            if (powerFrames[to] != null) _blendImage.sprite = powerFrames[to];
+            _blendImage.enabled = true;
+            SetSprite(frameImage, powerFrames[from]);
+            SetSprite(_blendImage, powerFrames[to]);
+            SetAlpha(_blendImage, exact - from);
+        }
+
+        /// <summary>The locked frame fades into the empty frame. Nothing in between is shown.</summary>
+        private void ShowFade(float fromPosition, float progress)
+        {
+            if (frameImage == null) return;
+
+            int last = powerFrames.Length - 1;
+            SetSprite(frameImage, powerFrames[Mathf.Clamp(Mathf.RoundToInt(Mathf.Clamp01(fromPosition) * last), 0, last)]);
+
+            if (_blendImage == null)
+            {
+                if (progress >= 0.5f) SetSprite(frameImage, powerFrames[0]);
+                return;
+            }
+
+            _blendImage.enabled = true;
+            SetSprite(_blendImage, powerFrames[0]);
+            SetAlpha(_blendImage, Mathf.Clamp01(progress));
+        }
+
+        private static void SetSprite(Image image, Sprite sprite)
+        {
+            if (sprite != null) image.sprite = sprite;
+        }
+
+        private void SetAlpha(Image image, float alpha)
+        {
             var color = frameImage.color;
-            color.a *= blend;
-            _blendImage.color = color;
+            color.a *= Mathf.Clamp01(alpha);
+            image.color = color;
         }
 
         private void EnsureBlendImage()

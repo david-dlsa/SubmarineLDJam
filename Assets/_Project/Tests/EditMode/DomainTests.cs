@@ -38,7 +38,29 @@ namespace SubmarineLDJam.Tests
             Assert.IsTrue(impulse.HasValue);
             Assert.AreEqual(90f, impulse.Value.Heading.Degrees, 0.001f);
             Assert.AreEqual(3, impulse.Value.Force.Level);
+            Assert.AreEqual(MovementPhase.Executing, m.Phase);
+        }
+
+        [Test]
+        public void Movement_is_locked_until_it_finishes()
+        {
+            var m = new MovementModule(90f, 1f, 5);
+            m.Confirm();
+            m.Tick(0.5f);
+            m.Confirm();
+            float compass = m.CurrentHeading.Degrees;
+            float bar = m.ForcePosition;
+
+            m.Tick(2f);
+            Assert.IsNull(m.Confirm());
+            Assert.AreEqual(MovementPhase.Executing, m.Phase);
+            Assert.AreEqual(compass, m.CurrentHeading.Degrees, 0.0001f);
+            Assert.AreEqual(bar, m.ForcePosition, 0.0001f);
+
+            Assert.IsTrue(m.FinishMovement());
             Assert.AreEqual(MovementPhase.SelectingHeading, m.Phase);
+            Assert.AreEqual(0f, m.ForcePosition, 0.0001f);
+            Assert.IsFalse(m.FinishMovement()); // nothing left to finish
         }
 
         [Test]
@@ -621,6 +643,7 @@ namespace SubmarineLDJam.Tests
             m.Confirm();
             m.Tick(0.5f);
             m.Confirm();
+            m.FinishMovement();
         }
 
         [Test]
@@ -631,6 +654,7 @@ namespace SubmarineLDJam.Tests
             m.Confirm();                        // front is now 45
             Assert.AreEqual(45f, m.Facing.Degrees, 0.001f);
             m.Confirm();                        // fire
+            m.FinishMovement();                 // submarine stopped
             m.Tick(3f);                         // needle continues from 45: 45 + 270 = 315 (left of the new front)
             Assert.AreEqual(315f, m.CurrentHeading.Degrees, 0.001f);
             m.Confirm();
@@ -672,6 +696,7 @@ namespace SubmarineLDJam.Tests
 
             m.Tick(0.5f);
             m.Confirm();
+            m.FinishMovement();
             m.Tick(1f);
             Assert.AreEqual(0f, m.CurrentHeading.Degrees, 0.001f); // flipped only once
         }

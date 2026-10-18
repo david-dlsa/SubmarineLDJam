@@ -85,6 +85,11 @@ namespace SubmarineLDJam.Domain.Runs
         public RunFailed(RunFailureReason reason) => Reason = reason;
     }
 
+    /// <summary>The submarine stopped. The player can start a new movement.</summary>
+    public sealed class MovementFinished : IDomainEvent
+    {
+    }
+
     /// <summary>The submarine took an exit hint pickup. The exit dot shows for this many seconds.</summary>
     public sealed class ExitHintCollected : IDomainEvent
     {

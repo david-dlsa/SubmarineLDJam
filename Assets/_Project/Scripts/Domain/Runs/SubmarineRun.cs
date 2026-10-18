@@ -70,11 +70,18 @@ namespace SubmarineLDJam.Domain.Runs
         /// <summary>Space key. 1st press locks heading, 2nd press locks force and fires.</summary>
         public void ConfirmMovement()
         {
-            if (!IsRunning) return;
+            if (!IsRunning || Movement.Phase == MovementPhase.Executing) return; // locked until the movement ends
 
             var impulse = Movement.Confirm();
             if (impulse.HasValue) Raise(new ImpulseFired(impulse.Value));
             else Raise(new HeadingLocked(Movement.LockedHeading));
+        }
+
+        /// <summary>Physics says the submarine stopped. Compass and force bar are free again.</summary>
+        public void FinishMovement()
+        {
+            if (!IsRunning) return;
+            if (Movement.FinishMovement()) Raise(new MovementFinished());
         }
 
         /// <summary>M key. Sends a sonar ping if it is charged.</summary>
