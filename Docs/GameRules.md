@@ -37,6 +37,8 @@ Sair da origem e chegar ao destino no **menor tempo possível**. Tempo menor = m
 2. **Parte 2 — força:** barra horizontal vai e volta. 2º Espaço trava num dos níveis de força. Quantidade de níveis = `forceLevels`.
 3. **Movimento em curso:** depois da força travada, o impulso só sai quando o radar terminou de girar. Bússola e barra de força ficam travadas (a barra mostra a força escolhida) até o submarino parar (`SubmarineBody → Settle Speed`). Aí a barra vai pro vazio com fade e a bússola volta a girar.
 
+**Popup de introdução** (`LevelDefinition → Intro Pages`, `IntroPopupView`): avisa de mecânica nova antes da fase. Cada página tem título, texto e imagem opcional. A fase só começa quando o jogador aperta OK (ou Enter/Espaço) na última página. Só aparece na primeira vez que a fase é jogada (guardado no progresso, só conta depois do OK). Sem páginas, sem popup. ESC volta às fases. Reiniciar não mostra de novo.
+
 **Apagão** (`LevelDefinition → Blackouts`, `BlackoutModule` + `BlackoutView`): as luzes da cabine apagam sozinhas. Intervalo entre apagões e tempo no escuro são sorteados entre um mínimo e um máximo. Ao apagar e ao voltar a luz pisca (`Flicker...`). O escuro é uma Image preta de tela cheia, abaixo do overlay vermelho do alarme. Desligado por padrão (`Blackouts Enabled`).
 
 **Tela de resultado** (`ResultView`, dentro do radar, mesmo lugar do seletor de fases): aparece `Result Delay Seconds` depois de chegar ou ficar sem oxigênio. Completou: tempo, estrelas, melhor tempo (ou NEW BEST), RESTART, NEXT (se existir próxima fase aberta) e STAGES. Não completou: só RESTART e STAGES. Teclas: Enter = NEXT (ou RESTART), R = reiniciar a fase (também durante o jogo), ESC = voltar às fases.

@@ -21,6 +21,8 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private StageCatalog catalog;
         [SerializeField] private RunBootstrap runner;
         [SerializeField] private StageSelectView selectView;
+        [Tooltip("Popup with the intro pages of a stage (new mechanics). Shown before the stage starts, only the first time. Empty = no popups.")]
+        [SerializeField] private IntroPopupView introView;
         [Tooltip("Shown when the run ends (arrived or out of oxygen). Empty = no result screen.")]
         [SerializeField] private ResultView resultView;
         [Tooltip("Pause between the end of the run and the result screen.")]
@@ -39,6 +41,7 @@ namespace SubmarineLDJam.Presentation
         private RunService _service;
         private GameObject _maze;
         private int _playing = -1;
+        private bool _awaitingIntro;
         private bool _resultPending;
         private float _resultAt;
         private ResultCard _resultCard;
@@ -66,6 +69,12 @@ namespace SubmarineLDJam.Presentation
                 resultView.gameObject.SetActive(false);
             }
 
+            if (introView != null)
+            {
+                introView.Confirmed += OnIntroConfirmed;
+                introView.gameObject.SetActive(false);
+            }
+
             SetPlayingObjects(false);
             ShowSelection(unlockAll ? 0 : _campaign.HighestUnlocked);
         }
@@ -85,6 +94,8 @@ namespace SubmarineLDJam.Presentation
                 resultView.StagesRequested -= ExitRun;
             }
 
+            if (introView != null) introView.Confirmed -= OnIntroConfirmed;
+
             RunContext.ExitRequested -= ExitRun;
             if (_service != null) _service.EventPublished -= OnRunEvent;
         }
@@ -102,7 +113,7 @@ namespace SubmarineLDJam.Presentation
             // ESC: give up the stage and go back to the stage select. A stage not finished is not saved.
             if (keyboard.escapeKey.wasPressedThisFrame) ExitRun();
             // R: start the same stage again.
-            else if (keyboard.rKey.wasPressedThisFrame) Restart();
+            else if (keyboard.rKey.wasPressedThisFrame && !_awaitingIntro) Restart();
         }
 
         private bool IsUnlocked(int index) => unlockAll || _campaign.IsUnlocked(index);
@@ -136,6 +147,35 @@ namespace SubmarineLDJam.Presentation
             _resultPending = false;
             selectView.gameObject.SetActive(false);
             if (resultView != null) resultView.gameObject.SetActive(false);
+
+            // First time on this stage and it has an intro? Show it. The stage starts when the player presses OK.
+            var pages = stage.level.introPages;
+            if (introView != null && pages != null && pages.Length > 0 && !_campaign.HasSeenIntro(index))
+            {
+                _awaitingIntro = true;
+                introView.gameObject.SetActive(true);
+                introView.Show(pages);
+                return;
+            }
+
+            StartRun(index);
+        }
+
+        private void OnIntroConfirmed()
+        {
+            if (!_awaitingIntro || _playing < 0) return;
+
+            _awaitingIntro = false;
+            introView.gameObject.SetActive(false);
+            _campaign.MarkIntroSeen(_playing);
+            CampaignStore.Save(_campaign);
+            StartRun(_playing);
+        }
+
+        /// <summary>Builds the stage and starts the run.</summary>
+        private void StartRun(int index)
+        {
+            var stage = catalog.stages[index];
 
             // 1. Maze + submarine at the start point.
             Vector2 start = Vector2.zero;
@@ -204,6 +244,8 @@ namespace SubmarineLDJam.Presentation
             if (_service != null) _service.EventPublished -= OnRunEvent;
             _service = null;
             _resultPending = false;
+            _awaitingIntro = false;
+            if (introView != null) introView.gameObject.SetActive(false);
 
             runner.End();
             SetPlayingObjects(false);

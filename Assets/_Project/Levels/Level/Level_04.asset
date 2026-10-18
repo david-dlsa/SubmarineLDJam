@@ -34,6 +34,17 @@ MonoBehaviour:
   sonarFadeSeconds: 2
   exitHintMode: 0
   exitHintSeconds: 15
+  blackoutsEnabled: 0
+  blackoutMinIntervalSeconds: 25
+  blackoutMaxIntervalSeconds: 50
+  blackoutMinDurationSeconds: 4
+  blackoutMaxDurationSeconds: 8
+  introPages:
+  - title: NEW COMPASS
+    text: 'The compass now works differently.
+
+      Check the needle before you set your angle.'
+    image: {fileID: 0}
   collisionCooldownSeconds: 0.5
   wall:
     instantLoss: 10

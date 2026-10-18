@@ -390,6 +390,21 @@ namespace SubmarineLDJam.Tests
     public class CampaignTests
     {
         [Test]
+        public void Intro_is_marked_once_and_remembered()
+        {
+            var c = new Campaign(3);
+            Assert.IsFalse(c.HasSeenIntro(1));
+            Assert.IsTrue(c.MarkIntroSeen(1));
+            Assert.IsFalse(c.MarkIntroSeen(1)); // already seen
+            Assert.IsTrue(c.HasSeenIntro(1));
+            Assert.IsFalse(c.HasSeenIntro(0));
+            Assert.IsFalse(c.MarkIntroSeen(9)); // stage does not exist
+
+            var loaded = new Campaign(3, null, c.IntroSeen);
+            Assert.IsTrue(loaded.HasSeenIntro(1));
+        }
+
+        [Test]
         public void Only_first_stage_is_open_at_start()
         {
             var c = new Campaign(3);

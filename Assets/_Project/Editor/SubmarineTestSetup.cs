@@ -35,6 +35,7 @@ namespace SubmarineLDJam.EditorTools
         {
             public StageSelectView Select;
             public ResultView Result;
+            public IntroPopupView Intro;
             public readonly List<GameObject> Playing = new List<GameObject>();
         }
 
@@ -72,6 +73,7 @@ namespace SubmarineLDJam.EditorTools
             SetRef(flow, "runner", runner);
             SetRef(flow, "selectView", parts.Select);
             SetRef(flow, "resultView", parts.Result);
+            SetRef(flow, "introView", parts.Intro);
             SetRef(flow, "submarine", submarine);
             SetRef(flow, "mazeParent", mazeRoot);
             SetRefs(flow, "showWhilePlaying", parts.Playing);
@@ -340,12 +342,56 @@ namespace SubmarineLDJam.EditorTools
             BuildCompass(hud, parts);
             BuildForceBar(hud, parts);
             BuildOxygen(hud, parts);
-            BuildBlackout(hud, parts);
-            BuildAlarm(hud, parts);
             BuildRefill(hud, parts);
             BuildStatus(hud, parts);
             BuildRadar(hud, parts, submarine, sonarCamera, worldCamera);
+
+            // On top of everything, in this order: dark cabin, red alarm, intro popup.
+            BuildBlackout(hud, parts);
+            BuildAlarm(hud, parts);
+            BuildIntro(hud, parts);
             return parts;
+        }
+
+        /// <summary>Popup shown before a stage starts, the first time. Texts come from the Level Definition.</summary>
+        private static void BuildIntro(Transform hud, HudParts parts)
+        {
+            var center = new Vector2(0.5f, 0.5f);
+
+            // Backdrop: dims everything and blocks clicks behind the popup.
+            var backdrop = Img("IntroPopup", hud, center, center, Vector2.zero, Vector2.zero, new Color(0f, 0f, 0f, 0.75f), Square);
+            Stretch(backdrop);
+            backdrop.GetComponent<Image>().raycastTarget = true;
+
+            var box = Img("Box", backdrop, center, center, Vector2.zero, new Vector2(820f, 480f), new Color(0.04f, 0.1f, 0.09f, 1f), Square);
+
+            var title = TmpLabel("Title", box, new Vector2(0f, 190f), new Vector2(760f, 60f), 44);
+            title.color = new Color(0.4f, 1f, 0.6f);
+
+            var picture = Img("Picture", box, center, center, new Vector2(-250f, 20f), new Vector2(220f, 220f), Color.white, null);
+            picture.gameObject.SetActive(false);
+
+            var body = TmpLabel("Body", box, new Vector2(0f, 20f), new Vector2(740f, 260f), 30);
+            body.alignment = TextAlignmentOptions.Center;
+            body.textWrappingMode = TextWrappingModes.Normal;
+
+            var page = TmpLabel("Page", box, new Vector2(330f, -205f), new Vector2(120f, 30f), 22);
+            page.color = new Color(1f, 1f, 1f, 0.6f);
+
+            var ok = MakeButton("Ok", box, new Vector2(0f, -190f), new Vector2(220f, 56f), "OK", 30, new Color(0.15f, 0.55f, 0.3f, 0.95f));
+            var okLabel = TmpLabel("OkLabel", ok.transform, Vector2.zero, new Vector2(220f, 56f), 30);
+            // The button made a legacy Text label. Use the TMP one instead.
+            var legacy = ok.GetComponentInChildren<Text>();
+            if (legacy != null) Object.DestroyImmediate(legacy.gameObject);
+
+            var view = backdrop.gameObject.AddComponent<IntroPopupView>();
+            SetRef(view, "titleText", title);
+            SetRef(view, "bodyText", body);
+            SetRef(view, "picture", picture.GetComponent<Image>());
+            SetRef(view, "okButton", ok);
+            SetRef(view, "okLabel", okLabel);
+            SetRef(view, "pageText", page);
+            parts.Intro = view;
         }
 
         private static void BuildRadar(Transform hud, HudParts parts, Transform submarine, Camera sonarCamera, Camera worldCamera)
@@ -547,7 +593,6 @@ namespace SubmarineLDJam.EditorTools
             SetRef(view, "needle", needle);
             SetRef(view, "lockedNeedle", locked);
             SetRef(view, "group", group);
-            SetRef(view, "tickRoot", panel);
         }
 
         private static void BuildForceBar(Transform hud, HudParts parts)

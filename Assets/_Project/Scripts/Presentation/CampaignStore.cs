@@ -22,11 +22,13 @@ namespace SubmarineLDJam.Presentation
         private sealed class Data
         {
             public List<Entry> records = new List<Entry>();
+            public List<int> introSeen = new List<int>();
         }
 
         public static Campaign Load(int stageCount)
         {
             var records = new List<StageRecord>();
+            var introSeen = new List<int>();
             try
             {
                 var json = PlayerPrefs.GetString(Key, "");
@@ -36,6 +38,7 @@ namespace SubmarineLDJam.Presentation
                     if (data?.records != null)
                         foreach (var entry in data.records)
                             records.Add(new StageRecord(entry.index, entry.seconds, entry.stars));
+                    if (data?.introSeen != null) introSeen.AddRange(data.introSeen);
                 }
             }
             catch (Exception exception)
@@ -43,7 +46,7 @@ namespace SubmarineLDJam.Presentation
                 Debug.LogWarning($"Could not read saved progress, starting fresh. {exception.Message}");
             }
 
-            return new Campaign(stageCount, records);
+            return new Campaign(stageCount, records, introSeen);
         }
 
         public static void Save(Campaign campaign)
@@ -51,6 +54,7 @@ namespace SubmarineLDJam.Presentation
             var data = new Data();
             foreach (var record in campaign.Records)
                 data.records.Add(new Entry { index = record.Index, seconds = record.BestSeconds, stars = record.Stars });
+            data.introSeen.AddRange(campaign.IntroSeen);
 
             PlayerPrefs.SetString(Key, JsonUtility.ToJson(data));
             PlayerPrefs.Save();

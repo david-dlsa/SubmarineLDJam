@@ -17,7 +17,7 @@ MonoBehaviour:
   maxOxygen: 110
   oxygenDrainPerSecond: 1.5
   compassDegreesPerSecond: 270
-  forceBarSpeed: 2.0
+  forceBarSpeed: 2
   forceLevels: 5
   headingStepDegrees: 15
   compassMode: 0
@@ -34,6 +34,15 @@ MonoBehaviour:
   sonarFadeSeconds: 2
   exitHintMode: 1
   exitHintSeconds: 20
+  blackoutsEnabled: 0
+  blackoutMinIntervalSeconds: 25
+  blackoutMaxIntervalSeconds: 50
+  blackoutMinDurationSeconds: 4
+  blackoutMaxDurationSeconds: 8
+  introPages:
+  - title: EXIT HINT
+    text: Collect the blue point hint to see where the exit is.
+    image: {fileID: 0}
   collisionCooldownSeconds: 0.5
   wall:
     instantLoss: 10
