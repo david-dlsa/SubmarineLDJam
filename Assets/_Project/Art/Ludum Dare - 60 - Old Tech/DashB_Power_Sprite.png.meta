@@ -122,6 +122,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -129,12 +142,12 @@ TextureImporter:
       name: DashB_Power_Sprite_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 1
-        width: 485
-        height: 228
+        x: 0
+        y: 0
+        width: 494
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -151,12 +164,12 @@ TextureImporter:
       name: DashB_Power_Sprite_1
       rect:
         serializedVersion: 2
-        x: 504
-        y: 10
-        width: 480
-        height: 219
+        x: 494
+        y: 0
+        width: 494
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -173,12 +186,12 @@ TextureImporter:
       name: DashB_Power_Sprite_2
       rect:
         serializedVersion: 2
-        x: 997
-        y: 10
-        width: 481
-        height: 219
+        x: 988
+        y: 0
+        width: 494
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -195,12 +208,12 @@ TextureImporter:
       name: DashB_Power_Sprite_3
       rect:
         serializedVersion: 2
-        x: 1492
-        y: 10
-        width: 480
-        height: 219
+        x: 1482
+        y: 0
+        width: 494
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -217,12 +230,12 @@ TextureImporter:
       name: DashB_Power_Sprite_4
       rect:
         serializedVersion: 2
-        x: 1986
-        y: 10
-        width: 480
-        height: 219
+        x: 1976
+        y: 0
+        width: 494
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -239,12 +252,12 @@ TextureImporter:
       name: DashB_Power_Sprite_5
       rect:
         serializedVersion: 2
-        x: 2480
-        y: 11
-        width: 480
-        height: 218
+        x: 2470
+        y: 0
+        width: 494
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -261,12 +274,12 @@ TextureImporter:
       name: DashB_Power_Sprite_6
       rect:
         serializedVersion: 2
-        x: 2975
-        y: 11
-        width: 478
-        height: 218
+        x: 2964
+        y: 0
+        width: 494
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -283,12 +296,12 @@ TextureImporter:
       name: DashB_Power_Sprite_7
       rect:
         serializedVersion: 2
-        x: 3468
-        y: 10
-        width: 480
-        height: 219
+        x: 3458
+        y: 0
+        width: 494
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -305,12 +318,12 @@ TextureImporter:
       name: DashB_Power_Sprite_8
       rect:
         serializedVersion: 2
-        x: 3961
-        y: 10
-        width: 480
-        height: 219
+        x: 3952
+        y: 0
+        width: 494
+        height: 229
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -327,7 +340,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: d8bb7b1a4d7090747860db3832df5526
     internalID: 0
     vertices: []
     indices: 
@@ -335,7 +348,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":9.0,"y":1.0},"gridSpriteSize":{"x":494.0,"y":229.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       DashB_Power_Sprite_0: -3164053725118318987
       DashB_Power_Sprite_1: -7602385530483374435
