@@ -300,7 +300,7 @@ namespace SubmarineLDJam.Presentation
         private void ApplyWorldVisibility()
         {
             if (worldCamera == null) return;
-            worldCamera.cullingMask = showWorld ? ~0 : 0;
+            worldCamera.cullingMask = showWorld ? ~0 : LayerMask.GetMask("UI");
         }
 
         // ---------- events ----------
