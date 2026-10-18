@@ -185,8 +185,8 @@ MonoBehaviour:
   subIcon: {fileID: 0}
   cooldownLabel: {fileID: 3842475072365180953}
   subIconSprite: {fileID: -1185138926709804724, guid: aefc93414cadfec4a9ec9565df354f89, type: 3}
-  _pingBarDotAmount: 10
-  _pingBarDotStep: 1
+  _pingBarDotAmount: 20
+  _pingBarDotStep: 2
   _pingBarDotPrefab: {fileID: 7813592828872719453, guid: 1b7580503a12c2a40b75503789fff4a9, type: 3}
   _pingBarDotParent: {fileID: 9047551230599970622}
   orientation: 0
@@ -1202,6 +1202,7 @@ GameObject:
   - component: {fileID: 9047551230599970622}
   - component: {fileID: 696567770420563492}
   - component: {fileID: 5922250462903151836}
+  - component: {fileID: 8425955960171193498}
   m_Layer: 0
   m_Name: SonarBar
   m_TagString: Untagged
@@ -1266,6 +1267,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8425955960171193498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4992799674630386393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 10
+  m_ChildAlignment: 4
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &5016718947668897540
 GameObject:
   m_ObjectHideFlags: 0
