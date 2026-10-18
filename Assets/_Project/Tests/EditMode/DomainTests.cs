@@ -270,6 +270,18 @@ namespace SubmarineLDJam.Tests
         }
 
         [Test]
+        public void Custom_penalty_can_ignore_the_cooldown()
+        {
+            var run = Make(0f);
+            run.RegisterCollision(CollisionKind.Wall); // -10, starts the cooldown
+            run.RegisterCollision(CollisionKind.Bomb, new CollisionPenalty(20f), true);
+            Assert.AreEqual(70f, run.Oxygen.Current, 0.001f);
+
+            run.RegisterCollision(CollisionKind.Bomb, new CollisionPenalty(20f)); // cooldown still on
+            Assert.AreEqual(70f, run.Oxygen.Current, 0.001f);
+        }
+
+        [Test]
         public void Enemy_hit_makes_oxygen_fall_faster()
         {
             var run = Make(1f);

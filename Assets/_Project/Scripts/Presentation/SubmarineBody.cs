@@ -90,6 +90,16 @@ namespace SubmarineLDJam.Presentation
             _moving = false;
         }
 
+        /// <summary>An outside push (for example a bomb). Like a movement: controls wait until the submarine stops.</summary>
+        public void Knock(Vector2 impulse)
+        {
+            if (_body == null) _body = GetComponent<Rigidbody2D>();
+
+            _body.AddForce(impulse, ForceMode2D.Impulse);
+            _moving = true;
+            _pushTime = Time.time;
+        }
+
         /// <summary>Move to a place, stand still, face up. Used when a stage starts.</summary>
         public void PlaceAt(Vector2 position)
         {
@@ -133,6 +143,7 @@ namespace SubmarineLDJam.Presentation
 
             // No Hazard component = treated as wall.
             var kind = collision.collider.TryGetComponent<Hazard>(out var hazard) ? hazard.Kind : CollisionKind.Wall;
+            if (kind == CollisionKind.Bomb) return; // bombs are triggers, they hurt when they explode
             Service.RegisterCollision(kind);
         }
 

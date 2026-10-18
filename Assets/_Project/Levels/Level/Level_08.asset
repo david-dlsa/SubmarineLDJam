@@ -25,13 +25,13 @@ MonoBehaviour:
   refillSequenceLength: 5
   refillRestoreAmount: 10
   refillMistakePenalty: 0.35
-  sonarMode: 1
-  sonarAutoIntervalSeconds: 8
+  sonarMode: 0
+  sonarAutoIntervalSeconds: 7
   sonarViewRadius: 7
-  sonarCooldownSeconds: 7
+  sonarCooldownSeconds: 9
   sonarWaveSeconds: 1
   sonarHoldSeconds: 1.5
-  sonarFadeSeconds: 2
+  sonarFadeSeconds: 1.5
   exitHintMode: 1
   exitHintSeconds: 12
   collisionCooldownSeconds: 0.5
