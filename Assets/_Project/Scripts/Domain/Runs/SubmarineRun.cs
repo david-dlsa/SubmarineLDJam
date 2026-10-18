@@ -1,6 +1,7 @@
 using System;
 using SubmarineLDJam.Domain.Common;
 using SubmarineLDJam.Domain.Levels;
+using SubmarineLDJam.Domain.Lights;
 using SubmarineLDJam.Domain.Navigation;
 using SubmarineLDJam.Domain.Oxygen;
 using SubmarineLDJam.Domain.Sonar;
@@ -29,6 +30,7 @@ namespace SubmarineLDJam.Domain.Runs
                 rules.SonarMode == SonarMode.Auto ? rules.SonarAutoIntervalSeconds : rules.SonarCooldownSeconds,
                 rules.SonarMode);
             ExitHint = new ExitHintModule(rules.ExitHintMode, rules.ExitHintSeconds);
+            Blackout = new BlackoutModule(rules.Blackout, random);
             Refill = new OxygenRefillPuzzle(
                 rules.RefillSequenceLength,
                 rules.RefillRestoreAmount,
@@ -43,6 +45,7 @@ namespace SubmarineLDJam.Domain.Runs
         public OxygenRefillPuzzle Refill { get; }
         public SonarModule Sonar { get; }
         public ExitHintModule ExitHint { get; }
+        public BlackoutModule Blackout { get; }
 
         public RunStatus Status { get; private set; } = RunStatus.Running;
         public float ElapsedSeconds { get; private set; }
@@ -62,6 +65,11 @@ namespace SubmarineLDJam.Domain.Runs
             Movement.Tick(deltaSeconds);
             Oxygen.Tick(deltaSeconds);
             ExitHint.Tick(deltaSeconds);
+            switch (Blackout.Tick(deltaSeconds))
+            {
+                case BlackoutChange.Started: Raise(new BlackoutStarted(Blackout.CurrentDurationSeconds)); break;
+                case BlackoutChange.Ended: Raise(new BlackoutEnded()); break;
+            }
             if (Sonar.Tick(deltaSeconds)) Raise(new SonarPinged());
 
             if (!CheckOxygen()) SyncRefill();

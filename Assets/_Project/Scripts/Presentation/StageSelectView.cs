@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using TMPro;
 
 namespace SubmarineLDJam.Presentation
 {
@@ -38,7 +39,7 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private Button playButton;
         [SerializeField] private Button returnButton;
         [Tooltip("Stage name, e.g. STAGE 1.")]
-        [SerializeField] private Text titleText;
+        [SerializeField] private TMP_Text titleText;
         [Tooltip("Best time and stars, or LOCKED.")]
         [SerializeField] private Text recordText;
         [SerializeField] private string lockedText = "LOCKED";

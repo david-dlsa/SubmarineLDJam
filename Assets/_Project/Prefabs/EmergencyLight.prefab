@@ -126,20 +126,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6581e4234cedb4f99871d9013b6582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.OxygenAlarmView
-  warningPercent: 0.5
+  warningPercent: 0.6
   dangerPercent: 0.25
   siren: {fileID: 8779411337576677787}
   sirenOff: {fileID: 1331479435661797633, guid: 135568356b7865647a7f5576cfa71be9, type: 3}
   sirenOn: {fileID: -5620060186184133995, guid: df07772a13508ca4891993171dd69424, type: 3}
   blinkInDanger: 1
   blinkSeconds: 0.4
-  soundMode: 1
-  beepClip: {fileID: 8300000, guid: 29d86fc157bb01845af380902332aabd, type: 3}
-  beepVolume: 0.76
+  soundMode: 0
+  beepClip: {fileID: 8300000, guid: 2c6f68f641e9ef14ca28af081fce0990, type: 3}
+  beepVolume: 0.8
   loopClip: 1
   soundFadeSeconds: 0.25
-  beepIntervalAtDanger: 1.2
-  beepIntervalAtEmpty: 0.4
+  beepIntervalAtDanger: 1
+  beepIntervalAtEmpty: 1
   redOverlay: {fileID: 3392159445425543067}
   overlayMinAlpha: 0.05
   overlayMaxAlpha: 0.4

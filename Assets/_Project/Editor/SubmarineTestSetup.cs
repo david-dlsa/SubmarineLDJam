@@ -340,6 +340,7 @@ namespace SubmarineLDJam.EditorTools
             BuildCompass(hud, parts);
             BuildForceBar(hud, parts);
             BuildOxygen(hud, parts);
+            BuildBlackout(hud, parts);
             BuildAlarm(hud, parts);
             BuildRefill(hud, parts);
             BuildStatus(hud, parts);
@@ -565,6 +566,24 @@ namespace SubmarineLDJam.EditorTools
             SetRef(view, "marker", marker);
             SetRef(view, "group", group);
             SetRef(view, "levelLabel", label);
+        }
+
+        /// <summary>Lights out: a black full-screen Image. Turn blackouts on in a Level Definition to see it.</summary>
+        private static void BuildBlackout(Transform hud, HudParts parts)
+        {
+            var holder = new GameObject("Blackout", typeof(RectTransform));
+            var holderRect = (RectTransform)holder.transform;
+            holderRect.SetParent(hud, false);
+            Stretch(holderRect);
+
+            var dark = Img("DarkOverlay", holderRect, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero,
+                Vector2.zero, new Color(0f, 0f, 0f, 0f), Square);
+            Stretch(dark);
+            dark.gameObject.SetActive(false);
+
+            parts.Playing.Add(holder);
+            var view = holder.AddComponent<BlackoutView>();
+            SetRef(view, "darkOverlay", dark.GetComponent<Image>());
         }
 
         /// <summary>Low oxygen: siren (top left) and a red screen pulse. Swap the siren sprites for your own.</summary>

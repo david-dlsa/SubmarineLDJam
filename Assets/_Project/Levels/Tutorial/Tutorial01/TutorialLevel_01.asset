@@ -34,6 +34,11 @@ MonoBehaviour:
   sonarFadeSeconds: 1
   exitHintMode: 0
   exitHintSeconds: 15
+  blackoutsEnabled: 1
+  blackoutMinIntervalSeconds: 5
+  blackoutMaxIntervalSeconds: 25
+  blackoutMinDurationSeconds: 5
+  blackoutMaxDurationSeconds: 10
   collisionCooldownSeconds: 0.5
   wall:
     instantLoss: 0

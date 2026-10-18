@@ -4,6 +4,7 @@ using System.Linq;
 using NUnit.Framework;
 using SubmarineLDJam.Domain.Caves;
 using SubmarineLDJam.Domain.Levels;
+using SubmarineLDJam.Domain.Lights;
 using SubmarineLDJam.Domain.Navigation;
 using SubmarineLDJam.Domain.Progress;
 using SubmarineLDJam.Domain.Oxygen;
@@ -744,6 +745,57 @@ namespace SubmarineLDJam.Tests
 
             m.Tick(0.3f);
             Assert.AreEqual(locked, m.CurrentHeading.Degrees, 0.0001f);
+        }
+    }
+    public class BlackoutTests
+    {
+        private static BlackoutModule Make(int seed = 1)
+            => new BlackoutModule(new BlackoutSettings(10f, 20f, 3f, 6f), new Random(seed));
+
+        [Test]
+        public void Disabled_never_goes_dark()
+        {
+            var m = new BlackoutModule(BlackoutSettings.Disabled);
+            for (int i = 0; i < 1000; i++) Assert.AreEqual(BlackoutChange.None, m.Tick(1f));
+            Assert.IsFalse(m.IsDark);
+        }
+
+        [Test]
+        public void Goes_dark_after_the_interval_and_comes_back_after_the_duration()
+        {
+            var m = Make();
+            float waited = 0f;
+            while (m.Tick(0.1f) != BlackoutChange.Started) waited += 0.1f;
+
+            Assert.IsTrue(m.IsDark);
+            Assert.GreaterOrEqual(waited, 9.8f);
+            Assert.LessOrEqual(waited, 20.2f);
+            Assert.GreaterOrEqual(m.CurrentDurationSeconds, 3f);
+            Assert.LessOrEqual(m.CurrentDurationSeconds, 6f);
+
+            float dark = 0f;
+            while (m.Tick(0.1f) != BlackoutChange.Ended) dark += 0.1f;
+
+            Assert.IsFalse(m.IsDark);
+            Assert.AreEqual(m.CurrentDurationSeconds, 0f, 0.0001f);
+            Assert.GreaterOrEqual(dark, 2.8f);
+            Assert.LessOrEqual(dark, 6.2f);
+        }
+
+        [Test]
+        public void Same_seed_gives_the_same_blackouts()
+        {
+            var a = Make(5);
+            var b = Make(5);
+            for (int i = 0; i < 2000; i++) Assert.AreEqual(a.Tick(0.1f), b.Tick(0.1f));
+        }
+
+        [Test]
+        public void Bad_settings_are_refused()
+        {
+            Assert.Throws<ArgumentException>(() => new BlackoutSettings(0f, 5f, 1f, 2f));
+            Assert.Throws<ArgumentException>(() => new BlackoutSettings(10f, 5f, 1f, 2f));
+            Assert.Throws<ArgumentException>(() => new BlackoutSettings(5f, 10f, 3f, 2f));
         }
     }
 }
