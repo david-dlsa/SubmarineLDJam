@@ -33,7 +33,7 @@ Sair da origem e chegar ao destino no **menor tempo possível**. Tempo menor = m
 3. O submarino recebe um **impulso** na direção e força escolhidas e desliza com inércia (Rigidbody2D + damping).
 4. Volta para a parte 1.
 
-**Rotação:** só o módulo gira o submarino. Batida não faz ele rodar (rotação congelada). Para voltar a rotação do ambiente, ligue `Allow Environment Rotation` no `SubmarineBody`.
+**Rotação:** o submarino (e o radar/bússola que seguem ele) só gira **quando o impulso é aplicado**, no fim do movimento. Durante a barra de força nada gira. Só o módulo gira o submarino. Batida não faz ele rodar (rotação congelada). Para voltar a rotação do ambiente, ligue `Allow Environment Rotation` no `SubmarineBody`.
 
 ### Oxigênio (setas do teclado)
 - Cai o tempo todo (`OxygenDrainPerSecond`).
