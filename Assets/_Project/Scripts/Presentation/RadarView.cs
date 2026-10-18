@@ -47,14 +47,15 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private RectTransform exitDot;
         [SerializeField] private RectTransform subIcon;
         [Tooltip("Optional. Fill shows sonar charge.")]
-        [SerializeField] private Image cooldownFill;
         [SerializeField] private Text cooldownLabel;
-
-        [Header("Custom sprites (optional)")]
-        [Tooltip("Sonar charge frames, from empty (first) to full (last). Shown on the Cooldown Fill image. Empty = normal fill bar.")]
-        [SerializeField] private Sprite[] pingBarFrames;
         [Tooltip("Replaces the red arrow of the submarine. Empty = red arrow. It is not tinted.")]
         [SerializeField] private Sprite subIconSprite;
+
+        [Header("Sonar dots")]
+        [SerializeField] private int _pingBarDotAmount = 10;
+        [SerializeField] private int _pingBarDotStep = 1;
+        [SerializeField] private GameObject _pingBarDotPrefab;
+        [SerializeField] private Transform _pingBarDotParent;
 
         [Header("Rotation")]
         [Tooltip("HeadingUp: triangle fixed pointing up, map turns around it. NorthUp: map fixed, triangle turns.")]
@@ -101,6 +102,7 @@ namespace SubmarineLDJam.Presentation
         private Vector2 _liveOrigin;
         private int _startFrame;
         private bool _pingWaiting;
+        private readonly List<GameObject> _pingDots = new();
 
         // The sonar camera needs a couple of frames to fill the live picture. Pings before that would be empty.
         private const int WarmupFrames = 3;
@@ -125,6 +127,7 @@ namespace SubmarineLDJam.Presentation
             _exitImage = exitDot != null ? exitDot.GetComponent<Image>() : null;
 
             BuildSprites();
+            ConstructCharge();
             StartLiveCamera();
             MakeEchoesUnlit();
             if (_run.Rules.SonarMode == SonarMode.Always) BuildLiveLayer();
@@ -237,11 +240,6 @@ namespace SubmarineLDJam.Presentation
                     if (image.sprite == null) image.sprite = RadarSprites.Triangle(64);
                     image.color = subColor;
                 }
-            }
-            if (cooldownFill != null && pingBarFrames != null && pingBarFrames.Length > 0)
-            {
-                cooldownFill.type = Image.Type.Simple; // frames replace the fill
-                cooldownFill.preserveAspect = true;
             }
             if (exitDot != null)
             {
@@ -473,21 +471,35 @@ namespace SubmarineLDJam.Presentation
             exitDot.localScale = new Vector3(pulse, pulse, 1f);
         }
 
-        /// <summary>Shows the sonar charge, 0..1. Uses the custom frames when there are any.</summary>
+        private void ConstructCharge()
+        {
+            foreach (var dot in _pingDots)
+                Destroy(dot.gameObject);
+            
+            _pingDots.Clear();
+            
+            if (_pingBarDotAmount <= 0) return;
+
+            for (int i = 0; i < _pingBarDotAmount; i++)
+            {
+                var dot = Instantiate(_pingBarDotPrefab, _pingBarDotParent);
+                dot.SetActive(false);
+                _pingDots.Add(dot);
+            }
+        }
+
+        /// <summary>Shows the sonar charge, 0..1./summary>
         private void SetCharge(float charge)
         {
-            if (cooldownFill == null) return;
+            if (_pingBarDotAmount <= 0) return;
 
             charge = Mathf.Clamp01(charge);
-            if (pingBarFrames != null && pingBarFrames.Length > 0)
-            {
-                int last = pingBarFrames.Length - 1;
-                var frame = pingBarFrames[Mathf.Clamp(Mathf.FloorToInt(charge * last + 0.0001f), 0, last)];
-                if (frame != null) cooldownFill.sprite = frame;
-                return;
-            }
+            var totalSteps = _pingBarDotAmount / (float) _pingBarDotStep;
+            var currentSteps = charge * totalSteps;
+            var activeDots = Mathf.CeilToInt(currentSteps) * _pingBarDotStep;
 
-            cooldownFill.fillAmount = charge;
+            for (int i = 0; i < _pingBarDotAmount; i++)
+                _pingDots[i].SetActive(i < activeDots);
         }
 
         private void UpdateCooldown()
