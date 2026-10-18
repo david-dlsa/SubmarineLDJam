@@ -1,0 +1,457 @@
+fileFormatVersion: 2
+guid: ba1a13e5a5ede5b49a03d4a0bdea1d64
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7012856341813377668
+    second: Ping_Bar_Sprite_0
+  - first:
+      213: -1152919618173520049
+    second: Ping_Bar_Sprite_1
+  - first:
+      213: 4415332052372153101
+    second: Ping_Bar_Sprite_2
+  - first:
+      213: -4947959859580164333
+    second: Ping_Bar_Sprite_3
+  - first:
+      213: 1605237025877490296
+    second: Ping_Bar_Sprite_4
+  - first:
+      213: 7385154092783538338
+    second: Ping_Bar_Sprite_5
+  - first:
+      213: -1173021560891073531
+    second: Ping_Bar_Sprite_6
+  - first:
+      213: 9058051353796430544
+    second: Ping_Bar_Sprite_7
+  - first:
+      213: -7098127656965809290
+    second: Ping_Bar_Sprite_8
+  - first:
+      213: 8759680176001506039
+    second: Ping_Bar_Sprite_9
+  - first:
+      213: 8371039247732413700
+    second: Ping_Bar_Sprite_10
+  - first:
+      213: -6973455714940228125
+    second: Ping_Bar_Sprite_11
+  - first:
+      213: -2761142083312984701
+    second: Ping_Bar_Sprite_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 0
+        width: 618
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ab1aaefaba25160800000000000000
+      internalID: 7012856341813377668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 0
+        width: 617
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f47303837b10000f0800000000000000
+      internalID: -1152919618173520049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 0
+        width: 618
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d03e903bb19664d30800000000000000
+      internalID: 4415332052372153101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 2020
+        y: 0
+        width: 618
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31725de19b0555bb0800000000000000
+      internalID: -4947959859580164333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 2685
+        y: 1
+        width: 618
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87a7bb3f192f64610800000000000000
+      internalID: 1605237025877490296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 3350
+        y: 2
+        width: 618
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a092e7e4865d7660800000000000000
+      internalID: 7385154092783538338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 4015
+        y: 2
+        width: 618
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50c9635fa1798bfe0800000000000000
+      internalID: -1173021560891073531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 2
+        width: 618
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da4844f6b9a4bd70800000000000000
+      internalID: 9058051353796430544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_8
+      rect:
+        serializedVersion: 2
+        x: 5345
+        y: 2
+        width: 618
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67b5d24e0826e7d90800000000000000
+      internalID: -7098127656965809290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_9
+      rect:
+        serializedVersion: 2
+        x: 6010
+        y: 2
+        width: 618
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fad99495b2a09970800000000000000
+      internalID: 8759680176001506039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_10
+      rect:
+        serializedVersion: 2
+        x: 6675
+        y: 2
+        width: 618
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40591f918d7eb2470800000000000000
+      internalID: 8371039247732413700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_11
+      rect:
+        serializedVersion: 2
+        x: 7340
+        y: 2
+        width: 618
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ede11669fe493f90800000000000000
+      internalID: -6973455714940228125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ping_Bar_Sprite_12
+      rect:
+        serializedVersion: 2
+        x: 8005
+        y: 2
+        width: 617
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38d5fb587e37ea9d0800000000000000
+      internalID: -2761142083312984701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ping_Bar_Sprite_0: 7012856341813377668
+      Ping_Bar_Sprite_1: -1152919618173520049
+      Ping_Bar_Sprite_10: 8371039247732413700
+      Ping_Bar_Sprite_11: -6973455714940228125
+      Ping_Bar_Sprite_12: -2761142083312984701
+      Ping_Bar_Sprite_2: 4415332052372153101
+      Ping_Bar_Sprite_3: -4947959859580164333
+      Ping_Bar_Sprite_4: 1605237025877490296
+      Ping_Bar_Sprite_5: 7385154092783538338
+      Ping_Bar_Sprite_6: -1173021560891073531
+      Ping_Bar_Sprite_7: 9058051353796430544
+      Ping_Bar_Sprite_8: -7098127656965809290
+      Ping_Bar_Sprite_9: 8759680176001506039
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

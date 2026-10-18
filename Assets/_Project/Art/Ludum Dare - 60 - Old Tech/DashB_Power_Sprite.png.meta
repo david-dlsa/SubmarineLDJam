@@ -1,0 +1,353 @@
+fileFormatVersion: 2
+guid: 39745159c91f7e14cbfff5328f1e97ce
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3164053725118318987
+    second: DashB_Power_Sprite_0
+  - first:
+      213: -7602385530483374435
+    second: DashB_Power_Sprite_1
+  - first:
+      213: 5644956297003373470
+    second: DashB_Power_Sprite_2
+  - first:
+      213: 4102226518197881041
+    second: DashB_Power_Sprite_3
+  - first:
+      213: -4071020988847363433
+    second: DashB_Power_Sprite_4
+  - first:
+      213: 7582964244094365929
+    second: DashB_Power_Sprite_5
+  - first:
+      213: -6962486311419212620
+    second: DashB_Power_Sprite_6
+  - first:
+      213: 2684828204852921032
+    second: DashB_Power_Sprite_7
+  - first:
+      213: -2946663510433833543
+    second: DashB_Power_Sprite_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DashB_Power_Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1
+        width: 485
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5763210a6e50714d0800000000000000
+      internalID: -3164053725118318987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Power_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 10
+        width: 480
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9608f1a3a6ee7690800000000000000
+      internalID: -7602385530483374435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Power_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 10
+        width: 481
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e939d7708d9e65e40800000000000000
+      internalID: 5644956297003373470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Power_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 1492
+        y: 10
+        width: 480
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d84f55a8490ee830800000000000000
+      internalID: 4102226518197881041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Power_Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 1986
+        y: 10
+        width: 480
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ae796daf3d087c0800000000000000
+      internalID: -4071020988847363433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Power_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 2480
+        y: 11
+        width: 480
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e0bbb1cdc91c3960800000000000000
+      internalID: 7582964244094365929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Power_Sprite_6
+      rect:
+        serializedVersion: 2
+        x: 2975
+        y: 11
+        width: 478
+        height: 218
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc865ea697406f90800000000000000
+      internalID: -6962486311419212620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Power_Sprite_7
+      rect:
+        serializedVersion: 2
+        x: 3468
+        y: 10
+        width: 480
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c24539070d624520800000000000000
+      internalID: 2684828204852921032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Power_Sprite_8
+      rect:
+        serializedVersion: 2
+        x: 3961
+        y: 10
+        width: 480
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bd5cfb36295b17d0800000000000000
+      internalID: -2946663510433833543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      DashB_Power_Sprite_0: -3164053725118318987
+      DashB_Power_Sprite_1: -7602385530483374435
+      DashB_Power_Sprite_2: 5644956297003373470
+      DashB_Power_Sprite_3: 4102226518197881041
+      DashB_Power_Sprite_4: -4071020988847363433
+      DashB_Power_Sprite_5: 7582964244094365929
+      DashB_Power_Sprite_6: -6962486311419212620
+      DashB_Power_Sprite_7: 2684828204852921032
+      DashB_Power_Sprite_8: -2946663510433833543
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

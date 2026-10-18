@@ -3,7 +3,7 @@ using SubmarineLDJam.UseCases;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+using TMPro;
 
 namespace SubmarineLDJam.Presentation
 {
@@ -13,8 +13,8 @@ namespace SubmarineLDJam.Presentation
     /// </summary>
     public sealed class RunStatusView : RunView
     {
-        [SerializeField] private Text timerText;
-        [SerializeField] private Text resultText;
+        [SerializeField] private TMP_Text timerText;
+        [SerializeField] private TMP_Text resultText;
 
         protected override void OnBind()
         {

@@ -24,7 +24,6 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private float tickLength = 12f;
         [SerializeField] private float tickWidth = 3f;
         [SerializeField] private Color tickColor = new Color(1f, 1f, 1f, 0.8f);
-        [SerializeField, Range(0f, 1f)] private float inactiveAlpha = 0.4f;
 
         private RectTransform _ticks;
         private float _tickStep;
@@ -67,7 +66,7 @@ namespace SubmarineLDJam.Presentation
             if (_ticks != null) _ticks.localEulerAngles = Vector3.zero;
             if (northMarker != null) northMarker.localEulerAngles = new Vector3(0f, 0f, _shownFacing);
 
-            if (group != null) group.alpha = selectingHeading ? 1f : inactiveAlpha;
+            if (group != null) group.alpha = 1f;
         }
 
         private void BuildTicks()

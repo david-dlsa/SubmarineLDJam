@@ -1,7 +1,7 @@
 {
     "name": "SubmarineLDJam.Editor",
     "rootNamespace": "SubmarineLDJam.EditorTools",
-    "references": [ "SubmarineLDJam.Domain", "SubmarineLDJam.Presentation", "UnityEngine.UI", "Unity.InputSystem" ],
+    "references": [ "SubmarineLDJam.Domain", "SubmarineLDJam.Presentation", "UnityEngine.UI", "Unity.InputSystem", "Unity.TextMeshPro" ],
     "includePlatforms": [ "Editor" ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

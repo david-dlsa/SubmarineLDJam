@@ -3,6 +3,7 @@ using System.IO;
 using SubmarineLDJam.Domain.Levels;
 using SubmarineLDJam.Domain.Navigation;
 using SubmarineLDJam.Presentation;
+using TMPro;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -530,7 +531,17 @@ namespace SubmarineLDJam.EditorTools
             fillImage.fillMethod = Image.FillMethod.Horizontal;
             fillImage.fillOrigin = (int)Image.OriginHorizontal.Left;
 
-            var label = Label("Text", back, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, 24, TextAnchor.MiddleCenter);
+            var labelGo = new GameObject("Text", typeof(RectTransform), typeof(TextMeshProUGUI));
+            var labelRect = (RectTransform)labelGo.transform;
+            labelRect.SetParent(back, false);
+            Anchor(labelRect, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, new Vector2(400f, 38f));
+            var label = labelGo.GetComponent<TextMeshProUGUI>();
+            label.fontSize = 24;
+            label.alignment = TextAlignmentOptions.Center;
+            label.color = Color.white;
+            label.raycastTarget = false;
+            label.textWrappingMode = TextWrappingModes.NoWrap;
+            label.overflowMode = TextOverflowModes.Overflow;
 
             parts.Playing.Add(back.gameObject);
             var view = back.gameObject.AddComponent<OxygenBarView>();

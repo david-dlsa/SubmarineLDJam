@@ -1,0 +1,1575 @@
+fileFormatVersion: 2
+guid: 8b03f9edbb498e34aa332e565f4fdb22
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8826400357978905124
+    second: DashB_Compass_OverCardinal_0
+  - first:
+      213: -2292872920562213259
+    second: DashB_Compass_OverCardinal_1
+  - first:
+      213: -8142086515969946507
+    second: DashB_Compass_OverCardinal_2
+  - first:
+      213: 1362729446311387032
+    second: DashB_Compass_OverCardinal_3
+  - first:
+      213: 9011095098947741170
+    second: DashB_Compass_OverCardinal_4
+  - first:
+      213: 6920619658010712702
+    second: DashB_Compass_OverCardinal_5
+  - first:
+      213: -3861812063017336473
+    second: DashB_Compass_OverCardinal_6
+  - first:
+      213: 2687695188217375492
+    second: DashB_Compass_OverCardinal_7
+  - first:
+      213: -6262770783523803070
+    second: DashB_Compass_OverCardinal_8
+  - first:
+      213: 282088367090619086
+    second: DashB_Compass_OverCardinal_9
+  - first:
+      213: -3968641463805780558
+    second: DashB_Compass_OverCardinal_10
+  - first:
+      213: -2476524394245880422
+    second: DashB_Compass_OverCardinal_11
+  - first:
+      213: -7428393082472917636
+    second: DashB_Compass_OverCardinal_12
+  - first:
+      213: -7688627863222631807
+    second: DashB_Compass_OverCardinal_13
+  - first:
+      213: -343401799767973995
+    second: DashB_Compass_OverCardinal_14
+  - first:
+      213: -5711132246034912607
+    second: DashB_Compass_OverCardinal_15
+  - first:
+      213: -6759113930642906238
+    second: DashB_Compass_OverCardinal_16
+  - first:
+      213: -4602342372439276108
+    second: DashB_Compass_OverCardinal_17
+  - first:
+      213: 694250220327582963
+    second: DashB_Compass_OverCardinal_18
+  - first:
+      213: 2150931077457842928
+    second: DashB_Compass_OverCardinal_19
+  - first:
+      213: -8698943430938888907
+    second: DashB_Compass_OverCardinal_20
+  - first:
+      213: -2722781485257017623
+    second: DashB_Compass_OverCardinal_21
+  - first:
+      213: -1805244485264119826
+    second: DashB_Compass_OverCardinal_22
+  - first:
+      213: -7436891496464743029
+    second: DashB_Compass_OverCardinal_23
+  - first:
+      213: -7478841842040607865
+    second: DashB_Compass_OverCardinal_24
+  - first:
+      213: 2697836910006750054
+    second: DashB_Compass_OverCardinal_25
+  - first:
+      213: -7777967975657288641
+    second: DashB_Compass_OverCardinal_26
+  - first:
+      213: -5071354395732080715
+    second: DashB_Compass_OverCardinal_27
+  - first:
+      213: 1652944588348320841
+    second: DashB_Compass_OverCardinal_28
+  - first:
+      213: -7150653393087998976
+    second: DashB_Compass_OverCardinal_29
+  - first:
+      213: -8062312681389089160
+    second: DashB_Compass_OverCardinal_30
+  - first:
+      213: -2696594071305314829
+    second: DashB_Compass_OverCardinal_31
+  - first:
+      213: -4204147690985033599
+    second: DashB_Compass_OverCardinal_32
+  - first:
+      213: -2853052797184707236
+    second: DashB_Compass_OverCardinal_33
+  - first:
+      213: -4139055905043799473
+    second: DashB_Compass_OverCardinal_34
+  - first:
+      213: 2737489918996166776
+    second: DashB_Compass_OverCardinal_35
+  - first:
+      213: -4524257917954844022
+    second: DashB_Compass_OverCardinal_36
+  - first:
+      213: -8222535466632020147
+    second: DashB_Compass_OverCardinal_37
+  - first:
+      213: -1508429900321696780
+    second: DashB_Compass_OverCardinal_38
+  - first:
+      213: -7227777926970982674
+    second: DashB_Compass_OverCardinal_39
+  - first:
+      213: -4951826463723407231
+    second: DashB_Compass_OverCardinal_40
+  - first:
+      213: -3671739292080179291
+    second: DashB_Compass_OverCardinal_41
+  - first:
+      213: 3260717777774367892
+    second: DashB_Compass_OverCardinal_42
+  - first:
+      213: 3258520532421816487
+    second: DashB_Compass_OverCardinal_43
+  - first:
+      213: -3482639513892100258
+    second: DashB_Compass_OverCardinal_44
+  - first:
+      213: -7671312054544775892
+    second: DashB_Compass_OverCardinal_45
+  - first:
+      213: -8727459535449151735
+    second: DashB_Compass_OverCardinal_46
+  - first:
+      213: -7384722829220723764
+    second: DashB_Compass_OverCardinal_47
+  - first:
+      213: -4641692267713056019
+    second: DashB_Compass_OverCardinal_48
+  - first:
+      213: 3726576323610571241
+    second: DashB_Compass_OverCardinal_49
+  - first:
+      213: -2158725203956991449
+    second: DashB_Compass_OverCardinal_50
+  - first:
+      213: 6256408985868117745
+    second: DashB_Compass_OverCardinal_51
+  - first:
+      213: 8519705629127578107
+    second: DashB_Compass_OverCardinal_52
+  - first:
+      213: 176825967043468879
+    second: DashB_Compass_OverCardinal_53
+  - first:
+      213: 5850103062492401797
+    second: DashB_Compass_OverCardinal_54
+  - first:
+      213: 2006169261415914804
+    second: DashB_Compass_OverCardinal_55
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_0
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 197
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42a96be7c5cad7a70800000000000000
+      internalID: 8826400357978905124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_1
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 200
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57ed6c61a341e20e0800000000000000
+      internalID: -2292872920562213259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 203
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c0d1dc37f710f80800000000000000
+      internalID: -8142086515969946507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 205
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89fda5c163369e210800000000000000
+      internalID: 1362729446311387032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_4
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 207
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f52b0aef37dd0d70800000000000000
+      internalID: 9011095098947741170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_5
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 207
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a505579eafa0060800000000000000
+      internalID: 6920619658010712702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_6
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 206
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7618882b366186ac0800000000000000
+      internalID: -3861812063017336473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_7
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 204
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40b293e988c9c4520800000000000000
+      internalID: 2687695188217375492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_8
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 201
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2407e5a672b2619a0800000000000000
+      internalID: -6262770783523803070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_9
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 198
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec2d4b310ed2ae300800000000000000
+      internalID: 282088367090619086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_10
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 188
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bd58fc8d9d8ce8c0800000000000000
+      internalID: -3968641463805780558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_11
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 193
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9582634f2e91add0800000000000000
+      internalID: -2476524394245880422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_12
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 185
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c759b3b49db09e890800000000000000
+      internalID: -7428393082472917636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_13
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 193
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 182c17ac1b18c4590800000000000000
+      internalID: -7688627863222631807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_14
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 188
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f999de1edfb3bf0800000000000000
+      internalID: -343401799767973995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_15
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 176
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aa6fc92b7bfdb0b0800000000000000
+      internalID: -5711132246034912607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_16
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 182
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 283a2aff0bdc232a0800000000000000
+      internalID: -6759113930642906238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_17
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 183
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b5470c1ff13120c0800000000000000
+      internalID: -4602342372439276108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_18
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 177
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fcbcd7a5e872a900800000000000000
+      internalID: 694250220327582963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_19
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 163
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f219383b64a9dd10800000000000000
+      internalID: 2150931077457842928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_20
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 170
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5357badd905274780800000000000000
+      internalID: -8698943430938888907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_21
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 170
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e6be324aacb63ad0800000000000000
+      internalID: -2722781485257017623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_22
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 162
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee7691b84bb72f6e0800000000000000
+      internalID: -1805244485264119826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_23
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 156
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b858818169adac890800000000000000
+      internalID: -7436891496464743029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_24
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 156
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b67d128f0d53890800000000000000
+      internalID: -7478841842040607865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_25
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 148
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66bc3ea3064a07520800000000000000
+      internalID: 2697836910006750054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_26
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 148
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3c4598e55b1f0490800000000000000
+      internalID: -7777967975657288641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_27
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 113
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b70648db0eee99b0800000000000000
+      internalID: -5071354395732080715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_28
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 114
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ce7ed685070f610800000000000000
+      internalID: 1652944588348320841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_29
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 139
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0045c01ff96c3cc90800000000000000
+      internalID: -7150653393087998976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_30
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 117
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87e1dad0559ec1090800000000000000
+      internalID: -8062312681389089160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_31
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 115
+        width: 11
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fd1c64baf5c39ad0800000000000000
+      internalID: -2696594071305314829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_32
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 98
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 180fe8713fdd7a5c0800000000000000
+      internalID: -4204147690985033599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_33
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 97
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c55fe5ad89be768d0800000000000000
+      internalID: -2853052797184707236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_34
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 89
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f42a162859e1f86c0800000000000000
+      internalID: -4139055905043799473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_35
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 81
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 878baf5d3948df520800000000000000
+      internalID: 2737489918996166776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_36
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 89
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8a9d08e46b9631c0800000000000000
+      internalID: -4524257917954844022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_37
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 74
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4ff856de8fa3ed80800000000000000
+      internalID: -8222535466632020147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_38
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 74
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f35fb66ffaf01be0800000000000000
+      internalID: -1508429900321696780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_39
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 81
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eee3c731546c1bb90800000000000000
+      internalID: -7227777926970982674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_40
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 68
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18833603114974bb0800000000000000
+      internalID: -4951826463723407231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_41
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 62
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a777bb419c5b0dc0800000000000000
+      internalID: -3671739292080179291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_42
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 60
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 494da09fa85604d20800000000000000
+      internalID: 3260717777774367892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_43
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 67
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0b15ce827983d20800000000000000
+      internalID: 3258520532421816487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_44
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 56
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e57e8bd50dd2bafc0800000000000000
+      internalID: -3482639513892100258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_45
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 49
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c25cfaba4560a8590800000000000000
+      internalID: -7671312054544775892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_46
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 34
+        width: 18
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90725f5eac5d1e680800000000000000
+      internalID: -8727459535449151735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_47
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 50
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3c49776b1348990800000000000000
+      internalID: -7384722829220723764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_48
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 54
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de2394aa975659fb0800000000000000
+      internalID: -4641692267713056019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_49
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 45
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e1703d0c6577b330800000000000000
+      internalID: 3726576323610571241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_50
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 42
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72af57a4ddaaa02e0800000000000000
+      internalID: -2158725203956991449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_51
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 36
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f62b3423da33d650800000000000000
+      internalID: 6256408985868117745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_52
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 35
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf19b0f51231c3670800000000000000
+      internalID: 8519705629127578107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_53
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 38
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4ed0b8b746347200800000000000000
+      internalID: 176825967043468879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_54
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 41
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580d84b7dbdbf2150800000000000000
+      internalID: 5850103062492401797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverCardinal_55
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 46
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43dd00a605857db10800000000000000
+      internalID: 2006169261415914804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      DashB_Compass_OverCardinal_0: 8826400357978905124
+      DashB_Compass_OverCardinal_1: -2292872920562213259
+      DashB_Compass_OverCardinal_10: -3968641463805780558
+      DashB_Compass_OverCardinal_11: -2476524394245880422
+      DashB_Compass_OverCardinal_12: -7428393082472917636
+      DashB_Compass_OverCardinal_13: -7688627863222631807
+      DashB_Compass_OverCardinal_14: -343401799767973995
+      DashB_Compass_OverCardinal_15: -5711132246034912607
+      DashB_Compass_OverCardinal_16: -6759113930642906238
+      DashB_Compass_OverCardinal_17: -4602342372439276108
+      DashB_Compass_OverCardinal_18: 694250220327582963
+      DashB_Compass_OverCardinal_19: 2150931077457842928
+      DashB_Compass_OverCardinal_2: -8142086515969946507
+      DashB_Compass_OverCardinal_20: -8698943430938888907
+      DashB_Compass_OverCardinal_21: -2722781485257017623
+      DashB_Compass_OverCardinal_22: -1805244485264119826
+      DashB_Compass_OverCardinal_23: -7436891496464743029
+      DashB_Compass_OverCardinal_24: -7478841842040607865
+      DashB_Compass_OverCardinal_25: 2697836910006750054
+      DashB_Compass_OverCardinal_26: -7777967975657288641
+      DashB_Compass_OverCardinal_27: -5071354395732080715
+      DashB_Compass_OverCardinal_28: 1652944588348320841
+      DashB_Compass_OverCardinal_29: -7150653393087998976
+      DashB_Compass_OverCardinal_3: 1362729446311387032
+      DashB_Compass_OverCardinal_30: -8062312681389089160
+      DashB_Compass_OverCardinal_31: -2696594071305314829
+      DashB_Compass_OverCardinal_32: -4204147690985033599
+      DashB_Compass_OverCardinal_33: -2853052797184707236
+      DashB_Compass_OverCardinal_34: -4139055905043799473
+      DashB_Compass_OverCardinal_35: 2737489918996166776
+      DashB_Compass_OverCardinal_36: -4524257917954844022
+      DashB_Compass_OverCardinal_37: -8222535466632020147
+      DashB_Compass_OverCardinal_38: -1508429900321696780
+      DashB_Compass_OverCardinal_39: -7227777926970982674
+      DashB_Compass_OverCardinal_4: 9011095098947741170
+      DashB_Compass_OverCardinal_40: -4951826463723407231
+      DashB_Compass_OverCardinal_41: -3671739292080179291
+      DashB_Compass_OverCardinal_42: 3260717777774367892
+      DashB_Compass_OverCardinal_43: 3258520532421816487
+      DashB_Compass_OverCardinal_44: -3482639513892100258
+      DashB_Compass_OverCardinal_45: -7671312054544775892
+      DashB_Compass_OverCardinal_46: -8727459535449151735
+      DashB_Compass_OverCardinal_47: -7384722829220723764
+      DashB_Compass_OverCardinal_48: -4641692267713056019
+      DashB_Compass_OverCardinal_49: 3726576323610571241
+      DashB_Compass_OverCardinal_5: 6920619658010712702
+      DashB_Compass_OverCardinal_50: -2158725203956991449
+      DashB_Compass_OverCardinal_51: 6256408985868117745
+      DashB_Compass_OverCardinal_52: 8519705629127578107
+      DashB_Compass_OverCardinal_53: 176825967043468879
+      DashB_Compass_OverCardinal_54: 5850103062492401797
+      DashB_Compass_OverCardinal_55: 2006169261415914804
+      DashB_Compass_OverCardinal_6: -3861812063017336473
+      DashB_Compass_OverCardinal_7: 2687695188217375492
+      DashB_Compass_OverCardinal_8: -6262770783523803070
+      DashB_Compass_OverCardinal_9: 282088367090619086
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

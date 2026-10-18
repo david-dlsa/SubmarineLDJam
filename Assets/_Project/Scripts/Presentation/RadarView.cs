@@ -50,6 +50,12 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private Image cooldownFill;
         [SerializeField] private Text cooldownLabel;
 
+        [Header("Custom sprites (optional)")]
+        [Tooltip("Sonar charge frames, from empty (first) to full (last). Shown on the Cooldown Fill image. Empty = normal fill bar.")]
+        [SerializeField] private Sprite[] pingBarFrames;
+        [Tooltip("Replaces the red arrow of the submarine. Empty = red arrow. It is not tinted.")]
+        [SerializeField] private Sprite subIconSprite;
+
         [Header("Rotation")]
         [Tooltip("HeadingUp: triangle fixed pointing up, map turns around it. NorthUp: map fixed, triangle turns.")]
         [SerializeField] private RadarOrientation orientation = RadarOrientation.HeadingUp;
@@ -106,6 +112,9 @@ namespace SubmarineLDJam.Presentation
         /// HeadingUp: the submarine direction (map turns). NorthUp: 0.
         /// The compass HUD subtracts this, so the needle matches what the player sees.
         /// </summary>
+        /// <summary>True while the radar is still turning to the submarine heading.</summary>
+        public bool IsTurning => IsBound && submarine != null && Mathf.Abs(Mathf.DeltaAngle(_shownAngle, submarine.eulerAngles.z)) > 0.5f;
+
         public float ReferenceHeadingDegrees => orientation == RadarOrientation.HeadingUp ? -_shownAngle : 0f;
 
         protected override void OnBind()
@@ -217,8 +226,22 @@ namespace SubmarineLDJam.Presentation
             if (subIcon != null)
             {
                 var image = subIcon.GetComponent<Image>();
-                if (image.sprite == null) image.sprite = RadarSprites.Triangle(64);
-                image.color = subColor;
+                if (subIconSprite != null)
+                {
+                    image.sprite = subIconSprite;
+                    image.color = Color.white;
+                    image.preserveAspect = true;
+                }
+                else
+                {
+                    if (image.sprite == null) image.sprite = RadarSprites.Triangle(64);
+                    image.color = subColor;
+                }
+            }
+            if (cooldownFill != null && pingBarFrames != null && pingBarFrames.Length > 0)
+            {
+                cooldownFill.type = Image.Type.Simple; // frames replace the fill
+                cooldownFill.preserveAspect = true;
             }
             if (exitDot != null)
             {
@@ -450,6 +473,23 @@ namespace SubmarineLDJam.Presentation
             exitDot.localScale = new Vector3(pulse, pulse, 1f);
         }
 
+        /// <summary>Shows the sonar charge, 0..1. Uses the custom frames when there are any.</summary>
+        private void SetCharge(float charge)
+        {
+            if (cooldownFill == null) return;
+
+            charge = Mathf.Clamp01(charge);
+            if (pingBarFrames != null && pingBarFrames.Length > 0)
+            {
+                int last = pingBarFrames.Length - 1;
+                var frame = pingBarFrames[Mathf.Clamp(Mathf.FloorToInt(charge * last + 0.0001f), 0, last)];
+                if (frame != null) cooldownFill.sprite = frame;
+                return;
+            }
+
+            cooldownFill.fillAmount = charge;
+        }
+
         private void UpdateCooldown()
         {
             var sonar = _run.Sonar;
@@ -457,17 +497,17 @@ namespace SubmarineLDJam.Presentation
             switch (sonar.Mode)
             {
                 case SonarMode.Always:
-                    if (cooldownFill != null) cooldownFill.fillAmount = 1f;
+                    SetCharge(1f);
                     if (cooldownLabel != null) cooldownLabel.text = "SONAR ALWAYS ON";
                     break;
 
                 case SonarMode.Auto:
-                    if (cooldownFill != null) cooldownFill.fillAmount = 1f - sonar.CooldownPercent;
+                    SetCharge(1f - sonar.CooldownPercent);
                     if (cooldownLabel != null) cooldownLabel.text = $"NEXT PING {sonar.CooldownRemaining:0.0}s";
                     break;
 
                 default:
-                    if (cooldownFill != null) cooldownFill.fillAmount = 1f - sonar.CooldownPercent;
+                    SetCharge(1f - sonar.CooldownPercent);
                     if (cooldownLabel == null) break;
 
                     if (sonar.IsReady)

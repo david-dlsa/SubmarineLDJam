@@ -1,5 +1,6 @@
 using SubmarineLDJam.Domain.Common;
 using SubmarineLDJam.Domain.Levels;
+using SubmarineLDJam.Domain.Navigation;
 using SubmarineLDJam.Domain.Runs;
 using UnityEngine;
 
@@ -23,6 +24,9 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private float angularDamping = 2f;
 
         private Rigidbody2D _body;
+        private RadarView _radar;
+        private Impulse _pendingImpulse;
+        private bool _hasPending;
 
         private void Awake()
         {
@@ -34,7 +38,28 @@ namespace SubmarineLDJam.Presentation
             _body.simulated = false; // OnBind turns it on when a run starts
         }
 
-        protected override void OnBind() => _body.simulated = true;
+        protected override void OnBind()
+        {
+            _body.simulated = true;
+            _hasPending = false;
+            if (_radar == null) _radar = FindFirstObjectByType<RadarView>(FindObjectsInactive.Include);
+        }
+
+        private void FixedUpdate()
+        {
+            // The force waits until the radar finished turning to the new heading.
+            if (!IsBound || !_hasPending) return;
+            if (_radar != null && _radar.IsTurning) return;
+
+            _hasPending = false;
+            Push(_pendingImpulse);
+        }
+
+        private void Push(Impulse impulse)
+        {
+            var direction = new Vector2(impulse.Heading.X, impulse.Heading.Y);
+            _body.AddForce(direction * (impulse.Force.Normalized * maxImpulse), ForceMode2D.Impulse);
+        }
 
         protected override void OnUnbind()
         {
@@ -42,6 +67,7 @@ namespace SubmarineLDJam.Presentation
             _body.linearVelocity = Vector2.zero;
             _body.angularVelocity = 0f;
             _body.simulated = false;
+            _hasPending = false;
         }
 
         /// <summary>Move to a place, stand still, face up. Used when a stage starts.</summary>
@@ -52,6 +78,7 @@ namespace SubmarineLDJam.Presentation
             transform.SetPositionAndRotation(new Vector3(position.x, position.y, transform.position.z), Quaternion.identity);
             _body.position = position;
             _body.rotation = 0f;
+            _hasPending = false;
             _body.linearVelocity = Vector2.zero;
             _body.angularVelocity = 0f;
         }
@@ -66,13 +93,13 @@ namespace SubmarineLDJam.Presentation
                     break;
 
                 case ImpulseFired fired:
-                    var impulse = fired.Impulse;
-                    var direction = new Vector2(impulse.Heading.X, impulse.Heading.Y);
-                    _body.AddForce(direction * (impulse.Force.Normalized * maxImpulse), ForceMode2D.Impulse);
+                    _pendingImpulse = fired.Impulse;
+                    _hasPending = true;
                     break;
 
                 case RunCompleted _:
                 case RunFailed _:
+                    _hasPending = false;
                     _body.linearVelocity = Vector2.zero;
                     break;
             }
