@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 4513790256714026971}
   - component: {fileID: 5805907184491928483}
   - component: {fileID: 6745865599074540730}
+  - component: {fileID: 4134908003860555059}
   m_Layer: 0
   m_Name: ForceBar
   m_TagString: Untagged
@@ -241,3 +242,25 @@ MonoBehaviour:
   frameImage: {fileID: 6278400821954115342}
   fadeSeconds: 0.25
   blendFrames: 1
+--- !u!114 &4134908003860555059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8052928503433564990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c11265b855408d42af33d62691f5194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineExternalImpulseListener
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 0
+  UseLocalSpace: 1
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}

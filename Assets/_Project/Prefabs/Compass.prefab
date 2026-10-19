@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 508579091339577400}
   - component: {fileID: 4037330227652898909}
   - component: {fileID: 9070879786558314455}
+  - component: {fileID: 1697315435513989314}
   m_Layer: 0
   m_Name: Compass
   m_TagString: Untagged
@@ -377,9 +378,26 @@ MonoBehaviour:
   needle: {fileID: 936559634970378678}
   lockedNeedle: {fileID: 4615172891186703987}
   group: {fileID: 4037330227652898909}
-  tickRoot: {fileID: 4767174774640287523}
   northMarker: {fileID: 0}
-  tickRadius: 120
-  tickLength: 12
-  tickWidth: 3
-  tickColor: {r: 1, g: 1, b: 1, a: 0.8}
+--- !u!114 &1697315435513989314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9113807936699929974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c11265b855408d42af33d62691f5194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineExternalImpulseListener
+  ChannelMask: 1
+  Gain: 1
+  Use2DDistance: 0
+  UseLocalSpace: 1
+  ReactionSettings:
+    m_SecondaryNoise: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    Duration: 1
+    m_NoiseOffsets: {x: 0, y: 0, z: 0}
