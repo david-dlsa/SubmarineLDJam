@@ -1,7 +1,14 @@
 {
     "name": "SubmarineLDJam.Presentation",
     "rootNamespace": "SubmarineLDJam.Presentation",
-    "references": [ "SubmarineLDJam.Domain", "SubmarineLDJam.UseCases", "Unity.InputSystem", "UnityEngine.UI", "Unity.TextMeshPro" ],
+    "references": [
+        "SubmarineLDJam.Domain",
+        "SubmarineLDJam.UseCases",
+        "Unity.InputSystem",
+        "UnityEngine.UI",
+        "Unity.TextMeshPro",
+        "Unity.Cinemachine"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
