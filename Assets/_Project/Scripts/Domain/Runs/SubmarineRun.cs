@@ -127,6 +127,15 @@ namespace SubmarineLDJam.Domain.Runs
             }
         }
 
+        /// <summary>
+        /// Touch screens: one tap = the right arrow for the next slot. A whole sequence of taps
+        /// (3 by default, the sequence length) restores the oxygen, with no mistakes possible.
+        /// </summary>
+        public void TapRefill()
+        {
+            if (Refill.TryGetExpected(out var arrow)) PressArrow(arrow);
+        }
+
         /// <summary>Physics says submarine hit something.</summary>
         public void RegisterCollision(CollisionKind kind) => RegisterCollision(kind, Rules.PenaltyFor(kind));
 

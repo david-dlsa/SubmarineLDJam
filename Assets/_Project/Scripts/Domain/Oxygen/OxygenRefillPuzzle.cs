@@ -103,6 +103,15 @@ namespace SubmarineLDJam.Domain.Oxygen
             return false;
         }
 
+        /// <summary>The arrow the next press must be. False when the puzzle is not showing.</summary>
+        public bool TryGetExpected(out Arrow arrow)
+        {
+            arrow = Arrow.Up;
+            if (!IsActive || Progress >= _sequence.Length) return false;
+            arrow = _sequence[Progress];
+            return true;
+        }
+
         public RefillInputOutcome Input(Arrow arrow, OxygenSupply oxygen)
         {
             if (!IsActive) return new RefillInputOutcome(RefillInputStatus.Ignored, -1, false, 0f, 0);

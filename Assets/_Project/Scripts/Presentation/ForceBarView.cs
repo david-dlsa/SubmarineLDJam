@@ -21,6 +21,12 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private Color dividerColor = new Color(1f, 1f, 1f, 0.6f);
         [SerializeField] private float dividerWidth = 2f;
 
+        [Header("Click / tap")]
+        [Tooltip("Click or tap the force bar = the same as pressing Space. Works with mouse and finger.")]
+        [SerializeField] private bool clickToConfirm = true;
+        [Tooltip("Optional. The area that can be clicked. Empty = the Track.")]
+        [SerializeField] private RectTransform tapArea;
+
         [Header("Custom sprites (optional)")]
         [Tooltip("Power frames, from empty (first) to full (last). The frame follows the bar going up and back down. Empty = normal bar with marker.")]
         [SerializeField] private Sprite[] powerFrames;
@@ -45,6 +51,9 @@ namespace SubmarineLDJam.Presentation
             _levels = Run.Movement.ForceLevels;
             _shown = 0f;
             _fading = false;
+
+            if (clickToConfirm)
+                TouchInput.AddTapArea(tapArea != null ? tapArea : track, "TapToConfirm", () => Service?.ConfirmMovement());
 
             if (UsesFrames)
             {

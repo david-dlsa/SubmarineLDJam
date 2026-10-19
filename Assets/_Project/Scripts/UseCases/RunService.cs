@@ -55,6 +55,13 @@ namespace SubmarineLDJam.UseCases
             Publish();
         }
 
+        public void TapRefill()
+        {
+            if (Run == null) return;
+            Run.TapRefill();
+            Publish();
+        }
+
         public void PressArrow(Arrow arrow)
         {
             if (Run == null) return;

@@ -33,6 +33,10 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private Color correctColor = new Color(0.25f, 0.9f, 0.35f);
         [SerializeField] private Color wrongColor = new Color(1f, 0.25f, 0.25f);
 
+        [Header("Touch screens only")]
+        [Tooltip("On a touch device, tapping the arrows panel counts as the right arrow for the next slot. Auto = only when there is a touch screen. Always = test with the mouse.")]
+        [SerializeField] private TouchMode tapToRefill = TouchMode.Auto;
+
         [Tooltip("How long the last colors stay before the next sequence shows.")]
         [SerializeField] private float resultDelay = 0.25f;
 
@@ -43,6 +47,9 @@ namespace SubmarineLDJam.Presentation
         {
             slotTemplate.gameObject.SetActive(false);
             root.SetActive(false);
+
+            if (TouchInput.IsEnabled(tapToRefill))
+                TouchInput.AddTapArea(root.transform as RectTransform, "TapToRefill", () => Service?.TapRefill());
         }
 
         protected override void OnUnbind()

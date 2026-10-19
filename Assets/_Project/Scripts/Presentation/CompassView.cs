@@ -18,6 +18,12 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private CanvasGroup group;
         [Tooltip("Optional. The wheel with N, S, E, W (full size, centered). It turns together with the radar map, so N always points to where north really is. Put the N at the top of the image.")]
         [SerializeField] private RectTransform northMarker;
+        [Header("Click / tap")]
+        [Tooltip("Click or tap the compass = the same as pressing Space. Works with mouse and finger.")]
+        [SerializeField] private bool clickToConfirm = true;
+        [Tooltip("Optional. The area that can be clicked. Empty = the parent of the Needle (the compass dial).")]
+        [SerializeField] private RectTransform tapArea;
+
         [Tooltip("Optional. The radar the wheel follows. Empty = found by itself.")]
         [SerializeField] private RadarView radar;
 
@@ -28,6 +34,11 @@ namespace SubmarineLDJam.Presentation
         {
             if (lockedNeedle != null) lockedNeedle.gameObject.SetActive(false);
             _snapFacing = true;
+            if (clickToConfirm)
+            {
+                var area = tapArea != null ? tapArea : needle != null ? needle.parent as RectTransform : transform as RectTransform;
+                TouchInput.AddTapArea(area, "TapToConfirm", () => Service?.ConfirmMovement());
+            }
             if (radar == null) radar = FindFirstObjectByType<RadarView>(FindObjectsInactive.Include);
         }
 

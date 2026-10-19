@@ -123,6 +123,32 @@ namespace SubmarineLDJam.Tests
         }
     }
 
+    public class TapRefillTests
+    {
+        [Test]
+        public void Taps_follow_the_expected_arrow_and_one_sequence_restores_everything()
+        {
+            var o = new OxygenSupply(100f, 0f);
+            var p = new OxygenRefillPuzzle(3, 10f, 0.75f, 0.25f, new Random(1));
+            Assert.IsFalse(p.TryGetExpected(out _)); // not showing yet
+
+            o.Drain(30f);
+            p.Refresh(o);
+
+            RefillInputOutcome last = default;
+            for (int i = 0; i < 3; i++)
+            {
+                Assert.IsTrue(p.TryGetExpected(out var arrow));
+                last = p.Input(arrow, o);
+                Assert.AreEqual(RefillInputStatus.Correct, last.Status);
+            }
+
+            Assert.IsTrue(last.SequenceCompleted);
+            Assert.AreEqual(0, last.Mistakes);
+            Assert.AreEqual(80f, o.Current, 0.001f);
+        }
+    }
+
     public class StrictRefillTests
     {
         private static Arrow Other(Arrow a) => a == Arrow.Up ? Arrow.Down : Arrow.Up;
