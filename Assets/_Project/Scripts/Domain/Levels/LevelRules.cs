@@ -5,7 +5,7 @@ using SubmarineLDJam.Domain.Sonar;
 
 namespace SubmarineLDJam.Domain.Levels
 {
-    public enum CollisionKind { Wall, Obstacle, Enemy }
+    public enum CollisionKind { Wall, Obstacle, Enemy, Bomb }
 
     /// <summary>What a hit costs: a chunk at once, plus faster fall for some time.</summary>
     public readonly struct CollisionPenalty

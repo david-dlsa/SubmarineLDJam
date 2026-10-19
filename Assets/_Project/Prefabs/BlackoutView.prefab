@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7071666324740682269}
   - component: {fileID: 765767557783657748}
   - component: {fileID: 2320345806725192310}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DarkOverlayImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2237282941837355580}
   - component: {fileID: 4086240471853012286}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BlackoutView
   m_TagString: Untagged
   m_Icon: {fileID: 0}

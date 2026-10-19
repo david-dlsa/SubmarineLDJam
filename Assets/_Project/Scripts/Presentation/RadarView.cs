@@ -71,7 +71,7 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private Color edgeGlowColor = new Color(0.2f, 0.9f, 0.5f, 0.6f);
         [SerializeField] private Color ringColor = new Color(0.4f, 1f, 0.6f, 0.9f);
         [SerializeField] private Color subColor = new Color(1f, 0.2f, 0.2f);
-        [SerializeField] private Color exitColor = new Color(1f, 0.65f, 0.1f);
+        [SerializeField] private Color exitColor = new Color(0.3f, 0.8f, 1f);
         [Tooltip("Pixels. Exit dot never goes closer to the border than this.")]
         [SerializeField] private float exitEdgeMargin = 14f;
         [SerializeField] private int snapshotSize = 512;

@@ -76,7 +76,7 @@ MonoBehaviour:
   edgeGlowColor: {r: 1, g: 1, b: 1, a: 0}
   ringColor: {r: 0.4, g: 1, b: 0.6, a: 0.9}
   subColor: {r: 1, g: 0.2, b: 0.2, a: 1}
-  exitColor: {r: 1, g: 0.65, b: 0.1, a: 1}
+  exitColor: {r: 0.9882353, g: 1, b: 0, a: 1}
   exitEdgeMargin: 14
   snapshotSize: 512
   captureAreaMultiplier: 2
