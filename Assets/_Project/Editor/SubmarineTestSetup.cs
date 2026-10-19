@@ -78,13 +78,19 @@ namespace SubmarineLDJam.EditorTools
             SetRef(flow, "mazeParent", mazeRoot);
             SetRefs(flow, "showWhilePlaying", parts.Playing);
 
+            // Sounds: drag the clips into these two components.
+            var audioGo = new GameObject("Audio");
+            audioGo.AddComponent<RunSoundView>();
+            audioGo.AddComponent<BackgroundSoundView>();
+            audioGo.AddComponent<UiSoundView>();
+
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
             Debug.Log("Submarine setup created. Play: pick a stage, Enter or PLAY. Space = movement, arrows = oxygen, M = sonar, R = restart, ESC = back to stage select, F2 = show real world (debug).");
         }
 
         private static void CleanOldObjects()
         {
-            foreach (var objectName in new[] { "RunBootstrap", "World", "HUD", "Submarine", "SonarCamera", "StageFlow" })
+            foreach (var objectName in new[] { "RunBootstrap", "World", "HUD", "Submarine", "SonarCamera", "StageFlow", "Audio" })
             {
                 GameObject found;
                 while ((found = GameObject.Find(objectName)) != null)
