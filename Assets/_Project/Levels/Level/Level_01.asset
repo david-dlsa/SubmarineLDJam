@@ -20,6 +20,7 @@ MonoBehaviour:
   forceBarSpeed: 1.2
   forceLevels: 5
   headingStepDegrees: 0
+  compassMode: 0
   refillTriggerPercent: 0.75
   refillSequenceLength: 3
   refillRestoreAmount: 8
@@ -33,6 +34,21 @@ MonoBehaviour:
   sonarFadeSeconds: 2
   exitHintMode: 0
   exitHintSeconds: 15
+  blackoutsEnabled: 0
+  blackoutMinIntervalSeconds: 25
+  blackoutMaxIntervalSeconds: 50
+  blackoutMinDurationSeconds: 4
+  blackoutMaxDurationSeconds: 8
+  introPages:
+  - title: OXYGEN
+    text: 'Oxygen drops over time. Watch the bar.
+
+      When it gets low, press the arrows shown on screen
+
+      in the right order to refill it.
+
+      If it hits zero, the run is lost.'
+    image: {fileID: 0}
   collisionCooldownSeconds: 0.5
   wall:
     instantLoss: 10

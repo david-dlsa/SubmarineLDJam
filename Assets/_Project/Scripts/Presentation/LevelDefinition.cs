@@ -65,6 +65,10 @@ namespace SubmarineLDJam.Presentation
         [Tooltip("Longest time in the dark. The real time is random between min and max.")]
         [Min(0.5f)] public float blackoutMaxDurationSeconds = 8f;
 
+        [Header("Intro popup (first time this stage is played)")]
+        [Tooltip("Pages of a popup shown before the stage starts, only the first time. The stage starts when the player presses OK on the last page. Leave empty for no popup.")]
+        public IntroPage[] introPages;
+
         [Header("Collisions")]
         public float collisionCooldownSeconds = 0.5f;
         public Penalty wall = new Penalty { instantLoss = 10f, drainMultiplier = 1f, boostSeconds = 0f };

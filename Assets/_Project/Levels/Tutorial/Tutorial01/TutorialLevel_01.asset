@@ -39,6 +39,26 @@ MonoBehaviour:
   blackoutMaxIntervalSeconds: 25
   blackoutMinDurationSeconds: 5
   blackoutMaxDurationSeconds: 10
+  introPages:
+  - title: MOVEMENT
+    text: 'Press SPACE to set the compass angle.
+
+      Press SPACE again to set the thrust and move.
+
+      You cannot steer again until the submarine stops.'
+    image: {fileID: 0}
+  - title: SONAR
+    text: 'The sonar pings by itself.
+
+      Use each ping to plan your next move.'
+    image: {fileID: 0}
+  - title: BLACKOUT
+    text: 'The lights can fail without warning.
+
+      The cabin goes dark for a few seconds.
+
+      Stay calm. The lights come back.'
+    image: {fileID: 0}
   collisionCooldownSeconds: 0.5
   wall:
     instantLoss: 0

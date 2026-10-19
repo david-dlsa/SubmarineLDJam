@@ -17,7 +17,7 @@ MonoBehaviour:
   maxOxygen: 110
   oxygenDrainPerSecond: 1.5
   compassDegreesPerSecond: 270
-  forceBarSpeed: 2.0
+  forceBarSpeed: 2
   forceLevels: 5
   headingStepDegrees: 0
   compassMode: 2
@@ -34,6 +34,24 @@ MonoBehaviour:
   sonarFadeSeconds: 2
   exitHintMode: 0
   exitHintSeconds: 15
+  blackoutsEnabled: 0
+  blackoutMinIntervalSeconds: 25
+  blackoutMaxIntervalSeconds: 50
+  blackoutMinDurationSeconds: 4
+  blackoutMaxDurationSeconds: 8
+  introPages:
+  - title: SONAR
+    text: 'Press M to send a ping.
+
+      The ping shows the walls around you for a moment.
+
+      It needs time to recharge. Wait for the bar.'
+    image: {fileID: 0}
+  - title: NEW COMPASS
+    text: 'The compass now works differently.
+
+      Check the needle before you set your angle.'
+    image: {fileID: 0}
   collisionCooldownSeconds: 0.5
   wall:
     instantLoss: 10

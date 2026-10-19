@@ -74,8 +74,28 @@ public class RandomEventManager : RunView
     private async Awaitable PlayEvent(EventSpec eventToPlay, CancellationToken token)
     {
         eventToPlay.EventObject.SetActive(true);
+        var sfx = StartSfx(eventToPlay);
         await Awaitable.WaitForSecondsAsync(eventToPlay.Duration, token);
+        if (sfx != null) Destroy(sfx);
         eventToPlay.EventObject.SetActive(false);
+    }
+
+    /// <summary>Plays the event sound. Loop ON: repeats until the event ends. Returns the source to destroy, or null.</summary>
+    private AudioSource StartSfx(EventSpec spec)
+    {
+        if (spec.Sfx == null) return null;
+
+        var source = gameObject.AddComponent<AudioSource>();
+        source.playOnAwake = false;
+        source.spatialBlend = 0f; // 2D sound
+        source.clip = spec.Sfx;
+        source.volume = spec.Volume > 0f ? spec.Volume : 1f; // 0 = not set = full
+        source.loop = spec.LoopSfx;
+        source.Play();
+
+        // One shot: the source is removed when the clip ends.
+        if (!spec.LoopSfx) Destroy(source, spec.Sfx.length + 0.1f);
+        return spec.LoopSfx ? source : null;
     }
 
     private IList<EventSpec> GetShuffled(int amount)
@@ -101,5 +121,11 @@ public class RandomEventManager : RunView
         public string Name;
         public GameObject EventObject;
         public float Duration;
+        [Tooltip("Sound of this event (sparks, smoke, drip...). Empty = silent.")]
+        public AudioClip Sfx;
+        [Tooltip("0 = full volume.")]
+        [Range(0f, 1f)] public float Volume;
+        [Tooltip("ON = the sound repeats while the event lasts. OFF = plays once at the start.")]
+        public bool LoopSfx;
     }
 }

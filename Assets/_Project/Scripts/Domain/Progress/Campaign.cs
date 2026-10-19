@@ -25,18 +25,35 @@ namespace SubmarineLDJam.Domain.Progress
     public sealed class Campaign
     {
         private readonly Dictionary<int, StageRecord> _records = new Dictionary<int, StageRecord>();
+        private readonly HashSet<int> _introSeen = new HashSet<int>();
 
-        public Campaign(int stageCount, IEnumerable<StageRecord> records = null)
+        public Campaign(int stageCount, IEnumerable<StageRecord> records = null, IEnumerable<int> introSeen = null)
         {
             if (stageCount < 0) throw new ArgumentOutOfRangeException(nameof(stageCount));
             StageCount = stageCount;
 
-            if (records == null) return;
-            foreach (var record in records)
-                if (record.Index >= 0 && record.Index < stageCount) _records[record.Index] = record;
+            if (records != null)
+                foreach (var record in records)
+                    if (record.Index >= 0 && record.Index < stageCount) _records[record.Index] = record;
+
+            if (introSeen != null)
+                foreach (var index in introSeen)
+                    if (index >= 0 && index < stageCount) _introSeen.Add(index);
         }
 
         public int StageCount { get; }
+
+        /// <summary>Stages whose intro popup the player already confirmed.</summary>
+        public IReadOnlyCollection<int> IntroSeen => _introSeen;
+
+        public bool HasSeenIntro(int index) => _introSeen.Contains(index);
+
+        /// <summary>The player confirmed the intro popup of this stage. It will not show again. True if it was new.</summary>
+        public bool MarkIntroSeen(int index)
+        {
+            if (index < 0 || index >= StageCount) return false;
+            return _introSeen.Add(index);
+        }
 
         public IReadOnlyCollection<StageRecord> Records => _records.Values;
 
