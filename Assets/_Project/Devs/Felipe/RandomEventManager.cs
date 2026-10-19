@@ -1,62 +1,80 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using SubmarineLDJam.Presentation;
 using UnityEngine;
 
-public class RandomEventManager : MonoBehaviour
+public class RandomEventManager : RunView
 {
-
     [SerializeField] private List<EventSpec> _events = new();
     [SerializeField] private float _starDelay = 10;
     [SerializeField] private float _delayBetweenEvents = 10;
     [SerializeField] private AnimationCurve _amountCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
-    private void Start()
+    private CancellationTokenSource _runEndedCts;
+    private float _timeOnStart;
+    
+    private void Awake()
     {
         foreach (var e in _events)
             e.EventObject.SetActive(false);
-        
-        StartDelay().LogExceptionsAndForget();
     }
 
-    private async Awaitable StartDelay()
+    protected override void OnBind()
     {
-        await Awaitable.WaitForSecondsAsync(_starDelay, destroyCancellationToken);
-        EventLoop().LogExceptionsAndForget();
+        _timeOnStart = Time.time;
+        _runEndedCts = new CancellationTokenSource();
+        var linked = CancellationTokenSource.CreateLinkedTokenSource(_runEndedCts.Token, destroyCancellationToken);
+        StartDelay(linked.Token).LogExceptionsAndForget();
     }
 
-    private async Awaitable EventLoop()
+    protected override void OnUnbind()
+    {
+        _runEndedCts?.Cancel();
+        _runEndedCts?.Dispose();
+        _runEndedCts = null;
+    }
+
+    private async Awaitable StartDelay(CancellationToken token)
+    {
+        await Awaitable.WaitForSecondsAsync(_starDelay, token);
+        EventLoop(token).LogExceptionsAndForget();
+    }
+
+    private async Awaitable EventLoop(CancellationToken token)
     {
         Debug.Log("Starting event loop");
 
         while (true)
         {
-            if(destroyCancellationToken.IsCancellationRequested)
+            if(token.IsCancellationRequested)
                 break;
         
-            var numOfEvents = Mathf.FloorToInt(_amountCurve.Evaluate(Time.time));
+            var timeSinceStart = Time.time - _timeOnStart;
+            var numOfEvents = Mathf.FloorToInt(_amountCurve.Evaluate(timeSinceStart));
             var eventsToPlay = GetShuffled(numOfEvents);
 
             Debug.Log($"{eventsToPlay.Count}/{_events.Count} were selected");
         
             foreach(var e in eventsToPlay)
-                PlayEvent(e).LogExceptionsAndForget();
+                PlayEvent(e, token).LogExceptionsAndForget();
 
             var waitTime = eventsToPlay.Count > 0 ? eventsToPlay.Max(x => x.Duration) : 0f;
             waitTime += _delayBetweenEvents;
         
             Debug.Log($"Waiting {waitTime}");
         
-            await Awaitable.WaitForSecondsAsync(waitTime, destroyCancellationToken);
+            await Awaitable.WaitForSecondsAsync(waitTime, token);
         }
         
         Debug.Log("Loop finished");
     }
 
-    private async Awaitable PlayEvent(EventSpec eventToPlay)
+    private async Awaitable PlayEvent(EventSpec eventToPlay, CancellationToken token)
     {
         eventToPlay.EventObject.SetActive(true);
-        await Awaitable.WaitForSecondsAsync(eventToPlay.Duration, destroyCancellationToken);
+        await Awaitable.WaitForSecondsAsync(eventToPlay.Duration, token);
         eventToPlay.EventObject.SetActive(false);
     }
 
