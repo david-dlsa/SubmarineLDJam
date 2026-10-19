@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5923593170398586648}
   - component: {fileID: 3015371189771787672}
   - component: {fileID: 2877785343873769583}
+  - component: {fileID: 168489523848349297}
   m_Layer: 5
   m_Name: Audio
   m_TagString: Untagged
@@ -71,4 +72,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.BackgroundSoundView
   clip: {fileID: 8300000, guid: 88d6936805a5ca442a6ffe50799bbee0, type: 3}
-  volume: 0.6
+  volume: 0.8
+--- !u!114 &168489523848349297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604217701182007986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4358ddcfc3dd9654086b23363f5d08b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.BackgroundSoundView
+  clip: {fileID: 8300000, guid: 33a267011bc42384ea5f1bb2c52698c8, type: 3}
+  volume: 0.7
