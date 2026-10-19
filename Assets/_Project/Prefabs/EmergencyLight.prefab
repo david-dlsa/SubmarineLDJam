@@ -130,8 +130,8 @@ MonoBehaviour:
   warningPercent: 0.6
   dangerPercent: 0.25
   siren: {fileID: 8779411337576677787}
-  sirenOff: {fileID: 1331479435661797633, guid: 135568356b7865647a7f5576cfa71be9, type: 3}
-  sirenOn: {fileID: -5620060186184133995, guid: df07772a13508ca4891993171dd69424, type: 3}
+  sirenOff: {fileID: 21300000, guid: 135568356b7865647a7f5576cfa71be9, type: 3}
+  sirenOn: {fileID: 21300000, guid: df07772a13508ca4891993171dd69424, type: 3}
   blinkInDanger: 1
   blinkSeconds: 0.4
   soundMode: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1331479435661797633, guid: 135568356b7865647a7f5576cfa71be9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 135568356b7865647a7f5576cfa71be9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
