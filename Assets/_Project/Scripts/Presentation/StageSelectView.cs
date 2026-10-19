@@ -41,7 +41,7 @@ namespace SubmarineLDJam.Presentation
         [Tooltip("Stage name, e.g. STAGE 1.")]
         [SerializeField] private TMP_Text titleText;
         [Tooltip("Best time and stars, or LOCKED.")]
-        [SerializeField] private Text recordText;
+        [SerializeField] private TMP_Text recordText;
         [SerializeField] private string lockedText = "LOCKED";
         [SerializeField] private string notCompletedText = "";
 
@@ -140,7 +140,7 @@ namespace SubmarineLDJam.Presentation
             if (!card.Completed) return notCompletedText;
 
             int stars = Mathf.Clamp(card.Stars, 0, 3);
-            return $"BEST {card.BestSeconds:0.0}s   {new string('*', stars)}{new string('-', 3 - stars)}";
+            return $"BEST\n{TimeFormatterHelper.FormatTime(card.BestSeconds)}   {new string('*', stars)}{new string('-', 3 - stars)}";
         }
     }
 }

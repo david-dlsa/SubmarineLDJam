@@ -91,7 +91,7 @@ namespace SubmarineLDJam.Presentation
             _card = card;
 
             if (titleText != null) titleText.text = card.Completed ? completedTitle : failedTitle;
-            if (timeText != null) timeText.text = $"{card.Seconds:0.0}s";
+            if (timeText != null) timeText.text = $"{TimeFormatterHelper.FormatTime(card.Seconds)}";
 
             int stars = card.Completed ? Mathf.Clamp(card.Stars, 0, 3) : 0;
             if (starsText != null)
