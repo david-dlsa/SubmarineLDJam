@@ -186,7 +186,7 @@ MonoBehaviour:
     LoopSfx: 0
   - Name: Smoke Pipes
     EventObject: {fileID: 3866070577616488938}
-    Duration: 3
+    Duration: 5
     Sfx: {fileID: 0}
     Volume: 0
     LoopSfx: 0

@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.RunStatusView
   timerText: {fileID: 7546428825227821399}
-  _monospaceDistance: 0.6
 --- !u!114 &1377428932050498226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -15.84}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 108.6, y: -0.8}
+  m_AnchoredPosition: {x: 115, y: -5}
   m_SizeDelta: {x: 238.0762, y: 183.9536}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6141388337953697105
@@ -139,7 +138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <mspace=0.6em>00:00.00</mspace>
+  m_text: <mspace=0.7em>00:00.00</mspace>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 00ba7db68a775b74fb2b2f6c10e12647, type: 2}
   m_sharedMaterial: {fileID: -462691762246716887, guid: 00ba7db68a775b74fb2b2f6c10e12647, type: 2}
@@ -166,8 +165,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
