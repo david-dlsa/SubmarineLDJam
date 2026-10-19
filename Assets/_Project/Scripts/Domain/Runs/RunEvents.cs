@@ -46,6 +46,9 @@ namespace SubmarineLDJam.Domain.Runs
         }
     }
 
+    /// <summary>Strict mode: a wrong arrow threw the sequence away. It starts again from the first slot.</summary>
+    public sealed class RefillSequenceFailed : IDomainEvent { }
+
     /// <summary>Whole sequence used. Oxygen came back (less if there were mistakes).</summary>
     public sealed class RefillSequenceCompleted : IDomainEvent
     {

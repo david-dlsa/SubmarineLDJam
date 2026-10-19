@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2852463442382935469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4816203812399786901}
+  - component: {fileID: 1406858585388494093}
+  - component: {fileID: 4181600581451535946}
+  m_Layer: 0
+  m_Name: StageFlow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4816203812399786901
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852463442382935469}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1406858585388494093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852463442382935469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865c3ef8b6dcc714da8f76eef38a7ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.StageFlow
+  catalog: {fileID: 11400000, guid: 3ea76b040060c8341a98e52dee529d2b, type: 2}
+  runner: {fileID: 0}
+  selectView: {fileID: 0}
+  introView: {fileID: 0}
+  resultView: {fileID: 0}
+  resultDelaySeconds: 1
+  submarine: {fileID: 0}
+  mazeParent: {fileID: 0}
+  showWhilePlaying:
+  - {fileID: 0}
+  unlockAll: 0
+  onReturn:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4181600581451535946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2852463442382935469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44af60fbd2b9c2c47b32fcc43f010a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.StageMusicView
+  flow: {fileID: 1406858585388494093}
+  tracks:
+  - {fileID: 8300000, guid: 1f40b757d8bcdf64da99428db6c01820, type: 3}
+  - {fileID: 8300000, guid: a08cf5a897e516649aa6e2fc457526bb, type: 3}
+  - {fileID: 8300000, guid: c09ead690d77e2049998fa889ad825a8, type: 3}
+  volume: 0.7
+  fadeSeconds: 0.5

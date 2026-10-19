@@ -45,6 +45,13 @@ namespace SubmarineLDJam.Presentation
         [SerializeField, Min(0.1f)] private float blastRadius = 3.5f;
         [SerializeField] private Color explosionColor = new Color(1f, 0.2f, 0.15f, 1f);
 
+        [Header("Sound")]
+        [Tooltip("Played when this bomb blows up (still bomb or moving bomb). Empty = silent.")]
+        [SerializeField] private AudioClip explosionClip;
+        [SerializeField, Range(0f, 1f)] private float explosionVolume = 1f;
+        [Tooltip("The sound gets quieter with distance to the submarine and is silent at this distance. 0 = always full volume.")]
+        [SerializeField, Min(0f)] private float hearingDistance = 20f;
+
         [Header("Slow wave on the radar")]
         [SerializeField] private Color pulseColor = new Color(1f, 0.25f, 0.2f, 0.8f);
         [SerializeField, Min(0.2f)] private float pulseSeconds = 2.5f;
@@ -122,8 +129,32 @@ namespace SubmarineLDJam.Presentation
             RadialPulse.Spawn(transform.parent, position, gameObject.layer, null, explosionColor,
                 0.2f, explosionRadius * 0.6f, explosionSeconds * 0.6f, filled: true);
 
+            PlayExplosionSound();
+
             Exploded?.Invoke(this);
             Destroy(gameObject);
+        }
+
+        private void PlayExplosionSound()
+        {
+            if (explosionClip == null) return;
+
+            float volume = explosionVolume;
+            if (hearingDistance > 0f && _sub != null)
+            {
+                float distance = Vector2.Distance(_sub.transform.position, transform.position);
+                volume *= Mathf.Clamp01(1f - distance / hearingDistance);
+            }
+            if (volume <= 0.001f) return;
+
+            // The bomb is destroyed now, so the sound lives on its own object.
+            var go = new GameObject("BombSound");
+            var source = go.AddComponent<AudioSource>();
+            source.spatialBlend = 0f; // 2D sound
+            source.clip = explosionClip;
+            source.volume = volume;
+            source.Play();
+            Destroy(go, explosionClip.length + 0.1f);
         }
 
         private void OnDrawGizmosSelected()

@@ -110,7 +110,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8b03f9edbb498e34aa332e565f4fdb22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c977bfb934e3194a97815e1ba042fcb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -379,6 +379,7 @@ MonoBehaviour:
   lockedNeedle: {fileID: 4615172891186703987}
   group: {fileID: 4037330227652898909}
   northMarker: {fileID: 0}
+  radar: {fileID: 0}
 --- !u!114 &1697315435513989314
 MonoBehaviour:
   m_ObjectHideFlags: 0

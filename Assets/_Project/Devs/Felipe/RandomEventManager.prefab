@@ -157,63 +157,63 @@ MonoBehaviour:
   - Name: Sparks Oxygen
     EventObject: {fileID: 6680660615593474702}
     Duration: 3
-    Sfx: {fileID: 0}
-    Volume: 0
+    Sfx: {fileID: 8300000, guid: d2cbb2f3cbe1f4b46958514c4f3e9347, type: 3}
+    Volume: 0.75
     LoopSfx: 0
   - Name: Sparks Floor
     EventObject: {fileID: 5441057886862429609}
     Duration: 3
-    Sfx: {fileID: 0}
-    Volume: 0
+    Sfx: {fileID: 8300000, guid: d2cbb2f3cbe1f4b46958514c4f3e9347, type: 3}
+    Volume: 0.75
     LoopSfx: 0
   - Name: Sparks Charge
     EventObject: {fileID: 6077929065096180271}
     Duration: 3
-    Sfx: {fileID: 0}
-    Volume: 0
+    Sfx: {fileID: 8300000, guid: d2cbb2f3cbe1f4b46958514c4f3e9347, type: 3}
+    Volume: 0.75
     LoopSfx: 0
   - Name: Sparks Timer
     EventObject: {fileID: 6876246240463078767}
     Duration: 3
-    Sfx: {fileID: 0}
-    Volume: 0
+    Sfx: {fileID: 8300000, guid: d2cbb2f3cbe1f4b46958514c4f3e9347, type: 3}
+    Volume: 0.6
     LoopSfx: 0
   - Name: Smoke Vent
     EventObject: {fileID: 3513110894695773115}
     Duration: 3
-    Sfx: {fileID: 0}
-    Volume: 0
+    Sfx: {fileID: 8300000, guid: d0dbef4f5f90e344da15765642ce409f, type: 3}
+    Volume: 0.6
     LoopSfx: 0
   - Name: Smoke Pipes
     EventObject: {fileID: 3866070577616488938}
     Duration: 5
-    Sfx: {fileID: 0}
-    Volume: 0
+    Sfx: {fileID: 8300000, guid: d0dbef4f5f90e344da15765642ce409f, type: 3}
+    Volume: 0.6
     LoopSfx: 0
   - Name: WaterDrops 1
     EventObject: {fileID: 2368205261070957313}
     Duration: 5
-    Sfx: {fileID: 0}
-    Volume: 0
+    Sfx: {fileID: 8300000, guid: 2687a7bf67d5188479aa807c1dbef3a7, type: 3}
+    Volume: 0.8
     LoopSfx: 0
   - Name: WaterDrops 2
     EventObject: {fileID: 8421795012356762807}
     Duration: 5
-    Sfx: {fileID: 0}
-    Volume: 0
+    Sfx: {fileID: 8300000, guid: 2687a7bf67d5188479aa807c1dbef3a7, type: 3}
+    Volume: 0.8
     LoopSfx: 0
   - Name: WaterDrops 3
     EventObject: {fileID: 1957096886313474079}
     Duration: 5
-    Sfx: {fileID: 0}
-    Volume: 0
+    Sfx: {fileID: 8300000, guid: 2687a7bf67d5188479aa807c1dbef3a7, type: 3}
+    Volume: 0.8
     LoopSfx: 0
   - Name: Tremor
     EventObject: {fileID: 2568322567558884742}
     Duration: 7
-    Sfx: {fileID: 0}
-    Volume: 0
-    LoopSfx: 0
+    Sfx: {fileID: 8300000, guid: be94709e525cc6a4ca4d9ec3c71049f6, type: 3}
+    Volume: 1
+    LoopSfx: 1
   - Name: FailedSignal
     EventObject: {fileID: 3459696521651793412}
     Duration: 7

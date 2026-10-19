@@ -168,8 +168,9 @@ namespace SubmarineLDJam.Domain.Caves
             OpenAround(rock, last, w, h);
 
             var taken = new List<CaveCell> { first, last };
-            var pickups = Pick(p.Pickups, Candidates(rock, w, h, distFromStart, distFromGoal,
-                Math.Max(4, pathLength / 10), Math.Max(5, pathLength * 6 / 10), 4), taken, rng);
+            // Pickups cover the whole cave, start to exit, as evenly as the water allows.
+            var pickups = PickSpread(p.Pickups, Candidates(rock, w, h, distFromStart, distFromGoal,
+                Math.Max(4, pathLength / 10), int.MaxValue, 4), taken, rng);
             var obstacles = Pick(p.Obstacles, Candidates(rock, w, h, distFromStart, distFromGoal, 6, int.MaxValue, 5), taken, rng);
             var enemies = Pick(p.Enemies, Candidates(rock, w, h, distFromStart, distFromGoal, 6, int.MaxValue, 5), taken, rng);
 
@@ -352,6 +353,71 @@ namespace SubmarineLDJam.Domain.Caves
                 }
             }
             return list;
+        }
+
+        /// <summary>
+        /// Spread out: each new one is the best of a few random candidates, "best" = farthest from everything taken so far.
+        /// So they fill the whole cave instead of clumping. If the cave is full at spacing 4, the spacing shrinks (3, then 2)
+        /// so the wanted count is reached when there is room at all.
+        /// </summary>
+        private static List<CaveCell> PickSpread(int count, List<CaveCell> candidates, List<CaveCell> taken, Random rng)
+        {
+            const int sample = 10;
+            var chosen = new List<CaveCell>();
+            var pool = new List<CaveCell>(candidates);
+
+            foreach (int spacing in new[] { 4, 3, 2 })
+            {
+                while (chosen.Count < count)
+                {
+                    CaveCell best = default;
+                    double bestScore = -1.0;
+                    int bestIndex = -1;
+
+                    for (int i = 0; i < sample; i++)
+                    {
+                        if (pool.Count == 0) break;
+                        int index = rng.Next(pool.Count);
+                        var candidate = pool[index];
+
+                        double nearest = double.MaxValue;
+                        foreach (var other in taken)
+                        {
+                            int dx = other.X - candidate.X, dy = other.Y - candidate.Y;
+                            nearest = Math.Min(nearest, Math.Sqrt(dx * dx + dy * dy));
+                            if (Math.Max(Math.Abs(dx), Math.Abs(dy)) < spacing) { nearest = -1.0; break; }
+                        }
+
+                        if (nearest < 0.0)
+                        {
+                            pool.RemoveAt(index); // too close at this spacing
+                            continue;
+                        }
+
+                        if (nearest > bestScore)
+                        {
+                            bestScore = nearest;
+                            best = candidate;
+                            bestIndex = index;
+                        }
+                    }
+
+                    if (bestIndex < 0)
+                    {
+                        if (pool.Count == 0) break;
+                        continue; // only bad candidates in this sample, try again
+                    }
+
+                    chosen.Add(best);
+                    taken.Add(best);
+                    pool.Remove(best);
+                }
+
+                if (chosen.Count >= count) break;
+                pool = new List<CaveCell>(candidates); // smaller spacing: look again at everything
+                pool.RemoveAll(c => chosen.Contains(c));
+            }
+            return chosen;
         }
 
         /// <summary>Takes random candidates, never two closer than 4 cells. Added to <paramref name="taken"/>.</summary>

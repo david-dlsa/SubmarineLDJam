@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using SubmarineLDJam.Domain.Common;
 using SubmarineLDJam.Domain.Progress;
@@ -36,6 +37,12 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private bool unlockAll;
         [Tooltip("RETURN button. Hook your main menu here later.")]
         [SerializeField] private UnityEvent onReturn;
+
+        /// <summary>A stage was chosen (index from 0). Also fires on restart and next.</summary>
+        public event Action<int> StageStarted;
+
+        /// <summary>The player went back to the stage select.</summary>
+        public event Action StageLeft;
 
         private Campaign _campaign;
         private RunService _service;
@@ -145,6 +152,7 @@ namespace SubmarineLDJam.Presentation
 
             _playing = index;
             _resultPending = false;
+            StageStarted?.Invoke(index);
             selectView.gameObject.SetActive(false);
             if (resultView != null) resultView.gameObject.SetActive(false);
 
@@ -269,6 +277,7 @@ namespace SubmarineLDJam.Presentation
         {
             if (_playing < 0) return;
             ShowSelection(Teardown());
+            StageLeft?.Invoke();
         }
 
         /// <summary>R or RESTART: the same stage again.</summary>

@@ -22,5 +22,5 @@ MonoBehaviour:
   minPathCells: 85
   obstacles: 12
   enemies: 8
-  pickups: 8
+  pickups: 25
   wallColor: {r: 0.95, g: 0.35, b: 0.35, a: 1}

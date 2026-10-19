@@ -36,7 +36,8 @@ namespace SubmarineLDJam.Domain.Runs
                 rules.RefillRestoreAmount,
                 rules.RefillTriggerPercent,
                 rules.RefillMistakePenalty,
-                random);
+                random,
+                rules.RefillRestartOnMistake);
         }
 
         public LevelRules Rules { get; }
@@ -117,6 +118,7 @@ namespace SubmarineLDJam.Domain.Runs
             if (outcome.Status == RefillInputStatus.Ignored) return;
 
             Raise(new RefillStepResolved(outcome.SlotIndex, outcome.Status == RefillInputStatus.Correct));
+            if (outcome.SequenceFailed) Raise(new RefillSequenceFailed());
 
             if (outcome.SequenceCompleted)
             {

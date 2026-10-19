@@ -25,7 +25,8 @@ MonoBehaviour:
   refillSequenceLength: 3
   refillRestoreAmount: 20
   refillMistakePenalty: 0.25
-  sonarMode: 1
+  refillRestartOnMistake: 0
+  sonarMode: 2
   sonarAutoIntervalSeconds: 5
   sonarViewRadius: 10
   sonarCooldownSeconds: 4
@@ -46,18 +47,6 @@ MonoBehaviour:
       Press SPACE again to set the thrust and move.
 
       You cannot steer again until the submarine stops.'
-    image: {fileID: 0}
-  - title: SONAR
-    text: 'The sonar pings by itself.
-
-      Use each ping to plan your next move.'
-    image: {fileID: 0}
-  - title: BLACKOUT
-    text: 'The lights can fail without warning.
-
-      The cabin goes dark for a few seconds.
-
-      Stay calm. The lights come back.'
     image: {fileID: 0}
   collisionCooldownSeconds: 0.5
   wall:

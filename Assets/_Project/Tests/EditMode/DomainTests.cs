@@ -123,6 +123,50 @@ namespace SubmarineLDJam.Tests
         }
     }
 
+    public class StrictRefillTests
+    {
+        private static Arrow Other(Arrow a) => a == Arrow.Up ? Arrow.Down : Arrow.Up;
+
+        [Test]
+        public void Mistake_restarts_the_same_sequence_and_restores_nothing()
+        {
+            var o = new OxygenSupply(100f, 0f);
+            var p = new OxygenRefillPuzzle(3, 10f, 0.75f, 0.25f, new Random(1), restartOnMistake: true);
+            o.Drain(30f);
+            p.Refresh(o);
+            var seq = new System.Collections.Generic.List<Arrow>(p.Sequence);
+
+            p.Input(seq[0], o);
+            var bad = p.Input(Other(seq[1]), o);
+
+            Assert.IsTrue(bad.SequenceFailed);
+            Assert.AreEqual(0, p.Progress);
+            Assert.AreEqual(70f, o.Current, 0.001f);
+            CollectionAssert.AreEqual(seq, new System.Collections.Generic.List<Arrow>(p.Sequence));
+            foreach (var slot in p.Slots) Assert.AreEqual(RefillSlotState.Pending, slot);
+        }
+
+        [Test]
+        public void Full_right_sequence_restores_everything()
+        {
+            var o = new OxygenSupply(100f, 0f);
+            var p = new OxygenRefillPuzzle(3, 10f, 0.75f, 0.25f, new Random(1), restartOnMistake: true);
+            o.Drain(30f);
+            p.Refresh(o);
+            var seq = new System.Collections.Generic.List<Arrow>(p.Sequence);
+
+            p.Input(seq[0], o);
+            p.Input(Other(seq[1]), o); // mistake, start over
+            p.Input(seq[0], o);
+            p.Input(seq[1], o);
+            var last = p.Input(seq[2], o);
+
+            Assert.IsTrue(last.SequenceCompleted);
+            Assert.AreEqual(10f, last.Restored, 0.001f);
+            Assert.AreEqual(80f, o.Current, 0.001f);
+        }
+    }
+
     public class OxygenRefillPuzzleTests
     {
         private static (OxygenSupply, OxygenRefillPuzzle) Make()
@@ -574,6 +618,20 @@ namespace SubmarineLDJam.Tests
             foreach (var cell in map.Obstacles) AssertOpenAndReachable(map, cell);
             foreach (var cell in map.Enemies) AssertOpenAndReachable(map, cell);
             foreach (var cell in map.Pickups) AssertOpenAndReachable(map, cell);
+        }
+
+        [Test]
+        public void Many_pickups_are_placed_and_spread_over_the_cave()
+        {
+            var p = new CaveParameters(width: 60, height: 40, seed: 3, minPathCells: 30, pickups: 30);
+            var map = CaveGenerator.Generate(p);
+
+            Assert.GreaterOrEqual(map.Pickups.Count, 20);
+            foreach (var cell in map.Pickups) AssertOpenAndReachable(map, cell);
+
+            for (int i = 0; i < map.Pickups.Count; i++)
+                for (int j = i + 1; j < map.Pickups.Count; j++)
+                    Assert.AreNotEqual(map.Pickups[i], map.Pickups[j]);
         }
 
         private static void AssertOpenAndReachable(CaveMap map, CaveCell cell)

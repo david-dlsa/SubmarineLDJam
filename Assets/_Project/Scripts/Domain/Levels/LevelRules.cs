@@ -74,8 +74,10 @@ namespace SubmarineLDJam.Domain.Levels
             ExitHintMode exitHintMode = ExitHintMode.Always,
             float exitHintSeconds = 15f,
             CompassMode compassMode = CompassMode.Clockwise,
-            BlackoutSettings blackout = default)
+            BlackoutSettings blackout = default,
+            bool refillRestartOnMistake = false)
         {
+            RefillRestartOnMistake = refillRestartOnMistake;
             Blackout = blackout;
             CompassMode = compassMode;
             ExitHintMode = exitHintMode;
@@ -151,6 +153,7 @@ namespace SubmarineLDJam.Domain.Levels
 
         /// <summary>Part of the restore lost per wrong arrow. 0.25 = -25% each.</summary>
         public float RefillMistakePenalty { get; }
+        public bool RefillRestartOnMistake { get; }
         public float RefillTriggerPercent { get; }
         public int RefillSequenceLength { get; }
         public float RefillRestoreAmount { get; }

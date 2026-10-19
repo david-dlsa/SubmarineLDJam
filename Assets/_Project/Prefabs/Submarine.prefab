@@ -228,8 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d6dd4554ea71e428abd706b2d7a11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.SubmarineBody
-  maxImpulse: 8
-  damping: 1.5
+  maxImpulse: 14
+  damping: 1
   settleSpeed: 0.3
   allowEnvironmentRotation: 0
   angularDamping: 2

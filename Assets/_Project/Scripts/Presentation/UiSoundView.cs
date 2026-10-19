@@ -20,7 +20,11 @@ namespace SubmarineLDJam.Presentation
             if (click == null) return;
 
             var buttons = FindObjectsByType<Button>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-            foreach (var button in buttons) Hook(button);
+            foreach (var button in buttons)
+            {
+                if (button.GetComponent<ButtonSound>() != null) continue; // has its own sound
+                Hook(button);
+            }
         }
 
         public void Hook(Button button)

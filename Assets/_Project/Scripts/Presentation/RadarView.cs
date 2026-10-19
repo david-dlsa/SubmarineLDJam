@@ -4,6 +4,7 @@ using SubmarineLDJam.Domain.Navigation;
 using SubmarineLDJam.Domain.Runs;
 using SubmarineLDJam.Domain.Sonar;
 using SubmarineLDJam.UseCases;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -50,6 +51,18 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private Text cooldownLabel;
         [Tooltip("Replaces the red arrow of the submarine. Empty = red arrow. It is not tinted.")]
         [SerializeField] private Sprite subIconSprite;
+        [Tooltip("Optional. Icon for the exit dot on the radar edge. Empty = the plain colored dot. It is not tinted.")]
+        [SerializeField] private Sprite exitIconSprite;
+
+        [Header("North letter")]
+        [Tooltip("A small N on the radar edge. It goes around the edge as the map turns, always showing where north is. The letter turns with it (right side = lying down, bottom = upside down).")]
+        [SerializeField] private bool showNorthLetter = true;
+        [Tooltip("Optional. Your own N (Text, TMP or Image object). Empty = a TMP letter is made.")]
+        [SerializeField] private RectTransform northLetter;
+        [SerializeField] private Color northColor = new Color(1f, 0.85f, 0.3f, 1f);
+        [SerializeField, Min(8)] private int northFontSize = 30;
+        [Tooltip("Pixels from the radar border to the middle of the N.")]
+        [SerializeField] private float northEdgeMargin = 12f;
 
         [Header("Sonar dots")]
         [SerializeField] private int _pingBarDotAmount = 10;
@@ -125,6 +138,7 @@ namespace SubmarineLDJam.Presentation
 
             _exit = FindFirstObjectByType<DestinationZone>();
             _exitImage = exitDot != null ? exitDot.GetComponent<Image>() : null;
+            BuildNorthLetter();
 
             BuildSprites();
             ConstructCharge();
@@ -204,6 +218,7 @@ namespace SubmarineLDJam.Presentation
             if (_liveLayer != null) _liveLayer.anchoredPosition = (_liveOrigin - subPos) * pixelsPerUnit;
             UpdatePings(subPos, radiusPx, pixelsPerUnit);
             UpdateExitDot(subPos, radiusPx, pixelsPerUnit, mapAngle);
+            UpdateNorthLetter(radiusPx, mapAngle);
             UpdateCooldown();
         }
 
@@ -244,8 +259,17 @@ namespace SubmarineLDJam.Presentation
             if (exitDot != null)
             {
                 var image = exitDot.GetComponent<Image>();
-                if (image.sprite == null) image.sprite = _discSprite;
-                image.color = exitColor;
+                if (exitIconSprite != null)
+                {
+                    image.sprite = exitIconSprite;
+                    image.preserveAspect = true;
+                    image.color = Color.white;
+                }
+                else
+                {
+                    if (image.sprite == null) image.sprite = _discSprite;
+                    image.color = exitColor;
+                }
             }
         }
 
@@ -441,6 +465,40 @@ namespace SubmarineLDJam.Presentation
             return mapAngle;
         }
 
+        private void BuildNorthLetter()
+        {
+            if (!showNorthLetter || northLetter != null) return;
+
+            // Same parent as the exit dot: both are placed from the center of the radar.
+            Transform parent = exitDot != null ? exitDot.parent : pingLayers.parent;
+            var go = new GameObject("NorthLetter", typeof(RectTransform), typeof(TextMeshProUGUI));
+            northLetter = go.GetComponent<RectTransform>();
+            northLetter.SetParent(parent, false);
+            northLetter.anchorMin = northLetter.anchorMax = northLetter.pivot = new Vector2(0.5f, 0.5f);
+            northLetter.sizeDelta = new Vector2(40f, 40f);
+
+            var text = go.GetComponent<TextMeshProUGUI>();
+            text.text = "N";
+            text.fontSize = northFontSize;
+            text.fontStyle = FontStyles.Bold;
+            text.alignment = TextAlignmentOptions.Center;
+            text.color = northColor;
+            text.raycastTarget = false;
+        }
+
+        /// <summary>The N sits on the edge in the direction of north. When the map turns, it moves around the edge and turns with it: the top of the letter always points away from the center (right side = lying down, bottom = upside down).</summary>
+        private void UpdateNorthLetter(float radiusPx, float mapAngle)
+        {
+            if (northLetter == null) return;
+            if (northLetter.gameObject.activeSelf != showNorthLetter) northLetter.gameObject.SetActive(showNorthLetter);
+            if (!showNorthLetter) return;
+
+            float radians = mapAngle * Mathf.Deg2Rad; // same turn the map and the exit dot get
+            var direction = new Vector2(-Mathf.Sin(radians), Mathf.Cos(radians));
+            northLetter.anchoredPosition = direction * (radiusPx - northEdgeMargin);
+            northLetter.localRotation = Quaternion.Euler(0f, 0f, mapAngle);
+        }
+
         private void UpdateExitDot(Vector2 subPos, float radiusPx, float pixelsPerUnit, float mapAngle)
         {
             if (exitDot == null) return;
@@ -454,7 +512,7 @@ namespace SubmarineLDJam.Presentation
             if (_exitImage != null)
             {
                 bool ending = hint.Mode == ExitHintMode.OnPickup && hint.RemainingSeconds < 3f;
-                var color = exitColor;
+                var color = exitIconSprite != null ? Color.white : exitColor;
                 color.a = ending && Mathf.Sin(Time.time * 14f) < 0f ? 0.2f : 1f;
                 _exitImage.color = color;
             }

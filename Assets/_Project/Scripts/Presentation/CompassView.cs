@@ -16,8 +16,10 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private RectTransform lockedNeedle;
         [Tooltip("Optional. Dims the compass when it is not the active part.")]
         [SerializeField] private CanvasGroup group;
-        [Tooltip("Optional. Full-size container with the N letter. Turns with the map in HeadingUp mode.")]
+        [Tooltip("Optional. The wheel with N, S, E, W (full size, centered). It turns together with the radar map, so N always points to where north really is. Put the N at the top of the image.")]
         [SerializeField] private RectTransform northMarker;
+        [Tooltip("Optional. The radar the wheel follows. Empty = found by itself.")]
+        [SerializeField] private RadarView radar;
 
         private float _shownFacing;
         private bool _snapFacing;
@@ -26,6 +28,7 @@ namespace SubmarineLDJam.Presentation
         {
             if (lockedNeedle != null) lockedNeedle.gameObject.SetActive(false);
             _snapFacing = true;
+            if (radar == null) radar = FindFirstObjectByType<RadarView>(FindObjectsInactive.Include);
         }
 
         private void Update()
@@ -53,8 +56,13 @@ namespace SubmarineLDJam.Presentation
                 lockedNeedle.localEulerAngles = new Vector3(0f, 0f, -movement.LockedNeedleDegrees);
             }
 
-            // The N letter shows where north is.
-            if (northMarker != null) northMarker.localEulerAngles = new Vector3(0f, 0f, _shownFacing);
+            // The wheel turns exactly like the radar map (same angle, same smooth turn), so N shows where north is.
+            // With no radar it falls back to the facing of the movement module.
+            if (northMarker != null)
+            {
+                float angle = radar != null ? radar.ReferenceHeadingDegrees : _shownFacing;
+                northMarker.localEulerAngles = new Vector3(0f, 0f, angle);
+            }
 
             if (group != null) group.alpha = 1f;
         }

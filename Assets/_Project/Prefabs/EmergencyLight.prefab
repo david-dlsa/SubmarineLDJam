@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6581e4234cedb4f99871d9013b6582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.OxygenAlarmView
-  warningPercent: 0.6
-  dangerPercent: 0.25
+  warningPercent: 0.65
+  dangerPercent: 0.35
   siren: {fileID: 8779411337576677787}
   sirenOff: {fileID: 21300000, guid: 135568356b7865647a7f5576cfa71be9, type: 3}
   sirenOn: {fileID: 21300000, guid: df07772a13508ca4891993171dd69424, type: 3}

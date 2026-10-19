@@ -74,6 +74,7 @@ namespace SubmarineLDJam.Presentation
                     break;
 
                 case RefillSequenceCompleted _:
+                case RefillSequenceFailed _: // strict mode: show the red slot a moment, then the same sequence again
                 case RefillPuzzleDeactivated _:
                     if (_pending == null && isActiveAndEnabled)
                         _pending = StartCoroutine(SettleAfterDelay());

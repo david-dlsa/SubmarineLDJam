@@ -170,6 +170,9 @@ MonoBehaviour:
   explosionSeconds: 0.7
   blastRadius: 3.5
   explosionColor: {r: 1, g: 0.2, b: 0.15, a: 1}
+  explosionClip: {fileID: 8300000, guid: 80c7fa628ead3224491670e845ad899b, type: 3}
+  explosionVolume: 0.65
+  hearingDistance: 20
   pulseColor: {r: 1, g: 0.25, b: 0.2, a: 0.8}
   pulseSeconds: 2.5
   pulsePauseSeconds: 0.5

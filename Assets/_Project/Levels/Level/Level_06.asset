@@ -17,14 +17,15 @@ MonoBehaviour:
   maxOxygen: 110
   oxygenDrainPerSecond: 1.5
   compassDegreesPerSecond: 270
-  forceBarSpeed: 2
-  forceLevels: 5
+  forceBarSpeed: 1.2
+  forceLevels: 10
   headingStepDegrees: 15
   compassMode: 0
   refillTriggerPercent: 0.75
-  refillSequenceLength: 5
-  refillRestoreAmount: 9
-  refillMistakePenalty: 0.3
+  refillSequenceLength: 3
+  refillRestoreAmount: 20
+  refillMistakePenalty: 1
+  refillRestartOnMistake: 1
   sonarMode: 0
   sonarAutoIntervalSeconds: 7
   sonarViewRadius: 8
@@ -32,20 +33,17 @@ MonoBehaviour:
   sonarWaveSeconds: 1
   sonarHoldSeconds: 1.75
   sonarFadeSeconds: 1.75
-  exitHintMode: 1
+  exitHintMode: 0
   exitHintSeconds: 20
-  blackoutsEnabled: 0
-  blackoutMinIntervalSeconds: 25
-  blackoutMaxIntervalSeconds: 50
+  blackoutsEnabled: 1
+  blackoutMinIntervalSeconds: 20
+  blackoutMaxIntervalSeconds: 45
   blackoutMinDurationSeconds: 4
   blackoutMaxDurationSeconds: 8
-  introPages:
-  - title: EXIT HINT
-    text: Collect the blue point hint to see where the exit is.
-    image: {fileID: 0}
+  introPages: []
   collisionCooldownSeconds: 0.5
   wall:
-    instantLoss: 10
+    instantLoss: 15
     drainMultiplier: 1
     boostSeconds: 0
   obstacle:

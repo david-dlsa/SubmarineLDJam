@@ -15,16 +15,17 @@ MonoBehaviour:
   threeStarSeconds: 190
   twoStarSeconds: 320
   maxOxygen: 120
-  oxygenDrainPerSecond: 1.75
+  oxygenDrainPerSecond: 1.5
   compassDegreesPerSecond: 270
-  forceBarSpeed: 2.4
-  forceLevels: 5
+  forceBarSpeed: 1.2
+  forceLevels: 10
   headingStepDegrees: 15
   compassMode: 2
   refillTriggerPercent: 0.75
-  refillSequenceLength: 5
-  refillRestoreAmount: 11
-  refillMistakePenalty: 0.35
+  refillSequenceLength: 3
+  refillRestoreAmount: 20
+  refillMistakePenalty: 1
+  refillRestartOnMistake: 1
   sonarMode: 0
   sonarAutoIntervalSeconds: 7
   sonarViewRadius: 6.5
@@ -34,9 +35,15 @@ MonoBehaviour:
   sonarFadeSeconds: 1.5
   exitHintMode: 1
   exitHintSeconds: 12
+  blackoutsEnabled: 1
+  blackoutMinIntervalSeconds: 20
+  blackoutMaxIntervalSeconds: 45
+  blackoutMinDurationSeconds: 4
+  blackoutMaxDurationSeconds: 8
+  introPages: []
   collisionCooldownSeconds: 0.5
   wall:
-    instantLoss: 12
+    instantLoss: 15
     drainMultiplier: 1
     boostSeconds: 0
   obstacle:

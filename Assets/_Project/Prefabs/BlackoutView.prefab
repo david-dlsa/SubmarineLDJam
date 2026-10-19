@@ -126,10 +126,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.BlackoutView
   darkOverlay: {fileID: 2320345806725192310}
   darkAlpha: 0.9
-  flickerOffSeconds: 1.5
+  flickerOffSeconds: 2.5
   flickerOnSeconds: 0.7
-  flickerCount: 4
-  flickerSmoothSeconds: 0.12
-  powerOffClip: {fileID: 0}
-  powerOnClip: {fileID: 0}
-  soundVolume: 1
+  flickerCount: 15
+  flickerSmoothSeconds: 0.25
+  powerOffClip: {fileID: 8300000, guid: 44dbabc0125c46c409784b71600336c3, type: 3}
+  powerOnClip: {fileID: 8300000, guid: 068a9026490b3af48af689e9da1c157d, type: 3}
+  soundVolume: 0.6

@@ -15,16 +15,17 @@ MonoBehaviour:
   threeStarSeconds: 150
   twoStarSeconds: 250
   maxOxygen: 100
-  oxygenDrainPerSecond: 1.75
+  oxygenDrainPerSecond: 1.5
   compassDegreesPerSecond: 270
-  forceBarSpeed: 2.2
-  forceLevels: 5
+  forceBarSpeed: 1.2
+  forceLevels: 10
   headingStepDegrees: 0
   compassMode: 3
   refillTriggerPercent: 0.75
-  refillSequenceLength: 5
-  refillRestoreAmount: 10
-  refillMistakePenalty: 0.35
+  refillSequenceLength: 3
+  refillRestoreAmount: 20
+  refillMistakePenalty: 1
+  refillRestartOnMistake: 1
   sonarMode: 0
   sonarAutoIntervalSeconds: 7
   sonarViewRadius: 7
@@ -34,9 +35,20 @@ MonoBehaviour:
   sonarFadeSeconds: 1.5
   exitHintMode: 1
   exitHintSeconds: 12
+  blackoutsEnabled: 1
+  blackoutMinIntervalSeconds: 20
+  blackoutMaxIntervalSeconds: 45
+  blackoutMinDurationSeconds: 4
+  blackoutMaxDurationSeconds: 8
+  introPages:
+  - title: NEW COMPASS
+    text: 'The compass now works differently changing between [Chaotic].
+
+      Check the needle before you set your angle.'
+    image: {fileID: 0}
   collisionCooldownSeconds: 0.5
   wall:
-    instantLoss: 10
+    instantLoss: 15
     drainMultiplier: 1
     boostSeconds: 0
   obstacle:

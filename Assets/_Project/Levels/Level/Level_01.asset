@@ -15,16 +15,17 @@ MonoBehaviour:
   threeStarSeconds: 80
   twoStarSeconds: 100
   maxOxygen: 100
-  oxygenDrainPerSecond: 1
+  oxygenDrainPerSecond: 1.5
   compassDegreesPerSecond: 270
   forceBarSpeed: 1.2
-  forceLevels: 5
+  forceLevels: 10
   headingStepDegrees: 0
   compassMode: 0
   refillTriggerPercent: 0.75
   refillSequenceLength: 3
-  refillRestoreAmount: 8
+  refillRestoreAmount: 20
   refillMistakePenalty: 0.25
+  refillRestartOnMistake: 1
   sonarMode: 2
   sonarAutoIntervalSeconds: 6
   sonarViewRadius: 10
@@ -34,12 +35,17 @@ MonoBehaviour:
   sonarFadeSeconds: 2
   exitHintMode: 0
   exitHintSeconds: 15
-  blackoutsEnabled: 0
-  blackoutMinIntervalSeconds: 25
-  blackoutMaxIntervalSeconds: 50
+  blackoutsEnabled: 1
+  blackoutMinIntervalSeconds: 20
+  blackoutMaxIntervalSeconds: 45
   blackoutMinDurationSeconds: 4
   blackoutMaxDurationSeconds: 8
   introPages:
+  - title: SONAR
+    text: 'The sonar pings by itself.
+
+      Use each ping to plan your next move.'
+    image: {fileID: 0}
   - title: OXYGEN
     text: 'Oxygen drops over time. Watch the bar.
 
@@ -51,7 +57,7 @@ MonoBehaviour:
     image: {fileID: 0}
   collisionCooldownSeconds: 0.5
   wall:
-    instantLoss: 10
+    instantLoss: 15
     drainMultiplier: 1
     boostSeconds: 0
   obstacle:

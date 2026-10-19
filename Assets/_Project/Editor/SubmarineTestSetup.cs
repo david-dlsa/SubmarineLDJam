@@ -83,6 +83,7 @@ namespace SubmarineLDJam.EditorTools
             audioGo.AddComponent<RunSoundView>();
             audioGo.AddComponent<BackgroundSoundView>();
             audioGo.AddComponent<UiSoundView>();
+            SetRef(audioGo.AddComponent<StageMusicView>(), "flow", flow);
 
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
             Debug.Log("Submarine setup created. Play: pick a stage, Enter or PLAY. Space = movement, arrows = oxygen, M = sonar, R = restart, ESC = back to stage select, F2 = show real world (debug).");

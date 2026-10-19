@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5923593170398586648}
   - component: {fileID: 3015371189771787672}
   - component: {fileID: 2877785343873769583}
-  - component: {fileID: 168489523848349297}
+  - component: {fileID: 970761731679366817}
   m_Layer: 5
   m_Name: Audio
   m_TagString: Untagged
@@ -51,14 +51,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.RunSoundView
   clickRotation: {fileID: 8300000, guid: 3a5a0dfde05224d4684a9636dfd1a3eb, type: 3}
-  movement: {fileID: 8300000, guid: 027e7bb9cf2a3f44cb1a24cac763f09a, type: 3}
-  metalCollide: {fileID: 8300000, guid: 9aee850e8c980bf4399de442dbb2d349, type: 3}
+  movementClips:
+  - {fileID: 8300000, guid: 027e7bb9cf2a3f44cb1a24cac763f09a, type: 3}
+  - {fileID: 8300000, guid: a577318773b24af4f852ff98b041f4a7, type: 3}
+  - {fileID: 8300000, guid: ae4a183f10f5e1c49a057d877bd394ca, type: 3}
+  - {fileID: 8300000, guid: 7a4e9a805ffca08459a578dd4ecbda2e, type: 3}
+  metalCollide: {fileID: 8300000, guid: 2fcfe91cfd73baa4da05e2a3e50e2c0e, type: 3}
+  sequence: {fileID: 8300000, guid: b604edd835d1ab149b653e76e2a3ab40, type: 3}
   sequenceCorrect: {fileID: 8300000, guid: 0592d594ce7dbe442b7d38c1ffac95e8, type: 3}
   sequenceWrong: {fileID: 8300000, guid: 3565206600d647849ad63adfe6d8cc81, type: 3}
   sonar: {fileID: 8300000, guid: 90745ba4005eb8049820f79e795da7dc, type: 3}
   victory: {fileID: 8300000, guid: 9428ccf4390dbba449f851ba6c162475, type: 3}
   gameOver: {fileID: 8300000, guid: bab5e84812b8a9c438440610ffcb3f47, type: 3}
-  volume: 1
+  volume: 0.9
 --- !u!114 &2877785343873769583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,8 +77,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.BackgroundSoundView
   clip: {fileID: 8300000, guid: 88d6936805a5ca442a6ffe50799bbee0, type: 3}
-  volume: 0.8
---- !u!114 &168489523848349297
+  volume: 0.7
+--- !u!114 &970761731679366817
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,8 +87,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1604217701182007986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4358ddcfc3dd9654086b23363f5d08b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d62b92f57151de4d982165477bca7e7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.BackgroundSoundView
-  clip: {fileID: 8300000, guid: 33a267011bc42384ea5f1bb2c52698c8, type: 3}
-  volume: 0.7
+  m_EditorClassIdentifier: SubmarineLDJam.Presentation::SubmarineLDJam.Presentation.UiSoundView
+  click: {fileID: 8300000, guid: f708ad0d25877244591cc589fce20600, type: 3}
+  volume: 0.8

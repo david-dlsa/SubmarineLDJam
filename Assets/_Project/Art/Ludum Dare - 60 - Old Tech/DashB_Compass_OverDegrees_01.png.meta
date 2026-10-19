@@ -1,0 +1,1302 @@
+fileFormatVersion: 2
+guid: 5c977bfb934e3194a97815e1ba042fcb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8289002860358841632
+    second: DashB_Compass_OverDegrees_01_0
+  - first:
+      213: 4085744105446770512
+    second: DashB_Compass_OverDegrees_01_1
+  - first:
+      213: 4129120674938784317
+    second: DashB_Compass_OverDegrees_01_2
+  - first:
+      213: 834999272207982857
+    second: DashB_Compass_OverDegrees_01_3
+  - first:
+      213: 8556215580173972095
+    second: DashB_Compass_OverDegrees_01_4
+  - first:
+      213: -1895141714128041649
+    second: DashB_Compass_OverDegrees_01_5
+  - first:
+      213: 6059760564928799984
+    second: DashB_Compass_OverDegrees_01_6
+  - first:
+      213: -5160192716430066933
+    second: DashB_Compass_OverDegrees_01_7
+  - first:
+      213: -5758693117063681056
+    second: DashB_Compass_OverDegrees_01_8
+  - first:
+      213: -4505442661390731784
+    second: DashB_Compass_OverDegrees_01_9
+  - first:
+      213: -3460111870905128195
+    second: DashB_Compass_OverDegrees_01_10
+  - first:
+      213: -5765513530557283785
+    second: DashB_Compass_OverDegrees_01_11
+  - first:
+      213: 4190706563206392799
+    second: DashB_Compass_OverDegrees_01_12
+  - first:
+      213: 4893164866604402852
+    second: DashB_Compass_OverDegrees_01_13
+  - first:
+      213: 8390063154058950413
+    second: DashB_Compass_OverDegrees_01_14
+  - first:
+      213: -6114200677668568409
+    second: DashB_Compass_OverDegrees_01_15
+  - first:
+      213: -2333883511994767360
+    second: DashB_Compass_OverDegrees_01_16
+  - first:
+      213: 1704734868891074987
+    second: DashB_Compass_OverDegrees_01_17
+  - first:
+      213: 1811103533016076861
+    second: DashB_Compass_OverDegrees_01_18
+  - first:
+      213: -4837391226293160170
+    second: DashB_Compass_OverDegrees_01_19
+  - first:
+      213: -3836455465193527421
+    second: DashB_Compass_OverDegrees_01_20
+  - first:
+      213: 350656094108446271
+    second: DashB_Compass_OverDegrees_01_21
+  - first:
+      213: -416221887317994794
+    second: DashB_Compass_OverDegrees_01_22
+  - first:
+      213: 3149837843472943286
+    second: DashB_Compass_OverDegrees_01_23
+  - first:
+      213: 7209509381530266858
+    second: DashB_Compass_OverDegrees_01_24
+  - first:
+      213: 5175421486243325577
+    second: DashB_Compass_OverDegrees_01_25
+  - first:
+      213: 3692408028264635273
+    second: DashB_Compass_OverDegrees_01_26
+  - first:
+      213: -6750736730152457357
+    second: DashB_Compass_OverDegrees_01_27
+  - first:
+      213: -7194608941862154073
+    second: DashB_Compass_OverDegrees_01_28
+  - first:
+      213: -7644102314416201157
+    second: DashB_Compass_OverDegrees_01_29
+  - first:
+      213: 3118794308020358944
+    second: DashB_Compass_OverDegrees_01_30
+  - first:
+      213: 6598953596689752377
+    second: DashB_Compass_OverDegrees_01_31
+  - first:
+      213: -2641344195653700115
+    second: DashB_Compass_OverDegrees_01_32
+  - first:
+      213: 158959227090801114
+    second: DashB_Compass_OverDegrees_01_33
+  - first:
+      213: 9070198041671523277
+    second: DashB_Compass_OverDegrees_01_34
+  - first:
+      213: -6733130496559300792
+    second: DashB_Compass_OverDegrees_01_35
+  - first:
+      213: -293056637151501001
+    second: DashB_Compass_OverDegrees_01_36
+  - first:
+      213: -2554301354265025357
+    second: DashB_Compass_OverDegrees_01_37
+  - first:
+      213: -3200416344880511294
+    second: DashB_Compass_OverDegrees_01_38
+  - first:
+      213: -2037151176605984384
+    second: DashB_Compass_OverDegrees_01_39
+  - first:
+      213: 5752382104539468951
+    second: DashB_Compass_OverDegrees_01_40
+  - first:
+      213: -4407942221530555550
+    second: DashB_Compass_OverDegrees_01_41
+  - first:
+      213: -6209636280677680674
+    second: DashB_Compass_OverDegrees_01_42
+  - first:
+      213: 7540738848950989451
+    second: DashB_Compass_OverDegrees_01_43
+  - first:
+      213: -7598552247071982584
+    second: DashB_Compass_OverDegrees_01_44
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_0
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 193
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ea4d16c0db87fc80800000000000000
+      internalID: -8289002860358841632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 197
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0570d40ed9a73b830800000000000000
+      internalID: 4085744105446770512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_2
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 201
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3a827870659d4930800000000000000
+      internalID: 4129120674938784317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 186
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 901aaaff963869b00800000000000000
+      internalID: 834999272207982857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_4
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 201
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f72bee5ccb8cdb670800000000000000
+      internalID: 8556215580173972095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_5
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 198
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f498f52e6aa13b5e0800000000000000
+      internalID: -1895141714128041649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_6
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 193
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f46088b028981450800000000000000
+      internalID: 6059760564928799984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_7
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 182
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0bb0a470105368b0800000000000000
+      internalID: -5160192716430066933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_8
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 188
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ebaee2fe130510b0800000000000000
+      internalID: -5758693117063681056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_9
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 189
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f53ae335c37971c0800000000000000
+      internalID: -4505442661390731784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_10
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 183
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfa669bf5963bffc0800000000000000
+      internalID: -3460111870905128195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_11
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 170
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 732cc6fadf7ccffa0800000000000000
+      internalID: -5765513530557283785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_12
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 176
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdba0d97a61682a30800000000000000
+      internalID: 4190706563206392799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_13
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 177
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a88065658308e340800000000000000
+      internalID: 4893164866604402852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_14
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 170
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d07f6c47cfd7f6470800000000000000
+      internalID: 8390063154058950413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_15
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 163
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a2cc1ac0eef52ba0800000000000000
+      internalID: -6114200677668568409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_16
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 163
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0082960bf416c9fd0800000000000000
+      internalID: -2333883511994767360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_17
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 140
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba18978c45f68a710800000000000000
+      internalID: 1704734868891074987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_18
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 140
+        width: 14
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d32d0e05115522910800000000000000
+      internalID: 1811103533016076861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_19
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 106
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 617743d2f422edcb0800000000000000
+      internalID: -4837391226293160170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_20
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 120
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 387a880b41c22cac0800000000000000
+      internalID: -3836455465193527421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_21
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 120
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3ee8a71cd7cdd400800000000000000
+      internalID: 350656094108446271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_22
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 119
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d21ba21668493af0800000000000000
+      internalID: -416221887317994794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_23
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 106
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b8894084d876bb20800000000000000
+      internalID: 3149837843472943286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_24
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 89
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aec25fab5925d0460800000000000000
+      internalID: 7209509381530266858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_25
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 89
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9862572db6ac2d740800000000000000
+      internalID: 5175421486243325577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_26
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 82
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98b938ad9811e3330800000000000000
+      internalID: 3692408028264635273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_27
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 82
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37ba41bf5b09052a0800000000000000
+      internalID: -6750736730152457357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_28
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 74
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a0157a394d972c90800000000000000
+      internalID: -7194608941862154073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_29
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 68
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b322b7af171bae590800000000000000
+      internalID: -7644102314416201157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_30
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 67
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f401926ee284b20800000000000000
+      internalID: 3118794308020358944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_31
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 74
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 931aafb5551349b50800000000000000
+      internalID: 6598953596689752377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_32
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 61
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de57580d27f085bd0800000000000000
+      internalID: -2641344195653700115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_33
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 55
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad19488239cb43200800000000000000
+      internalID: 158959227090801114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_34
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 52
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcb564c1011dfdd70800000000000000
+      internalID: 9070198041671523277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_35
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 52
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84fbb3eac7d1f82a0800000000000000
+      internalID: -6733130496559300792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_36
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 52
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 735a38b8a8adeebf0800000000000000
+      internalID: -293056637151501001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_37
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 55
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b4ebb9937c4d8cd0800000000000000
+      internalID: -2554301354265025357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_38
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 61
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c60b067a46d593d0800000000000000
+      internalID: -3200416344880511294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_39
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 50
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08991a45cc59ab3e0800000000000000
+      internalID: -2037151176605984384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_40
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 46
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7949361fb0194df40800000000000000
+      internalID: 5752382104539468951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_41
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 35
+        width: 38
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b993f57e7d3d2c0800000000000000
+      internalID: -4407942221530555550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_42
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 35
+        width: 30
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed934d9e3b0f2d9a0800000000000000
+      internalID: -6209636280677680674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_43
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 45
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8236b3d70616a860800000000000000
+      internalID: 7540738848950989451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DashB_Compass_OverDegrees_01_44
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 50
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80c370a7df48c8690800000000000000
+      internalID: -7598552247071982584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      DashB_Compass_OverDegrees_01_0: -8289002860358841632
+      DashB_Compass_OverDegrees_01_1: 4085744105446770512
+      DashB_Compass_OverDegrees_01_10: -3460111870905128195
+      DashB_Compass_OverDegrees_01_11: -5765513530557283785
+      DashB_Compass_OverDegrees_01_12: 4190706563206392799
+      DashB_Compass_OverDegrees_01_13: 4893164866604402852
+      DashB_Compass_OverDegrees_01_14: 8390063154058950413
+      DashB_Compass_OverDegrees_01_15: -6114200677668568409
+      DashB_Compass_OverDegrees_01_16: -2333883511994767360
+      DashB_Compass_OverDegrees_01_17: 1704734868891074987
+      DashB_Compass_OverDegrees_01_18: 1811103533016076861
+      DashB_Compass_OverDegrees_01_19: -4837391226293160170
+      DashB_Compass_OverDegrees_01_2: 4129120674938784317
+      DashB_Compass_OverDegrees_01_20: -3836455465193527421
+      DashB_Compass_OverDegrees_01_21: 350656094108446271
+      DashB_Compass_OverDegrees_01_22: -416221887317994794
+      DashB_Compass_OverDegrees_01_23: 3149837843472943286
+      DashB_Compass_OverDegrees_01_24: 7209509381530266858
+      DashB_Compass_OverDegrees_01_25: 5175421486243325577
+      DashB_Compass_OverDegrees_01_26: 3692408028264635273
+      DashB_Compass_OverDegrees_01_27: -6750736730152457357
+      DashB_Compass_OverDegrees_01_28: -7194608941862154073
+      DashB_Compass_OverDegrees_01_29: -7644102314416201157
+      DashB_Compass_OverDegrees_01_3: 834999272207982857
+      DashB_Compass_OverDegrees_01_30: 3118794308020358944
+      DashB_Compass_OverDegrees_01_31: 6598953596689752377
+      DashB_Compass_OverDegrees_01_32: -2641344195653700115
+      DashB_Compass_OverDegrees_01_33: 158959227090801114
+      DashB_Compass_OverDegrees_01_34: 9070198041671523277
+      DashB_Compass_OverDegrees_01_35: -6733130496559300792
+      DashB_Compass_OverDegrees_01_36: -293056637151501001
+      DashB_Compass_OverDegrees_01_37: -2554301354265025357
+      DashB_Compass_OverDegrees_01_38: -3200416344880511294
+      DashB_Compass_OverDegrees_01_39: -2037151176605984384
+      DashB_Compass_OverDegrees_01_4: 8556215580173972095
+      DashB_Compass_OverDegrees_01_40: 5752382104539468951
+      DashB_Compass_OverDegrees_01_41: -4407942221530555550
+      DashB_Compass_OverDegrees_01_42: -6209636280677680674
+      DashB_Compass_OverDegrees_01_43: 7540738848950989451
+      DashB_Compass_OverDegrees_01_44: -7598552247071982584
+      DashB_Compass_OverDegrees_01_5: -1895141714128041649
+      DashB_Compass_OverDegrees_01_6: 6059760564928799984
+      DashB_Compass_OverDegrees_01_7: -5160192716430066933
+      DashB_Compass_OverDegrees_01_8: -5758693117063681056
+      DashB_Compass_OverDegrees_01_9: -4505442661390731784
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

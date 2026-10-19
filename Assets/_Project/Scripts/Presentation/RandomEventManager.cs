@@ -18,7 +18,7 @@ public class RandomEventManager : RunView
     private void Awake()
     {
         foreach (var e in _events)
-            e.EventObject.SetActive(false);
+            if (e.EventObject != null) e.EventObject.SetActive(false);
     }
 
     protected override void OnBind()
@@ -38,7 +38,8 @@ public class RandomEventManager : RunView
 
     private async Awaitable StartDelay(CancellationToken token)
     {
-        await Awaitable.WaitForSecondsAsync(_starDelay, token);
+        try { await Awaitable.WaitForSecondsAsync(_starDelay, token); }
+        catch (OperationCanceledException) { return; } // the run ended
         EventLoop(token).LogExceptionsAndForget();
     }
 
@@ -65,7 +66,8 @@ public class RandomEventManager : RunView
         
             Debug.Log($"Waiting {waitTime}");
         
-            await Awaitable.WaitForSecondsAsync(waitTime, token);
+            try { await Awaitable.WaitForSecondsAsync(waitTime, token); }
+            catch (OperationCanceledException) { break; } // the run ended
         }
         
         Debug.Log("Loop finished");
@@ -73,11 +75,12 @@ public class RandomEventManager : RunView
 
     private async Awaitable PlayEvent(EventSpec eventToPlay, CancellationToken token)
     {
-        eventToPlay.EventObject.SetActive(true);
+        if (eventToPlay.EventObject != null) eventToPlay.EventObject.SetActive(true);
         var sfx = StartSfx(eventToPlay);
-        await Awaitable.WaitForSecondsAsync(eventToPlay.Duration, token);
+        try { await Awaitable.WaitForSecondsAsync(eventToPlay.Duration, token); }
+        catch (OperationCanceledException) { } // the run ended: still clean up below
         if (sfx != null) Destroy(sfx);
-        eventToPlay.EventObject.SetActive(false);
+        if (eventToPlay.EventObject != null) eventToPlay.EventObject.SetActive(false);
     }
 
     /// <summary>Plays the event sound. Loop ON: repeats until the event ends. Returns the source to destroy, or null.</summary>
@@ -119,6 +122,7 @@ public class RandomEventManager : RunView
     public struct EventSpec
     {
         public string Name;
+        [Tooltip("Can be empty (for example a blackout needs no object).")]
         public GameObject EventObject;
         public float Duration;
         [Tooltip("Sound of this event (sparks, smoke, drip...). Empty = silent.")]

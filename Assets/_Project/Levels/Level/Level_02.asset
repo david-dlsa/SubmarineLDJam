@@ -15,15 +15,17 @@ MonoBehaviour:
   threeStarSeconds: 130
   twoStarSeconds: 220
   maxOxygen: 100
-  oxygenDrainPerSecond: 1.25
+  oxygenDrainPerSecond: 1.5
   compassDegreesPerSecond: 270
-  forceBarSpeed: 1.6
-  forceLevels: 5
+  forceBarSpeed: 1.2
+  forceLevels: 10
   headingStepDegrees: 0
+  compassMode: 1
   refillTriggerPercent: 0.75
-  refillSequenceLength: 4
-  refillRestoreAmount: 8
-  refillMistakePenalty: 0.25
+  refillSequenceLength: 3
+  refillRestoreAmount: 20
+  refillMistakePenalty: 1
+  refillRestartOnMistake: 1
   sonarMode: 1
   sonarAutoIntervalSeconds: 3
   sonarViewRadius: 10
@@ -31,9 +33,22 @@ MonoBehaviour:
   sonarWaveSeconds: 1
   sonarHoldSeconds: 2.5
   sonarFadeSeconds: 2
+  exitHintMode: 0
+  exitHintSeconds: 15
+  blackoutsEnabled: 1
+  blackoutMinIntervalSeconds: 20
+  blackoutMaxIntervalSeconds: 45
+  blackoutMinDurationSeconds: 4
+  blackoutMaxDurationSeconds: 8
+  introPages:
+  - title: 'NEW COMPASS '
+    text: 'The compass now works differently [Counter Clockwise].
+
+      Check the needle before you set your angle.'
+    image: {fileID: 0}
   collisionCooldownSeconds: 0.5
   wall:
-    instantLoss: 10
+    instantLoss: 15
     drainMultiplier: 1
     boostSeconds: 0
   obstacle:

@@ -31,6 +31,8 @@ namespace SubmarineLDJam.Presentation
         public float refillRestoreAmount = 8f;
         [Tooltip("Part of the restore lost per wrong arrow. 0.25 = -25% each. Wrong arrows never block the sequence.")]
         [Range(0f, 1f)] public float refillMistakePenalty = 0.25f;
+        [Tooltip("ON = strict: one wrong arrow throws the sequence away and the SAME sequence starts again from the first slot. Oxygen only comes back when a whole sequence is right (Mistake Penalty is not used). OFF = wrong arrows only cut the restore.")]
+        public bool refillRestartOnMistake = false;
 
         [Header("Sonar")]
         [Tooltip("Manual: press M (with cooldown). Auto: pings by itself. Always: no pings, radar always shows everything.")]
@@ -102,6 +104,7 @@ namespace SubmarineLDJam.Presentation
             enemyPenalty: enemy.ToDomain(),
             headingStepDegrees: headingStepDegrees,
             refillMistakePenalty: refillMistakePenalty,
+            refillRestartOnMistake: refillRestartOnMistake,
             sonarViewRadius: sonarViewRadius,
             sonarCooldownSeconds: sonarCooldownSeconds,
             sonarWaveSeconds: sonarWaveSeconds,

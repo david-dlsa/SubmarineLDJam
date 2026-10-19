@@ -24,8 +24,12 @@ namespace SubmarineLDJam.Domain.Oxygen
         public float Restored { get; }
         public int Mistakes { get; }
 
-        public RefillInputOutcome(RefillInputStatus status, int slotIndex, bool sequenceCompleted, float restored, int mistakes)
+        /// <summary>Strict mode only: a wrong press threw the sequence away. It starts again from the first slot.</summary>
+        public bool SequenceFailed { get; }
+
+        public RefillInputOutcome(RefillInputStatus status, int slotIndex, bool sequenceCompleted, float restored, int mistakes, bool sequenceFailed = false)
         {
+            SequenceFailed = sequenceFailed;
             Status = status;
             SlotIndex = slotIndex;
             SequenceCompleted = sequenceCompleted;
@@ -48,12 +52,14 @@ namespace SubmarineLDJam.Domain.Oxygen
         private readonly float _restoreAmount;
         private readonly float _triggerPercent;
         private readonly float _mistakePenalty;
+        private readonly bool _restartOnMistake;
         private Arrow[] _sequence = new Arrow[0];
         private RefillSlotState[] _slots = new RefillSlotState[0];
 
         /// <param name="mistakePenalty">Part of the restore lost per wrong press. 0.25 = -25% each.</param>
-        public OxygenRefillPuzzle(int sequenceLength, float restoreAmount, float triggerPercent, float mistakePenalty, Random random)
+        public OxygenRefillPuzzle(int sequenceLength, float restoreAmount, float triggerPercent, float mistakePenalty, Random random, bool restartOnMistake = false)
         {
+            _restartOnMistake = restartOnMistake;
             if (sequenceLength < 1) throw new ArgumentOutOfRangeException(nameof(sequenceLength));
             if (restoreAmount <= 0f) throw new ArgumentOutOfRangeException(nameof(restoreAmount));
             if (triggerPercent <= 0f || triggerPercent > 1f) throw new ArgumentOutOfRangeException(nameof(triggerPercent));
@@ -65,6 +71,9 @@ namespace SubmarineLDJam.Domain.Oxygen
             _mistakePenalty = mistakePenalty;
             _random = random ?? throw new ArgumentNullException(nameof(random));
         }
+
+        /// <summary>Strict mode: one wrong press and the same sequence starts again from the first slot. Oxygen only comes back when the whole sequence is right.</summary>
+        public bool RestartOnMistake => _restartOnMistake;
 
         public bool IsActive { get; private set; }
 
@@ -100,6 +109,17 @@ namespace SubmarineLDJam.Domain.Oxygen
 
             int index = Progress;
             bool correct = _sequence[index] == arrow;
+
+            if (_restartOnMistake && !correct)
+            {
+                // Same sequence, from zero. Nothing is restored.
+                _slots[index] = RefillSlotState.Wrong;
+                Progress = 0;
+                var failed = new RefillInputOutcome(RefillInputStatus.Wrong, index, false, 0f, 1, sequenceFailed: true);
+                _slots = new RefillSlotState[_sequenceLength];
+                return failed;
+            }
+
             _slots[index] = correct ? RefillSlotState.Correct : RefillSlotState.Wrong;
             Progress++;
 
