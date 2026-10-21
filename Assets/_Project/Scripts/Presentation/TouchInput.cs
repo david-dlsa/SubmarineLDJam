@@ -1,45 +1,42 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 namespace SubmarineLDJam.Presentation
 {
     public enum TouchMode
     {
-        /// <summary>On when the device has a touch screen (phone, tablet, mobile browser).</summary>
+        /// <summary>Only a finger counts. Mouse clicks are ignored. Works the same in a phone browser and on a PC with a touch screen.</summary>
         Auto,
-        /// <summary>Always on. Use it to test with the mouse in the editor.</summary>
+        /// <summary>Finger and mouse both count. Use it to test with the mouse in the editor.</summary>
         Always,
         Never
     }
 
-    /// <summary>Touch helpers: is this a touch device, and an invisible tap area for any UI rect.</summary>
+    /// <summary>Touch helpers: an invisible tap area for any UI rect, that can accept only fingers.</summary>
     public static class TouchInput
     {
         public static bool IsEnabled(TouchMode mode)
         {
-            switch (mode)
-            {
-                case TouchMode.Always: return true;
-                case TouchMode.Never: return false;
-                default: return Application.isMobilePlatform || Touchscreen.current != null;
-            }
+            return mode != TouchMode.Never;
         }
 
         /// <summary>
         /// Puts an invisible full-size child on <paramref name="parent"/>. Pressing it (mouse or finger) calls <paramref name="onTap"/>.
         /// Made once. A second call with the same name only returns the existing one.
         /// </summary>
-        public static RectTransform AddTapArea(RectTransform parent, string name, Action onTap)
+        public static RectTransform AddTapArea(RectTransform parent, string name, Action onTap, bool touchOnly = false)
         {
             if (parent == null) return null;
 
             var existing = parent.Find(name);
             if (existing != null)
             {
-                existing.GetComponent<TapArea>().OnTap = onTap;
+                var old = existing.GetComponent<TapArea>();
+                old.OnTap = onTap;
+                old.TouchOnly = touchOnly;
                 return (RectTransform)existing;
             }
 
@@ -57,7 +54,9 @@ namespace SubmarineLDJam.Presentation
             // A layout group on the parent must not move or resize it.
             go.AddComponent<LayoutElement>().ignoreLayout = true;
 
-            go.GetComponent<TapArea>().OnTap = onTap;
+            var tap = go.GetComponent<TapArea>();
+            tap.OnTap = onTap;
+            tap.TouchOnly = touchOnly;
             return rect;
         }
 
@@ -74,6 +73,16 @@ namespace SubmarineLDJam.Presentation
     {
         public Action OnTap;
 
-        public void OnPointerDown(PointerEventData eventData) => OnTap?.Invoke();
+        /// <summary>true = mouse presses are ignored, only a finger counts.</summary>
+        public bool TouchOnly;
+
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            if (TouchOnly && !IsFinger(eventData)) return;
+            OnTap?.Invoke();
+        }
+
+        private static bool IsFinger(PointerEventData eventData)
+            => eventData is ExtendedPointerEventData extended && extended.pointerType == UIPointerType.Touch;
     }
 }

@@ -45,7 +45,12 @@ namespace SubmarineLDJam.Presentation
         private float[] _times = Array.Empty<float>();
         private float[] _levels = Array.Empty<float>();
 
-        private void Awake() => HideOverlay();
+        private void Awake()
+        {
+            // Only a picture. It must never catch clicks meant for the buttons under it.
+            if (darkOverlay != null) darkOverlay.raycastTarget = false;
+            HideOverlay();
+        }
 
         protected override void OnBind()
         {

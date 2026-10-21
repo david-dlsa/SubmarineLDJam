@@ -69,7 +69,13 @@ namespace SubmarineLDJam.Presentation
         private float _overlayFade;
         private float _soundFade;
 
-        private void Awake() => HideOverlay();
+        private void Awake()
+        {
+            // These are only pictures. They must never catch clicks meant for the buttons under them.
+            if (siren != null) siren.raycastTarget = false;
+            if (redOverlay != null) redOverlay.raycastTarget = false;
+            HideOverlay();
+        }
 
         protected override void OnBind()
         {

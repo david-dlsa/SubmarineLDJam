@@ -34,7 +34,7 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private Color wrongColor = new Color(1f, 0.25f, 0.25f);
 
         [Header("Touch screens only")]
-        [Tooltip("On a touch device, tapping the arrows panel counts as the right arrow for the next slot. Auto = only when there is a touch screen. Always = test with the mouse.")]
+        [Tooltip("Tapping the arrows panel counts as the right arrow for the next slot. Auto = only a finger counts, mouse clicks do nothing. Always = finger and mouse (to test in the editor). Never = off.")]
         [SerializeField] private TouchMode tapToRefill = TouchMode.Auto;
 
         [Tooltip("How long the last colors stay before the next sequence shows.")]
@@ -49,7 +49,8 @@ namespace SubmarineLDJam.Presentation
             root.SetActive(false);
 
             if (TouchInput.IsEnabled(tapToRefill))
-                TouchInput.AddTapArea(root.transform as RectTransform, "TapToRefill", () => Service?.TapRefill());
+                TouchInput.AddTapArea(root.transform as RectTransform, "TapToRefill", () => Service?.TapRefill(),
+                    touchOnly: tapToRefill == TouchMode.Auto);
         }
 
         protected override void OnUnbind()

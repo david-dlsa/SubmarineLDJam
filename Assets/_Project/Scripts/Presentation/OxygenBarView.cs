@@ -16,7 +16,7 @@ namespace SubmarineLDJam.Presentation
         [SerializeField] private Color boostedColor = new Color(1f, 0.6f, 0.1f);
 
         [Header("Touch screens only")]
-        [Tooltip("On a touch device, tapping the oxygen bar answers the oxygen minigame: each tap fills one slot with the right arrow. A full sequence of taps (3 by default) restores the oxygen. Auto = only when there is a touch screen. Always = test with the mouse.")]
+        [Tooltip("Tapping the oxygen bar answers the oxygen minigame: each tap fills one slot with the right arrow. A full sequence of taps (3 by default) restores the oxygen. Auto = only a finger counts, mouse clicks do nothing. Always = finger and mouse (to test in the editor). Never = off.")]
         [SerializeField] private TouchMode tapToRefill = TouchMode.Auto;
         [Tooltip("Optional. The area that can be tapped. Empty = the Fill image.")]
         [SerializeField] private RectTransform tapArea;
@@ -24,7 +24,8 @@ namespace SubmarineLDJam.Presentation
         protected override void OnBind()
         {
             if (!TouchInput.IsEnabled(tapToRefill)) return;
-            TouchInput.AddTapArea(tapArea != null ? tapArea : fill.rectTransform, "TapToRefill", () => Service?.TapRefill());
+            TouchInput.AddTapArea(tapArea != null ? tapArea : fill.rectTransform, "TapToRefill", () => Service?.TapRefill(),
+                touchOnly: tapToRefill == TouchMode.Auto);
         }
 
         private void Update()
